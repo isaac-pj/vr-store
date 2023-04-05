@@ -1,0 +1,10 @@
+<a-plane
+  class="cursor"
+  material="shader: flat"
+  text="value: ${text}; color: #FFF; align: center; width: 3"
+  ref="${ref}"
+  color="#f80032"
+  animation__mouseenter="property: color; to: #cd0114; dur: 300; startEvents: mouseenter"
+  animation__mouseleave="property: color; to: #f80032; dur: 300; startEvents: mouseleave"
+  sound="on: mouseenter; src: #click-sound"
+></a-plane>

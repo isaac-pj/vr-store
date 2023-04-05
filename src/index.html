@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VR Store</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-layout-component@4.x.x/dist/aframe-layout-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
+    <script src="./components/box.js"></script>
+    <script src="./components/menu-item/menu-item.js"></script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script> -->
+    <!-- <script src="https://unpkg.com/aframe-slice9-component/dist/aframe-slice9-component.min.js"></script> -->
+    <!-- <script src="node_modules/aframe-rounded/lib/rounded.js"></script> -->
+    <!-- <script src="https://rawgit.com/takahirox/aframe-outline/master/build/aframe-outline.min.js"></script> -->
+
+    <!-- outline="thickness=1; color: orange" -->
+    <!-- template components -->
+
+    <!-- Templates. -->
+
+    <script id="scene2" type="text/html">
+      <a-entity
+        id="product"
+        gltf-model="#plant"
+        scale="1"
+        position="0 0.12 -2.5"
+        class="cursor"
+        shadow="receive: true; cast: true"
+        event-set__mouseenter="_target: #menuPopup; _delay: 300; scale: 1 1 1;"
+        event-set__click="_target: #menuPopup; _delay: 300; scale: 0 0 0;"
+        animation__click="property: rotation; from: 0 0 0; to: 0 360 0; dur: 10000; easing: linear; startEvents: click; pauseEvents: mouseleave; resumeEvents: mouseenter "
+      >
+
+        <a-plane
+          id="menuPopup"
+          opacity="0.6"
+          position="0 2 0"
+          radius="0.05"
+          scale="0 0 0"
+        >
+          <a-plane
+            class="cursor"
+            material="shader: flat"
+            color="#9A9A9A"
+            radius="0.05"
+            position="0 -0.05 0.01"
+            width="0.8"
+            height="0.2"
+            text="value: Back; width: 2.5; align: center"
+            event-set__click="_target: #scn; _delay: 300; template.src: #scene1;"
+          ></a-plane>
+        </a-plane>
+      </a-entity>
+      <!-- <a-entity
+        id="product"
+        gltf-model="#lamp"
+        scale="1"
+        position="0.874 0.864 -4.035"
+        rotation="0 24.8 0"
+        animation__click="property: rotation; from: 0 0 0; to: 0 360 0; dur: 10000; easing: linear; startEvents: click; pauseEvents: mouseleave; resumeEvents: mouseenter "
+        class="cursor"
+        shadow="receive: true; cast: true"
+        ></a-entity> -->
+    </script>
+
+    <script id="scene3" type="text/html">
+      <a-entity
+          id="product"
+          gltf-model="#lamp"
+          scale="1"
+          position="0 1 -1"
+          rotation="0 0 0"
+          event-set__mouseenter="_target: #menuPopup; _delay: 300; scale: 0.5 0.5 0.5;"
+          event-set__click="_target: #menuPopup; _delay: 300; scale: 0 0 0;"
+          animation__click="property: rotation; from: 0 0 0; to: 0 360 0; dur: 10000; easing: linear; startEvents: click; pauseEvents: mouseleave; resumeEvents: mouseenter "
+          class="cursor"
+          shadow="receive: true; cast: true"
+        >
+
+        <a-plane
+            id="menuPopup"
+            opacity="0.6"
+            position="0 0.8 0"
+            rotation="0 0 0"
+            radius="0.05"
+            scale="0.5 0.5 0.5"
+          >
+            <a-plane
+              class="cursor"
+              material="shader: flat"
+              color="#9A9A9A"
+              radius="0.05"
+              position="0 -0.05 0.01"
+              width="0.8"
+              height="0.2"
+              text="value: Back; width: 2.5; align: center"
+              event-set__click="_target: #scn; _delay: 300; template.src: #scene1;"
+            ></a-plane>
+            <!-- <a-plane
+              material="shader: flat"
+              color="#F80032"
+              position="0 -0.3 0.01"
+              width="0.8"
+              height="0.2"
+              text="value: Add to Cart; width: 2.5; align: center"
+            ></a-plane> -->
+          </a-plane>
+
+      </a-entity>
+    </script>
+
+    <script id="scene1" type="text/html">
+        <a-entity
+          id="product"
+          gltf-model="#wall"
+          scale="1"
+          position="0 0 -4.5"
+          class="cursor"
+          shadow="receive: true; cast: true"
+        ></a-entity>
+
+        <a-entity
+          id="product"
+          gltf-model="#painting"
+          scale="1"
+          position="0 1.746 -4.42"
+          class="cursor"
+          shadow="receive: true; cast: true"
+        ></a-entity>
+
+        <a-entity
+          id="product"
+          gltf-model="#rug"
+          scale="1"
+          position="0 0.123 -3.544"
+          animation__click="property: rotation; from: 0 0 0; to: 0 360 0; dur: 10000; easing: linear; startEvents: click; pauseEvents: mouseleave; resumeEvents: mouseenter "
+          class="cursor"
+          shadow="receive: true; cast: true"
+        ></a-entity>
+
+        <a-entity
+          id="product"
+          gltf-model="#armchair"
+          scale="1"
+          position="0 0.123 -3.95"
+          animation__click="property: rotation; from: 0 0 0; to: 0 360 0; dur: 10000; easing: linear; startEvents: click; pauseEvents: mouseleave; resumeEvents: mouseenter "
+          class="cursor"
+          shadow="receive: true; cast: true"
+        ></a-entity>
+
+        <a-entity
+          id="product"
+          gltf-model="#table"
+          scale="1"
+          position="0.987 0.125 -4.019"
+          animation__click="property: rotation; from: 0 0 0; to: 0 360 0; dur: 10000; easing: linear; startEvents: click; pauseEvents: mouseleave; resumeEvents: mouseenter "
+          class="cursor"
+          shadow="receive: true; cast: true"
+        ></a-entity>
+
+        <a-entity
+          id="product"
+          gltf-model="#lamp"
+          scale="1"
+          position="0.874 0.864 -4.035"
+          rotation="0 24.8 0"
+          event-set__mouseenter="_target: #menuPopup2; _delay: 300; scale: 1 1 1;"
+          event-set__click="_target: #menuPopup2; _delay: 300; scale: 0 0 0;"
+          class="cursor"
+          shadow="receive: true; cast: true"
+        >
+
+        <a-plane
+            id="menuPopup2"
+            opacity="0.6"
+            position="0 1 0"
+            rotation="0 -24.8 0"
+            radius="0.05"
+            scale="0 0 0"
+          >
+            <a-plane
+              class="cursor"
+              material="shader: flat"
+              color="#9A9A9A"
+              radius="0.05"
+              position="0 -0.05 0.01"
+              width="0.8"
+              height="0.2"
+              text="value: Details; width: 2.5; align: center"
+              event-set__click="_target: #scn; _delay: 300; template.src: #scene3;"
+            ></a-plane>
+            <a-plane
+              material="shader: flat"
+              color="#F80032"
+              position="0 -0.3 0.01"
+              width="0.8"
+              height="0.2"
+              text="value: Add to Cart; width: 2.5; align: center"
+            ></a-plane>
+          </a-plane>
+
+      </a-entity>
+
+        <a-entity
+          id="product"
+          gltf-model="#plant"
+          scale="1"
+          position="-1.43 0.12 -3.793"
+          class="cursor"
+          shadow="receive: true; cast: true"
+          event-set__mouseenter="_target: #menuPopup; _delay: 300; scale: 1 1 1;"
+          event-set__click="_target: #menuPopup; _delay: 300; scale: 0 0 0;"
+        >
+          <!-- <a-rounded opacity="0.6" position="-0.5 1.5 0" radius="0.05">
+                  <a-rounded
+                    material="shader: flat; color: #9A9A9A"
+                    radius="0.05"
+                    position="0.1 0.35 0.01"
+                    width="0.8"
+                    height="0.2"
+                  >
+                    <a-text
+                      value="opa boy"
+                      color="#fff"
+                      width="3"
+                      position="0.1 0.5 0"
+                    ></a-text>
+                  </a-rounded>
+                  <a-rounded
+                    material="shader: flat; color: #F80032"
+                    radius="0.05"
+                    position="0.1 0.1 0.01"
+                    width="0.8"
+                    height="0.2"
+                  ></a-rounded>
+                </a-rounded> -->
+
+          <a-plane
+            id="menuPopup"
+            opacity="0.6"
+            position="0 2 0"
+            radius="0.05"
+            scale="0 0 0"
+          >
+            <a-plane
+              class="cursor"
+              material="shader: flat"
+              color="#9A9A9A"
+              radius="0.05"
+              position="0 -0.05 0.01"
+              width="0.8"
+              height="0.2"
+              text="value: Details; width: 2.5; align: center"
+              event-set__click="_target: #scn; _delay: 300; template.src: #scene2;"
+            ></a-plane>
+            <a-plane
+              material="shader: flat"
+              color="#F80032"
+              position="0 -0.3 0.01"
+              width="0.8"
+              height="0.2"
+              text="value: Add to Cart; width: 2.5; align: center"
+            ></a-plane>
+          </a-plane>
+        </a-entity>
+
+        <!-- <a-box
+                  scale="1"
+                  material="color: yellow;"
+                  position="2 1 -1.5"
+                  animation__click="property: rotation; from: 0 0 0; to: 0 360 0; dur: 10000; easing: linear; startEvents: click; pauseEvents: mouseleave; resumeEvents: mouseenter "
+                  class="cursor"
+                  shadow="receive: true; cast: true"
+                ></a-box> -->
+        <!-- <a-entity
+                  id="product2"
+                  gltf-model="#sapateira"
+                  modify-materials
+                  scale="1"
+                  position="1.5 0 -1.5"
+                  animation__click="property: rotation; from: 0 0 0; to: 0 360 0; dur: 10000; easing: linear; startEvents: click; pauseEvents: mouseleave; resumeEvents: mouseenter "
+                  class="cursor"
+                ></a-entity> -->
+        <!-- <a-entity
+                  id="product3"
+                  gltf-model="#mesa"
+                  modify-materials
+                  scale="1"
+                  position="-1.5 0 -1.5"
+                  animation__click="property: rotation; from: 0 0 0; to: 0 360 0; dur: 10000; easing: linear; startEvents: click; pauseEvents: mouseleave; resumeEvents: mouseenter "
+                  class="cursor"
+                ></a-entity> -->
+    </script>
+  </head>
+  <body>
+    <!-- <a-scene shadow="type: pcfsoft"> -->
+    <a-scene>
+      <!-- import assets -->
+      <a-assets>
+        <img
+          id="backgroundTexture"
+          crossorigin="anonymous"
+          src="./assets/images/360/background.jpg"
+        />
+        <img
+          id="earthTexture"
+          crossorigin="anonymous"
+          src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/space/earth_atmos_4096.jpg"
+        />
+        <a-asset-item
+          id="armchair"
+          src="./assets/models/scene_01/Armchair.gltf"
+        ></a-asset-item>
+        <a-asset-item
+          id="lamp"
+          src="./assets/models/scene_01/Lamp.gltf"
+        ></a-asset-item>
+        <a-asset-item
+          id="rug"
+          src="./assets/models/scene_01/Rug.gltf"
+        ></a-asset-item>
+        <a-asset-item
+          id="table"
+          src="./assets/models/scene_01/Table.gltf"
+        ></a-asset-item>
+        <a-asset-item
+          id="wall"
+          src="./assets/models/scene_01/Wall.gltf"
+        ></a-asset-item>
+        <a-asset-item
+          id="painting"
+          src="./assets/models/scene_01/Painting.gltf"
+        ></a-asset-item>
+        <a-asset-item
+          id="plant"
+          src="./assets/models/scene_01/Plant.gltf"
+        ></a-asset-item>
+
+        <audio
+          id="click-sound"
+          crossorigin="anonymous"
+          src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"
+        ></audio>
+
+        <!-- custom components
+        <script src="./components/top/menu/menu-item.js"></script> -->
+
+        <script id="menuItem" type="text/html">
+          <a-plane
+              class="cursor"
+              material="shader: flat"
+              text="value: ${text}; color: #FFF; align: center; width: 3"
+              ref="${ref}"
+              color="#f80032"
+              animation__mouseenter="property: color; to: #cd0114; dur: 300; startEvents: mouseenter"
+              animation__mouseleave="property: color; to: #f80032; dur: 300; startEvents: mouseleave"
+              sound="on: mouseenter; src: #click-sound"
+          ></a-plane>
+        </script>
+      </a-assets>
+
+      <a-sky radius="200" src="#backgroundTexture"></a-sky>
+      <a-ring
+        class="cursor"
+        position="0 5.1 0"
+        rotation="90 0 0"
+        radius-inner="0.05"
+        radius-outer="0.1"
+        color="#FFF"
+        material="shader: flat"
+        proxy-event="event: mouseenter; to: #menu; as: mouseenter"
+      ></a-ring>
+      <!-- <a-plane menu position="0 3 0" rotation="90 0 0" width="2" height="2" color="#FFF"></a-plane> -->
+      <a-plane
+        id="menu"
+        class="cursor"
+        material="shader: flat"
+        position="0 5 0"
+        rotation="90 0 0"
+        scale="0 0 0"
+        width="3.4"
+        height="3.4"
+        color="#f80032"
+        animation__mouseenter="property: scale; to: 1 1 1; dur: 300; startEvents: mouseenter"
+        animation__mouseleave="property: scale; to: 0 0 0; dur: 300; startEvents: mouseleave"
+      >
+        <a-entity
+          layout="type: box; columns: 3; margin: 1.1;"
+          position="-1.1 -1.1 0.001"
+        >
+          <!-- <a-plane
+            class="menu-item"
+            template="src: #menuItem"
+            data-text="Celulares"
+            data-ref=""
+          ></a-plane> -->
+
+          <c-menu-item
+            class="menu-item"
+            data-text="Brinquedos2"
+            data-ref="./assets/models/macaco.gltf"
+          ></c-menu-item>
+          <a-plane
+            class="menu-item"
+            template="src: #menuItem"
+            data-text="Brinquedos"
+            data-ref="./assets/models/macaco.gltf"
+          ></a-plane>
+          <a-plane
+            class="menu-item"
+            template="src: #menuItem"
+            data-text="Games\nLivros e\nFilmes"
+            data-ref=""
+          ></a-plane>
+          <a-plane
+            class="menu-item"
+            template="src: #menuItem"
+            data-text="Limpeza"
+            data-ref=""
+          ></a-plane>
+          <a-plane
+            class="menu-item"
+            template="src: #menuItem"
+            data-text="Moveis"
+            data-ref="./assets/models/mesa.gltf"
+          ></a-plane>
+          <a-plane
+            class="menu-item"
+            template="src: #menuItem"
+            data-text="Roupas"
+            data-ref=""
+          ></a-plane>
+          <a-plane
+            class="menu-item"
+            template="src: #menuItem"
+            data-text="Beleza"
+            data-ref="./assets/models/Rug.gltf"
+          ></a-plane>
+          <a-plane
+            class="menu-item"
+            template="src: #menuItem"
+            data-text="Saude"
+            data-ref=""
+          ></a-plane>
+          <a-plane
+            class="menu-item"
+            template="src: #menuItem"
+            data-text="Para sua\nempresa"
+            data-ref=""
+          ></a-plane>
+        </a-entity>
+      </a-plane>
+
+      <!-- <a-entity
+        gltf-model="#macaco"
+        modify-materials="color: blue"
+        scale="1"
+        position="0 0 -3"
+        class="cursor"
+      ></a-entity> -->
+      <a-entity
+        id="light"
+        light="type:directional; castShadow:true; intensity:1;"
+        position="1 2 2"
+      ></a-entity>
+
+      <!-- <a-entity
+        id="product"
+        gltf-model="#wall"
+        scale="1"
+        position="0 0 -4.5"
+        animation__click="property: rotation; from: 0 0 0; to: 0 360 0; dur: 10000; easing: linear; startEvents: click; pauseEvents: mouseleave; resumeEvents: mouseenter "
+        class="cursor"
+        shadow="receive: true; cast: true"
+      ></a-entity> -->
+
+      <!-- <a-entity id="scn" template="src: #scene1"></a-entity> -->
+      <my-box data-box1color="purple" data-position="-2 0.75 -3"></my-box>
+      <my-box data-box1color="red" data-position="-1 0.75 -3"></my-box>
+      <my-box data-box1color="green" data-position="0 0.75 -3"></my-box>
+      <!-- <my-box data-box1color="blue" data-position="1 0.75 -3"></my-box> -->
+      <!-- <my-box data-box1color="yellow" data-position="2 0.75 -3"></my-box> -->
+
+      <a-plane
+        id="floor"
+        rotation="-90 0 0"
+        color="#EAEAEA"
+        height="300"
+        width="300"
+        rotation="-90 0 0"
+        shadow="receive: true"
+      ></a-plane>
+
+      <!-- <a-sphere
+      src="#earthTexture"
+      segments-width="36"
+      segments-height="36"
+      rotation="0 0 0"
+      material="emissive: cyan; emissiveIntensity: 0.25; roughness: 0;"
+      animation__click="property: rotation; from: 0 0 0; to: 0 360 0; dur: 10000; easing: linear; startEvents: click; pauseEvents: mouseleave; resumeEvents: mouseenter "
+      proxy-event="event: mouseenter; to: #menu; as: open"
+      ></a-sphere> -->
+
+      <a-entity camera look-controls position="0 1.6 0">
+        <a-cursor
+          id="cursor"
+          animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+          animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+          event-set__mouseenter="_event: mouseenter; color: #ffd70a"
+          event-set__mouseleave="_event: mouseleave; color: black"
+          raycaster="objects: .cursor"
+        ></a-cursor>
+      </a-entity>
+
+      <a-light type="ambient" intensity="1.5" color="#FFF"></a-light>
+    </a-scene>
+
+    <script>
+      const product = document.getElementById('product')
+      document.querySelectorAll('.menu-item').forEach((elem) => {
+        elem.addEventListener('click', function (e) {
+          product.setAttribute('gltf-model', e.target.getAttribute('ref'))
+          // console.log(product.getAttribute('gltf-model'))
+          // console.log(e.target.getAttribute('ref'))
+        })
+      })
+    </script>
+  </body>
+</html>
