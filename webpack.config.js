@@ -7,12 +7,11 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "public"),
     filename: "bundle.js",
+    clean: true,
   },
   mode: "development",
   devServer: {
-    static: {
-      directory: path.join(__dirname, "public"),
-    },
+    static: { directory: path.join(__dirname, "public") },
     port: 9000,
     watchFiles: ["src/**/*.html", "./src/**/*.js"],
   },
@@ -25,11 +24,14 @@ module.exports = {
     ],
   },
   plugins: [
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: "./src/components", to: "components" },
+        { from: "./src/assets", to: "assets" },
+      ],
+    }),
     new HtmlWebpackPlugin({
       template: "./src/index.html",
-    }),
-    new CopyWebpackPlugin({
-      patterns: [{ from: "src/*.html", to: "[name].[ext]" }],
     }),
   ],
 };
