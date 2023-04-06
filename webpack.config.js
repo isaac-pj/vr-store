@@ -1,65 +1,35 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CopyPlugin = require("copy-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-  name: "index",
+  entry: "./src/index.js",
+  output: {
+    path: path.resolve(__dirname, "public"),
+    filename: "bundle.js",
+  },
   mode: "development",
-  target: "web",
-  entry: { index: "./src/index.js" },
-  devtool: "inline-source-map",
   devServer: {
-    static: { directory: path.join(__dirname, "public") },
-    compress: true,
+    static: {
+      directory: path.join(__dirname, "public"),
+    },
     port: 9000,
-    server: "https",
-    hot: true,
-    liveReload: true,
-    watchFiles: ["./src/**/*.*"],
+    watchFiles: ["src/**/*.html", "./src/**/*.js"],
   },
   module: {
     rules: [
       {
-        test: /.(js|jsx)$/,
-        exclude: /[\/]node_modules[\/]/,
-        use: {
-          loader: "babel-loader",
-        },
-      },
-      {
-        test: /.(html|htm)$/,
-        exclude: /[\/]node_modules[\/]/,
-        use: {
-          loader: "html-loader",
-        },
+        test: /\.html$/,
+        use: ["html-loader"],
       },
     ],
   },
   plugins: [
-    new CopyPlugin({
-      patterns: [
-        { from: "./src/components", to: "components" },
-        { from: "./src/assets", to: "assets" },
-      ],
-    }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "src", "index.html"),
-      filename: "index.html",
-      inject: "head",
-      scriptLoading: "blocking",
-      chunks: ["index"],
+      template: "./src/index.html",
+    }),
+    new CopyWebpackPlugin({
+      patterns: [{ from: "src/*.html", to: "[name].[ext]" }],
     }),
   ],
-  output: {
-    filename: "[name].bundle.js",
-    path: path.resolve(__dirname, "./public"),
-    publicPath: "/public/",
-    clean: true,
-  },
-  stats: {
-    colors: true,
-  },
-  optimization: {
-    runtimeChunk: "single",
-  },
 };
