@@ -1,12 +1,11 @@
 {
-  "name": "aframe",
+  "name": "vr-store",
   "version": "1.0.0",
   "description": "Virtual reality store interaction",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "watch": "webpack --watch",
     "start": "webpack serve --open"
   },
   "keywords": [
@@ -22,6 +21,7 @@
   "dependencies": {
     "acorn": "^8.7.1",
     "acorn-import-assertions": "^1.8.0",
+    "aframe": "^1.4.1",
     "ajv": "^6.12.6",
     "ajv-keywords": "^3.5.2",
     "ansi-regex": "^5.0.1",
@@ -101,11 +101,8 @@
     "whatwg-url": "^7.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.0",
-    "@babel/preset-env": "^7.18.0",
     "aframe-template-component": "^3.2.1",
     "angle": "^0.9.1",
-    "babel-loader": "^8.2.5",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
     "file-loader": "^6.2.0",

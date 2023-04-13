@@ -67,11 +67,19 @@
 
 # Use External Template
 
-NO - Create template by default components registring a new primitive
-NO - Use web component to insert template by shadow DOM
-NO - Use custom elements to insert components by shadow DOM
+OK - Create template by default components registring a new primitive // Caution! AFRAME.registerPrimitive is deprecated
+NO - Use web component to insert template by shadow DOM // Shadow Dom isn't supported
+NO - Use custom elements to insert components by shadow DOM // Shadow Dom isn't supported
 OK - Insert template with webpack on init step by javascript
 
+- Custom elements V1 specification on A-Frame 1.4.0 version
 - Use component from default external template of aframe
 - Insert template directily in the DOM on init method of a component
 - Build the index.html including the templates and components with webpack
+- Create empty tags (components) on index.html that will be replaced by the template html in run time
+- Make the component in js to receive params and return template html 
+- components using angle command liner
+
+# Generate Component
+
+- create a command line tool to generate component
