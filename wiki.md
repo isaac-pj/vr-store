@@ -77,9 +77,45 @@ OK - Insert template with webpack on init step by javascript
 - Insert template directily in the DOM on init method of a component
 - Build the index.html including the templates and components with webpack
 - Create empty tags (components) on index.html that will be replaced by the template html in run time
-- Make the component in js to receive params and return template html 
+- Make the component in js to receive params and return template html
 - components using angle command liner
 
 # Generate Component
 
 - create a command line tool to generate component
+
+## Exemples
+
+# Component template literals
+
+<!-- AFRAME.registerComponent("my-component", {
+  schema: {
+    color: { type: "string", default: "red" },
+    size: { type: "number", default: 1 },
+  },
+  init: function () {
+    var data = this.data;
+    var el = this.el;
+    var html = document.createElement("a-entity");
+    html.innerHTML = `
+      <a-box color="${data.color}" width="${data.size}" height="${data.size}" depth="${data.size}"></a-box>
+    `;
+    el.appendChild(html);
+  },
+}); -->
+
+# Primitive external template
+
+<!-- AFRAME.registerPrimitive("my-element", {
+  defaultComponents: {
+    template: {
+      src: "./relative-path/file-name.html",
+    },
+  },
+
+  mappings: {
+    // Map HTML attributes to component properties
+    color: "my-component.color",
+    size: "my-component.size",
+  },
+}); -->

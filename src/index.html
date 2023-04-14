@@ -8,30 +8,58 @@
     <!-- <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script> -->
     <script src="../node_modules/aframe/dist/aframe-v1.4.1.min.js"></script>
 
+    <!-- CDN COMPONENTS -->
     <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
     <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
     <script src="https://unpkg.com/aframe-layout-component@4.x.x/dist/aframe-layout-component.min.js"></script>
     <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
 
-    <!-- COMPONENTS -->
-    <!-- <script src="./components/test/box/box.js"></script> -->
-    <!-- <script src="./components/test/sphere/sphere.js"></script> -->
-    <script src="./components/menu-item/menu-item.js"></script>
-    <script src="./components/menu-ring/menu-ring.js"></script>
-    <script src="./components/menu/menu.js"></script>
-    <script src="./components/camera/camera.js"></script>
-    <script src="./components/illumination/illumination.js"></script>
-    <script src="./components/sky/sky.js"></script>
+    <!-- LOCAL COMPONENTS -->
+    <!-- <script src="./components/sky/sky.js"></script> -->
+    <!-- <script src="./components/camera/camera.js"></script> -->
   </head>
   <body id="app">
     <a-scene>
       <!-- IMPORT ASSETS -->
       <a-assets>
+        <!-- IMAGES -->
         <img
           id="backgroundTexture"
           crossorigin="anonymous"
           src="./assets/images/360/background.jpg"
         />
+
+        <!-- 3D OBJECTS -->
+        <a-asset-item
+          id="armchair-3d"
+          src="./assets/models/scene_01/Armchair.gltf"
+        ></a-asset-item>
+        <a-asset-item
+          id="lamp-3d"
+          src="./assets/models/scene_01/Lamp.gltf"
+        ></a-asset-item>
+        <a-asset-item
+          id="rug-3d"
+          src="./assets/models/scene_01/Rug.gltf"
+        ></a-asset-item>
+        <a-asset-item
+          id="table-3d"
+          src="./assets/models/scene_01/Table.gltf"
+        ></a-asset-item>
+        <a-asset-item
+          id="wall-3d"
+          src="./assets/models/scene_01/Wall.gltf"
+        ></a-asset-item>
+        <a-asset-item
+          id="painting-3d"
+          src="./assets/models/scene_01/Painting.gltf"
+        ></a-asset-item>
+        <a-asset-item
+          id="plant-3d"
+          src="./assets/models/scene_01/Plant.gltf"
+        ></a-asset-item>
+
+        <!-- AUDIOS -->
         <audio
           id="click-sound"
           crossorigin="anonymous"
@@ -41,11 +69,20 @@
 
       <c-menu></c-menu>
 
-      <!-- <my-box data-box1color="purple" data-position="-2 0.75 -3"></my-box>
-      <my-box data-box1color="red" data-position="-1 0.75 -3"></my-box>
-      <my-box data-box1color="green" data-position="0 0.75 -3"></my-box>
-      <my-box data-box1color="blue" data-position="1 0.75 -3"></my-box> 
-      <my-box data-box1color="yellow" data-position="2 0.75 -3"></my-box> -->
+      <a-entity
+        id="wall"
+        gltf-model="#wall-3d"
+        scale="1"
+        position="0 0 -4.5"
+        shadow="receive: true; cast: true"
+      ></a-entity>
+
+      <c-product data-model="rug" data-position="0 0.123 -3.544"></c-product>
+
+      <c-product
+        data-model="armchair"
+        data-position="0 0.123 -3.95"
+      ></c-product>
 
       <c-illumination></c-illumination>
       <c-camera></c-camera>

@@ -13,10 +13,23 @@ module.exports = {
   devServer: {
     static: { directory: path.join(__dirname, "public") },
     port: 9000,
+    liveReload: true,
+    hot: true,
     watchFiles: ["src/**/*.html", "./src/**/*.js"],
   },
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"],
+            plugins: ["@babel/plugin-transform-modules-umd"],
+          },
+        },
+      },
       {
         test: /\.html$/,
         use: ["html-loader"],
@@ -32,6 +45,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: "./src/index.html",
+      inject: "head",
     }),
   ],
 };
