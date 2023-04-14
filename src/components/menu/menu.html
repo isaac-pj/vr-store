@@ -1,4 +1,5 @@
 <script src="../menu-item/menu-item.js"></script>
+<script src="../menu-ring/menu-ring.js"></script>
 
 <c-menu-ring></c-menu-ring>
 <a-plane
@@ -14,26 +15,14 @@
   animation__mouseleave="property: scale; to: 0 0 0; dur: 300; startEvents: mouseleave"
   animation__mouseenter="property: scale; to: 1 1 1; dur: 300; startEvents: mouseenter"
 >
-  <a-entity
-    layout="type: box; columns: 3; margin: 1.1;"
-    position="-1.1 -1.1 0.001"
-  >
+  <a-entity layout="type: box; columns: 3; margin: 1.1;" position="-1.1 -1.1 0.001">
     <c-menu-item data-text="Celulares" data-ref=""></c-menu-item>
-    <c-menu-item
-      data-text="Brinquedos"
-      data-ref="./assets/models/macaco.gltf"
-    ></c-menu-item>
+    <c-menu-item data-text="Brinquedos" data-ref="./assets/models/macaco.gltf"></c-menu-item>
     <c-menu-item data-text="Games\nLivros e\nFilmes" data-ref=""></c-menu-item>
     <c-menu-item data-text="Limpeza" data-ref=""></c-menu-item>
-    <c-menu-item
-      data-text="Moveis"
-      data-ref="./assets/models/mesa.gltf"
-    ></c-menu-item>
+    <c-menu-item data-text="Moveis" data-ref="./assets/models/mesa.gltf"></c-menu-item>
     <c-menu-item data-text="Roupas" data-ref=""></c-menu-item>
-    <c-menu-item
-      data-text="Beleza"
-      data-ref="./assets/models/Rug.gltf"
-    ></c-menu-item>
+    <c-menu-item data-text="Beleza" data-ref="./assets/models/Rug.gltf"></c-menu-item>
     <c-menu-item data-text="Saude" data-ref=""></c-menu-item>
     <c-menu-item data-text="Para sua\nempresa" data-ref=""></c-menu-item>
   </a-entity>
