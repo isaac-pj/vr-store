@@ -1,9 +1,11 @@
-// LOCAL COMPONENTS
+// NPM COMPONENTS
 
 import "aframe-event-set-component";
 import "aframe-template-component";
 import "aframe-layout-component";
 import "aframe-proxy-event-component";
+
+// LOCAL COMPONENTS
 
 import menu from "./components/menu/menu.js";
 import camera from "./components/camera/camera.js";
