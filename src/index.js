@@ -1,10 +1,9 @@
 // LOCAL COMPONENTS
 
-// import AFRAME from "aframe";
-import eventSet from "aframe-event-set-component";
-import template from "aframe-template-component";
-import layout from "aframe-layout-component";
-import proxyEvent from "aframe-proxy-event-component";
+import "aframe-event-set-component";
+import "aframe-template-component";
+import "aframe-layout-component";
+import "aframe-proxy-event-component";
 
 import menu from "./components/menu/menu.js";
 import camera from "./components/camera/camera.js";
