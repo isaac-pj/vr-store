@@ -1,6 +1,6 @@
 // LOCAL COMPONENTS
 
-import AFRAME from "aframe";
+// import AFRAME from "aframe";
 import eventSet from "aframe-event-set-component";
 import template from "aframe-template-component";
 import layout from "aframe-layout-component";
