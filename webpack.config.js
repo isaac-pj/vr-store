@@ -12,6 +12,7 @@ module.exports = {
   mode: "development",
   devServer: {
     static: { directory: path.join(__dirname, "public") },
+    https: true,
     port: 9000,
     liveReload: true,
     hot: true,
@@ -40,6 +41,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         { from: "./src/components", to: "components" },
+        { from: "./src/scenes", to: "scenes" },
         { from: "./src/assets", to: "assets" },
       ],
     }),
