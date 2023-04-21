@@ -13,7 +13,7 @@
     <!-- <script src="https://unpkg.com/aframe-component-name@x.x.x/dist/script-name-component.min.js"></script> -->
   </head>
   <body id="app">
-    <a-scene>
+    <a-scene shadow="type: pcf">
       <!-- IMPORT ASSETS -->
       <a-assets>
         <!-- IMAGES -->
@@ -62,21 +62,7 @@
       </a-assets>
 
       <c-menu></c-menu>
-
-      <a-entity
-        id="wall"
-        gltf-model="#wall-3d"
-        scale="1"
-        position="0 0 -4.5"
-        shadow="receive: true; cast: true"
-      ></a-entity>
-
-      <c-product data-model="rug" data-position="0 0.123 -3.544"></c-product>
-
-      <c-product
-        data-model="armchair"
-        data-position="0 0.123 -3.95"
-      ></c-product>
+      <s-living-room></s-living-room>
 
       <c-illumination></c-illumination>
       <c-camera></c-camera>

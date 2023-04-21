@@ -1,6 +1,6 @@
 AFRAME.registerComponent("component", {
   init: function () {
-    console.log(this.el);
+    // console.log(this.el);
   },
 });
 
