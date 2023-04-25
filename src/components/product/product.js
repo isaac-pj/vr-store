@@ -17,11 +17,14 @@ AFRAME.registerComponent("wrapper", {
 
     async function boundingBoxUpdate() {
       await waitFor(100);
-      const { boxMin, boxMax } = this.components["aabb-collider"];
+      const boundingBox = new THREE.Box3();
+      boundingBox.setFromObject(this.object3D);
 
-      const width = Number((boxMax.x - boxMin.x).toFixed(3));
-      const height = Number((boxMax.y - boxMin.y).toFixed(3));
-      const depth = Number((boxMax.z - boxMin.z).toFixed(3));
+      const { min, max } = boundingBox;
+
+      const width = max.x - min.x;
+      const height = max.y - min.y;
+      const depth = max.z - min.z;
 
       const offset = height / 2;
 

@@ -1,15 +1,12 @@
 <a-entity
-  wrapper="pivot: ${pivot}; selector: #${model}"
+  wrapper="pivot: ${pivot};"
   class="cursor"
   geometry="primitive: box;"
-  material="color: red; shader: flat; wireframe: true; opacity: 1"
+  material="color: #FAC200; shader: standard; wireframe: false; opacity: 0"
+  animation__in="property: material.opacity; startEvents: mouseenter; to: 0.3; dur: 150"
+  animation__out="property: material.opacity; startEvents: mouseleave; to: 0; dur: 150"
 >
-  <a-entity
-    id="${model}"
-    gltf-model="#${model}-3d"
-    shadow="receive: true; cast: true"
-    aabb-collider="objects: .cursor; debug: false;"
-  ></a-entity>
+  <a-entity id="${model}" gltf-model="#${model}-3d" shadow="receive: true; cast: true"></a-entity>
 
   <!-- <a-sphere
     class="teste"
