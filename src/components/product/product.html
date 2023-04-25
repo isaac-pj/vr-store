@@ -1,17 +1,13 @@
-<!-- <a-entity
-  wrapper
+<a-entity
+  wrapper="pivot: ${pivot};"
   class="cursor"
   geometry="primitive: box;"
-  material="color: red; shader: flat; wireframe: true;"
-> -->
-<!-- material="color: red; shader: flat; wireframe: true;" -->
-<!-- editor-config="offset: 0 2 0" -->
-<!-- wrapper -->
-<a-entity
-  id="${model}"
-  class="cursor"
-  gltf-model="#${model}-3d"
-  shadow="receive: true; cast: true"
-></a-entity>
-<!-- aabb-collider="objects: #cursor; collideNonVisible: true; enabled: true; debug: true;" -->
-<!-- </a-entity> -->
+  material="color: red; shader: flat; wireframe: true; opacity: 0"
+>
+  <a-entity
+    id="${model}"
+    gltf-model="#${model}-3d"
+    shadow="receive: true; cast: true"
+    aabb-collider="objects: .cursor; debug: false;"
+  ></a-entity>
+</a-entity>
