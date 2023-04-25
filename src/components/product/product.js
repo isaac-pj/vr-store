@@ -18,7 +18,8 @@ AFRAME.registerComponent("wrapper", {
     async function boundingBoxUpdate() {
       await waitFor(100);
       const boundingBox = new THREE.Box3();
-      boundingBox.setFromObject(this.object3D);
+
+      boundingBox.setFromObject(this?.object3D || target?.object3D);
 
       const { min, max } = boundingBox;
 
@@ -33,8 +34,10 @@ AFRAME.registerComponent("wrapper", {
       self.handlePivot(pivot, wrapper, target, offset);
     }
 
-    if (target && isGltfModel) {
+    if (isGltfModel) {
       target.addEventListener("model-loaded", boundingBoxUpdate);
+    } else {
+      boundingBoxUpdate();
     }
   },
   handlePivot: (pivot, wrapper, target, offset) => {
