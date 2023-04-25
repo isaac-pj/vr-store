@@ -1,8 +1,8 @@
 <a-entity
-  wrapper="pivot: ${pivot};"
+  wrapper="pivot: ${pivot}; selector: #${model}"
   class="cursor"
   geometry="primitive: box;"
-  material="color: red; shader: flat; wireframe: true; opacity: 0"
+  material="color: red; shader: flat; wireframe: true; opacity: 1"
 >
   <a-entity
     id="${model}"
@@ -10,4 +10,12 @@
     shadow="receive: true; cast: true"
     aabb-collider="objects: .cursor; debug: false;"
   ></a-entity>
+
+  <!-- <a-sphere
+    class="teste"
+    radius="0.3"
+    color="pink"
+    event-set__loaded="material.opacity: 0;"
+    aabb-collider="objects: .cursor; debug: false;"
+  ></a-sphere> -->
 </a-entity>
