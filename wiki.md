@@ -80,15 +80,40 @@ OK - Insert template with webpack on init step by javascript
 - Make the component in js to receive params and return template html
 - components using angle command liner
 
+# Box wrapper in products
+
+- use aabb-collider // do not work because boxHelper grow horizontaly when rotate in Y axis
+- create box wrapper
+
 # Generate Component
 
 - create a command line tool to generate component
+
+## TODO
+
+# ideas
+
+- pop menu interactions (chose fonts and icons) see IKEA exemple
+- router system and scene fadein transition
+- details page and product interactios
+- in scene interactions for change colors and some other props
+- top down umbrella menu
+- sections menu isometric top view
+
+# code
+
+- wrapper component for primitive geometry
 
 ## Exemples
 
 # Component template literals
 
-<!-- AFRAME.registerComponent("my-component", {
+```html
+<my-component color="pink" size="2"></my-component>
+```
+
+```javascript
+AFRAME.registerComponent("my-component", {
   schema: {
     color: { type: "string", default: "red" },
     size: { type: "number", default: 1 },
@@ -102,20 +127,109 @@ OK - Insert template with webpack on init step by javascript
     `;
     el.appendChild(html);
   },
-}); -->
+});
+```
 
 # Primitive external template
 
-<!-- AFRAME.registerPrimitive("my-element", {
+```html
+<my-element position="0 1 -3" rotation="0 30 0"></my-element>
+```
+
+```javascript
+AFRAME.registerPrimitive("my-element", {
   defaultComponents: {
+    position: "0 1 -2",
+    rotation: "0 45 0", // another syntax : { x: 0, y: 45, z: 0 }
     template: {
       src: "./relative-path/file-name.html",
     },
   },
+});
+```
+
+# Primitive mapping attributes
+
+```html
+<my-new-element color="pink" size="2"></my-new-element>
+```
+
+```javascript
+AFRAME.registerPrimitive("my-new-element", {
+  defaultComponents: {
+    geometry: { primitive: "box" },
+    material: { color: "red" },
+  },
 
   mappings: {
     // Map HTML attributes to component properties
-    color: "my-component.color",
-    size: "my-component.size",
+    // Do not use registred component names
+    // Do not use uppercase chars
+    color: "material.color",
+    size: "geometry.width",
+    size: "geometry.height",
+    size: "geometry.depth",
   },
-}); -->
+});
+```
+
+# Set custom template data
+
+```html
+<c-product data-model="armchair" product-data="color: gray; scale: 2 2 2;" pos="0 0.123 -3.95" z="90"></c-product>
+<!-- custom-data="custom"
+custom="color: gray; scale: 3 3 3;" -->
+```
+
+```html
+<a-entity id="${model}" class="cursor" gltf-model="#${model}-3d" scale="${scale}" shadow="receive: true; cast: true"></a-entity>
+```
+
+```javascript
+AFRAME.registerComponent("product-data", {
+  schema: {
+    color: { type: "string" },
+    scale: { type: "string" },
+  },
+});
+
+AFRAME.registerPrimitive("c-product", {
+  defaultComponents: {
+    position: "0 0 0", // No needed because is already in all components
+    rotation: { x: 0, y: 0, z: 0 },
+    template: {
+      src: "./components/product/product.html", // set external template
+      data: "product-data", // Receive a registred component name default
+    },
+  },
+  mappings: {
+    "custom-data": "template.data",
+    pos: "position",
+    x: "rotation.x",
+    y: "rotation.y",
+    z: "rotation.z",
+  },
+});
+```
+
+# Extends primitive and inherit props
+
+```html
+<c-light type="directional" color="#FFFFF0" target="#wall" position="1 3 3"></c-light>
+```
+
+```javascript
+AFRAME.registerPrimitive("c-light", {
+  defaultComponents: {
+    light: {
+      castShadow: true,
+      shadowBias: -0.001,
+    },
+  },
+  mappings: {
+    ...AFRAME.primitives.primitives["a-light"].mappings,
+    castshadow: "light.castShadow",
+    bias: "light.shadowBias",
+  },
+});
+```
