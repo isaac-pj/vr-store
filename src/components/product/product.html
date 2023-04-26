@@ -1,10 +1,12 @@
 <a-entity
+  visible="false"
+  id="box-${model}"
   wrapper="pivot: ${pivot};"
-  class="cursor"
   geometry="primitive: box;"
   material="color: #FAC200; shader: standard; wireframe: false; opacity: 0"
   animation__in="property: material.opacity; startEvents: mouseenter; to: 0.3; dur: 150"
   animation__out="property: material.opacity; startEvents: mouseleave; to: 0; dur: 150"
+  event-set__ready="_event: wrapped; visible: true; class: cursor"
 >
   <a-entity id="${model}" gltf-model="#${model}-3d" shadow="receive: true; cast: true"></a-entity>
 </a-entity>

@@ -40,7 +40,7 @@ AFRAME.registerComponent("wrapper", {
       boundingBoxUpdate();
     }
   },
-  handlePivot: (pivot, wrapper, target, offset) => {
+  handlePivot: function (pivot, wrapper, target, offset) {
     const offsetReverse = offset * -1;
     const wrapperPosition = wrapper.getAttribute("position");
     const targetPosition = target.getAttribute("position");
@@ -61,6 +61,8 @@ AFRAME.registerComponent("wrapper", {
         // no offset
         break;
     }
+
+    this.el.emit("wrapped", {});
   },
 });
 
