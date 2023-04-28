@@ -3,8 +3,8 @@ import { isEmpty, waitForTemplateRender } from "../../utils/general";
 const defaultRouteIndex = 0;
 
 const routes = [
-  { key: "livingRoomRoute", path: "/living-room", src: "./scenes/living-room/living-room.html" },
-  { key: "livingRoom2Route", path: "/living-room-2", src: "./scenes/living-room/living-room-2.html" },
+  { key: "livingRoomRoute", path: "/living-room", src: "./scenes/living-room.html" },
+  { key: "productDetailsRoute", path: "/product-details", src: "./scenes/product-details.html" },
 ];
 
 AFRAME.registerComponent("router", {
@@ -18,7 +18,6 @@ AFRAME.registerComponent("router", {
     this.overlayEl = await waitForTemplateRender(this.el.sceneEl, ["c-sky", "#overlay"]);
 
     this.el.addEventListener("templaterendered", ({ target }) => {
-      // if (target.hasAttribute("router")) return;
       if (target.id !== "router") return;
       self.overlayEl.emit("fadein");
     });
@@ -45,16 +44,14 @@ AFRAME.registerComponent("route", {
     event: { type: "string", default: "click" },
   },
   init: async function () {
-    const self = this;
     const { event, path } = this.data;
 
     this.el.addEventListener(event, () => {
-      // self.el.sceneEl.querySelector("[router]")?.emit("updateroute", { event, path });
       this.updateRoute(path);
     });
   },
   updateRoute: function (path) {
-    const routerEl = this.el.sceneEl.querySelector("[router]");
+    const routerEl = this.el.sceneEl.querySelector("#router");
     routerEl.setAttribute("router", "path", path);
   },
 });

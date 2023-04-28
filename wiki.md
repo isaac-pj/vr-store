@@ -93,16 +93,18 @@ OK - Insert template with webpack on init step by javascript
 
 # ideas
 
-- pop menu interactions (chose fonts and icons) see IKEA exemple
-- router system and scene fadein transition
-- details page and product interactios
-- in scene interactions for change colors and some other props
-- top down umbrella menu
-- sections menu isometric top view
+no - pop menu interactions (chose fonts and icons) see IKEA exemple
+no- details page and product interactios
+no - in scene interactions for change colors and some other props
+no- top down umbrella menu
+no - sections menu isometric top view
+ok - router system and scene fadein transition // transition needs improvments
 
 # code
 
-- wrapper component for primitive geometry
+no - analyze load performance and possible optimizations
+no - change router system to allow multi routers by id // add primitive c-router
+ok - wrapper component for primitive geometry
 
 ## Exemples
 
