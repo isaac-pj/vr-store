@@ -1,1 +1,12 @@
 <a-sky radius="200" src="#backgroundTexture"></a-sky>
+<a-sky
+  id="overlay"
+  color="#111"
+  opacity="1"
+  radius="2"
+  event-set__fadein="radius: 200"
+  animation__fadein="property:material.opacity; startEvents: fadein; from: 1; to: 0; dur: 500"
+  event-set__fadeout="radius: 2"
+  animation__fadeout="property:material.opacity; startEvents: fadeout; from: 0; to: 1; dur: 500"
+>
+</a-sky>

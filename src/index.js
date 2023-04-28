@@ -14,6 +14,7 @@ import illumination from "./components/illumination/illumination.js";
 import sky from "./components/sky/sky.js";
 import product from "./components/product/product.js";
 import livingRoom from "./scenes/living-room/living-room.js";
+import router from "./components/commons/router.js";
 
 function start() {
   // Put your code here

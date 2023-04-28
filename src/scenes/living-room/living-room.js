@@ -1,4 +1,4 @@
-import "../../components/light/light.js";
+import "../../components/commons/light.js";
 
 AFRAME.registerPrimitive("s-living-room", {
   defaultComponents: {

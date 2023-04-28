@@ -1,50 +1,18 @@
-<a-entity
-  id="wall"
-  gltf-model="#wall-3d"
-  scale="1"
-  position="0 0 -4.5"
-  shadow="receive: true; cast: true"
->
-  <c-light
-    type="directional"
-    color="#FFFFF0"
-    target="#wall"
-    position="1 3 3"
-  ></c-light>
+<a-entity id="wall" gltf-model="#wall-3d" scale="1" position="0 0 -4.5" shadow="receive: true; cast: true">
+  <c-light type="directional" color="#FFFFF0" target="#wall" position="1 3 3"></c-light>
 </a-entity>
 
-<c-product
-  data-model="rug"
-  data-pivot="bottom"
-  position="0 0.123 -3.544"
-></c-product>
+<c-product data-model="rug" data-pivot="bottom" position="0 0.123 -3.544"></c-product>
 
-<c-product
-  data-model="armchair"
-  data-pivot="bottom"
-  position="0 0.123 -3.95"
-></c-product>
+<c-product data-model="armchair" data-pivot="bottom" position="0 0.123 -3.95"></c-product>
 
-<c-product
-  data-model="painting"
-  data-pivot="center"
-  position="0 1.746 -4.42"
-></c-product>
+<c-product data-model="painting" data-pivot="center" position="0 1.746 -4.42"></c-product>
 
-<c-product
-  data-model="table"
-  data-pivot="bottom"
-  position="0.987 0.125 -4.019"
-></c-product>
+<c-product data-model="table" data-pivot="bottom" position="0.987 0.125 -4.019"></c-product>
 
-<c-product
-  data-model="lamp"
-  data-pivot="bottom"
-  rotation="0 24.8 0"
-  position="0.874 0.864 -4.035"
-  event-set__mouseenter="_target: #menuPopup2; _delay: 300; scale: 1 1 1;"
-  event-set__click="_target: #menuPopup2; _delay: 300; scale: 0 0 0;"
->
+<c-product data-model="lamp" data-pivot="bottom" rotation="0 24.8 0" position="0.874 0.864 -4.035" route="path: /living-room-2;">
+  <!-- event-set__mouseenter="_target: #menuPopup2; _delay: 300; scale: 1 1 1;" -->
+  <!-- event-set__click="_target: #menuPopup2; _delay: 300; scale: 0 0 0;" -->
 </c-product>
 
 <c-product

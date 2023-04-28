@@ -15,43 +15,18 @@
   <body id="app">
     <a-scene shadow="type: pcf">
       <!-- IMPORT ASSETS -->
-      <a-assets>
+      <a-assets preload="auto">
         <!-- IMAGES -->
-        <img
-          id="backgroundTexture"
-          crossorigin="anonymous"
-          src="./assets/images/360/background.jpg"
-        />
+        <img id="backgroundTexture" crossorigin="anonymous" src="./assets/images/360/background.jpg" />
 
         <!-- 3D OBJECTS -->
-        <a-asset-item
-          id="armchair-3d"
-          src="./assets/models/scene_01/Armchair.gltf"
-        ></a-asset-item>
-        <a-asset-item
-          id="lamp-3d"
-          src="./assets/models/scene_01/Lamp.gltf"
-        ></a-asset-item>
-        <a-asset-item
-          id="rug-3d"
-          src="./assets/models/scene_01/Rug.gltf"
-        ></a-asset-item>
-        <a-asset-item
-          id="table-3d"
-          src="./assets/models/scene_01/Table.gltf"
-        ></a-asset-item>
-        <a-asset-item
-          id="wall-3d"
-          src="./assets/models/scene_01/Wall.gltf"
-        ></a-asset-item>
-        <a-asset-item
-          id="painting-3d"
-          src="./assets/models/scene_01/Painting.gltf"
-        ></a-asset-item>
-        <a-asset-item
-          id="plant-3d"
-          src="./assets/models/scene_01/Plant.gltf"
-        ></a-asset-item>
+        <a-asset-item id="armchair-3d" src="./assets/models/scene_01/Armchair.gltf"></a-asset-item>
+        <a-asset-item id="lamp-3d" src="./assets/models/scene_01/Lamp.gltf"></a-asset-item>
+        <a-asset-item id="rug-3d" src="./assets/models/scene_01/Rug.gltf"></a-asset-item>
+        <a-asset-item id="table-3d" src="./assets/models/scene_01/Table.gltf"></a-asset-item>
+        <a-asset-item id="wall-3d" src="./assets/models/scene_01/Wall.gltf"></a-asset-item>
+        <a-asset-item id="painting-3d" src="./assets/models/scene_01/Painting.gltf"></a-asset-item>
+        <a-asset-item id="plant-3d" src="./assets/models/scene_01/Plant.gltf"></a-asset-item>
 
         <!-- AUDIOS -->
         <audio
@@ -62,7 +37,8 @@
       </a-assets>
 
       <c-menu></c-menu>
-      <s-living-room></s-living-room>
+      <a-entity id="router" router></a-entity>
+      <!-- router="path: " proxy-event="event: templaterendered; to: #overlay; as: fadein" -->
 
       <c-illumination></c-illumination>
       <c-camera></c-camera>
