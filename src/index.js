@@ -15,6 +15,8 @@ import sky from "./components/sky/sky.js";
 import product from "./components/product/product.js";
 import light from "./components/commons/light.js";
 import router from "./components/commons/router.js";
+import montserrat from "./components/commons/montserrat.js";
+import text from "./components/text/text.js";
 
 function start() {
   // Put your code here
