@@ -3,16 +3,19 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: {
+    aframe: "./libs/aframe/aframe-v1.4.2-mod.min.js",
+    bundle: "./src/index.js",
+  },
   output: {
     path: path.resolve(__dirname, "public"),
-    filename: "bundle.js",
+    filename: "[name].js",
     clean: true,
   },
   mode: "development",
   devServer: {
     static: { directory: path.join(__dirname, "public") },
-    https: true,
+    server: "https",
     port: 9000,
     liveReload: true,
     hot: true,
@@ -47,6 +50,9 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: "./src/index.html",
+      chunks: ["aframe", "bundle"],
+      chunksSortMode: "manual",
+      scriptLoading: "blocking",
       inject: "head",
     }),
   ],

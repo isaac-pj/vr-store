@@ -22,5 +22,5 @@ function start() {
   // Put your code here
 }
 
-const scene = document.querySelector("a-scene");
-scene.addEventListener("loaded", start);
+// const scene = document.querySelector("a-scene");
+// scene.addEventListener("loaded", start);
