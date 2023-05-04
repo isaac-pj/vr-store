@@ -7,7 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "public"),
     filename: "bundle.js",
-    clean: true,
+    clean: false,
   },
   mode: "development",
   devServer: {
@@ -18,6 +18,7 @@ module.exports = {
     hot: true,
     watchFiles: ["src/**/*.html", "./src/**/*.js"],
   },
+  cache: true,
   module: {
     rules: [
       {

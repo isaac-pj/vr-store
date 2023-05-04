@@ -32,6 +32,29 @@
 
 - Adding asset only works on object mode
 
+# MSDF Fonts
+
+- fonts need to be converted for sdf format
+- Hiero SDF font tutorial [link](https://libgdx.com/wiki/tools/hiero)
+- MSDF web based by Dom Mc Curdy [link](https://msdf-bmfont.donmccurdy.com/)
+- command line tools [msdfgen](https://github.com/Chlumsky/msdfgen) [msdf-bmfont](https://github.com/Jam3/msdf-bmfont)
+
+- complete charset
+
+  a á à ă ắ ằ ẵ ẳ â ấ ầ ẫ ẩ ǎ å ǻ ä ã ą ā ả ȁ ȃ ạ ặ ậ æ ǽ b c ć ĉ č ċ ç ḉ d ď đ ḍ ḏ ð ǆ e é è ĕ ê ế ề ễ ể ě ë ẽ ė ḝ ę ē ḗ ḕ ẻ ȅ ȇ ẹ ệ ə f ƒ g ğ ĝ ǧ ġ ģ ḡ ǥ h ĥ ȟ ħ ḥ ḫ i í ì ĭ î ï ḯ ĩ į ī ỉ ȉ ȋ ị ĳ ı j ĵ ȷ k ǩ ķ l ĺ ľ ļ ł ḷ ḻ ŀ ǉ m ṃ n ń ň ñ ṅ ņ ṇ ṉ ǌ ŋ o ó ò ŏ ô ố ồ ỗ ổ ö ȫ ő õ ṍ ṏ ȭ ȱ ø ǿ ǫ ō ṓ ṑ ỏ ȍ ȏ ơ ớ ờ ỡ ở ợ ọ ộ œ p q ĸ r ŕ ř ŗ ȑ ȓ ṛ ṟ s ś ṥ ŝ š ṧ ṡ ş ṣ ṩ ș ſ ß t ť ẗ ţ ṭ ț ṯ ŧ u ú ù ŭ û ǔ ů ü ű ũ ṹ ų ū ṻ ủ ȕ ȗ ư ứ ừ ữ ử ự ụ v w ẃ ẁ ŵ ẅ x y ý ỳ ŷ ÿ ỹ ẏ ȳ ỷ ỵ z ź ž ż ẓ ǯ þ ŉ ꞌ A Á À Ă Ắ Ằ Ẵ Ẳ Â Ấ Ầ Ẫ Ẩ Ǎ Å Ǻ Ä Ã Ą Ā Ả Ȁ Ȃ Ạ Ặ Ậ Æ Ǽ B C Ć Ĉ Č Ċ Ç Ḉ D Ď Đ Ḍ Ḏ Ð Ǆ E É È Ĕ Ê Ế Ề Ễ Ể Ě Ë Ẽ Ė Ḝ Ę Ē Ḗ Ḕ Ẻ Ȅ Ȇ Ẹ Ệ Ə F G Ğ Ĝ Ǧ Ġ Ģ Ḡ Ǥ H Ĥ Ȟ Ħ Ḥ Ḫ I Í Ì Ĭ Î Ï Ḯ Ĩ İ Į Ī Ỉ Ȉ Ȋ Ị Ĳ J Ĵ K Ǩ Ķ L Ĺ Ľ Ļ Ł Ḷ Ḻ Ŀ Ǉ M Ṃ N Ń Ň Ñ Ṅ Ņ Ṇ Ṉ Ǌ Ŋ O Ó Ò Ŏ Ô Ố Ồ Ỗ Ổ Ö Ȫ Ő Õ Ṍ Ṏ Ȭ Ȱ Ø Ǿ Ǫ Ō Ṓ Ṑ Ỏ Ȍ Ȏ Ơ Ớ Ờ Ỡ Ở Ợ Ọ Ộ Œ P Q R Ŕ Ř Ŗ Ȑ Ȓ Ṛ Ṟ S Ś Ṥ Ŝ Š Ṧ Ṡ Ş Ṣ Ṩ Ș ẞ T Ť Ţ Ṭ Ț Ṯ Ŧ U Ú Ù Ŭ Û Ǔ Ů Ü Ű Ũ Ṹ Ų Ū Ṻ Ủ Ȕ Ȗ Ư Ứ Ừ Ữ Ử Ự Ụ V W Ẃ Ẁ Ŵ Ẅ X Y Ý Ỳ Ŷ Ÿ Ỹ Ẏ Ȳ Ỷ Ỵ Z Ź Ž Ż Ẓ Ʒ Ǯ Þ Ꞌ ª ǅ ǈ ǋ º 0 1 ¹ ½ ¼ 2 ² 3 ³ ¾ 4 ⁴ 5 6 7 8 9 ` ´ ^ ¯ ¨ ¸ ° © ® + ± ÷ × < = > ¬ | ¦ ~ ¤ ¢ $ £ ¥ ⁄ \_ - – — , ; : ! ¡ ? ¿ . … · \' ‘ ’ ‚ ‹ › " “ ” „ « » ( ) [ ] { } § ¶ @ \* / & # % † • ′ ″
+
+- basic charset
+
+  ! " # $ % & ' ( ) \* + , - . / 0 1 2 3 4 5 6 7 8 9 : ; < = > ? @ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [ \ ] ^ \_ ` a b c d e f g h i j k l m n o p q r s t u v w x y z { | } ~ ␡
+
+- aframe charset
+
+  ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.?!/:;,*§£$ø@+°-~#&²'{}[]|`\()=%*µ àâéèëêïîöôùüûÀÂÉÈËÊÏÎÖÔÜÛçÇ€
+
+- BraSCII
+
+  !"#$%&'()\*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^\_'abcdefghijklmnopqrstuvwxyz{|}~ ¡¢£¤¥¦§¨©ª«¬®¯°±²³'μ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖŒØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöœøùúûüýþÿ
+
 # Material IOR Values
 
 - Air: 1.000
@@ -91,12 +114,36 @@ OK - Insert template with webpack on init step by javascript
 
 ## TODO
 
+# next
+
+no - custom font
+no - rotation system
+no - interaction system
+no - another products
+no - search voice
+no - seach catecories
+no - back button
+no - umbrella menu
+no - custom text
+no - github repo
+no - data base products
+no - check pivot component
+no - register font in FONTS
+
+# scenes
+
+ok - home
+no - product
+no - cart
+
 # ideas
 
+no - generate vite vanilla js
+no - open PR to fix text yOffset
 no - pop menu interactions (chose fonts and icons) see IKEA exemple
-no- details page and product interactios
+no - details page and product interactios
 no - in scene interactions for change colors and some other props
-no- top down umbrella menu
+no - top down umbrella menu
 no - sections menu isometric top view
 ok - router system and scene fadein transition // transition needs improvments
 
@@ -104,6 +151,8 @@ ok - router system and scene fadein transition // transition needs improvments
 
 no - analyze load performance and possible optimizations
 no - change router system to allow multi routers by id // add primitive c-router
+no - generate a custom font Montserrat based // preload this on a-assets
+no - check possibilities to use aframe-html-shader to render popups // https://github.com/mayognaise/aframe-html-shader
 ok - wrapper component for primitive geometry
 
 ## Exemples
