@@ -6,7 +6,7 @@ AFRAME.registerPrimitive("c-text", {
       anchor: "align",
       width: "12",
       wrapCount: "100",
-      negate: "false",
+      negate: false,
     },
     montserrat: { weight: 400 },
   },

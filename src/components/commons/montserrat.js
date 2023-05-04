@@ -46,5 +46,6 @@ AFRAME.registerComponent("montserrat", {
     const { weight, style } = this.data;
     this.el.setAttribute("text", "font", variants[weight][style]);
     this.el.setAttribute("text", "fontImage", variants[weight][style].replace("-msdf.json", ".png"));
+    this.el.setAttribute("text", "negate", false);
   },
 });
