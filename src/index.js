@@ -9,8 +9,7 @@ import "aframe-proxy-event-component";
 // LOCAL COMPONENTS
 
 import menu from "./components/menu/menu.js";
-import illumination from "./components/illumination/illumination.js";
-import sky from "./components/sky/sky.js";
+import ambience from "./components/ambience/ambience.js";
 import product from "./components/product/product.js";
 import light from "./components/commons/light.js";
 import router from "./components/commons/router.js";
