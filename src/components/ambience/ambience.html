@@ -5,14 +5,14 @@
 
 <a-circle
   id="ground"
-  color="#fafafa"
+  color="#bbb"
   radius="200"
   rotation="-90 0 0"
   blending="multiply"
   shadow="cast: false; receive: true"
 ></a-circle>
 
-<a-camera look-controls-enabled="true" wasd-controls-enabled="false" position="0 1.6 0" far="200">
+<a-camera look-controls-enabled="true" wasd-controls-enabled="false" position="0 1.6 0" far="250" look-at="#plant">
   <a-plane
     id="overlay"
     shader="flat"
