@@ -14,8 +14,8 @@ AFRAME.registerComponent("router", {
   },
   init: async function () {
     const self = this;
-    const { index, path } = this.data;
-    this.overlayEl = await waitForTemplateRender(this.el.sceneEl, ["c-sky", "#overlay"]);
+    const { index } = this.data;
+    this.overlayEl = await waitForTemplateRender(this.el.sceneEl, ["c-ambience", "#overlay"]);
 
     this.el.addEventListener("templaterendered", ({ target }) => {
       if (target.id !== "router") return;
