@@ -1,12 +1,34 @@
 <a-sky radius="200" src="#backgroundTexture"></a-sky>
-<a-sky
-  id="overlay"
-  color="#111"
-  opacity="1"
-  radius="2"
-  event-set__fadein="radius: 200"
-  animation__fadein="property:material.opacity; startEvents: fadein; from: 1; to: 0; dur: 500"
-  event-set__fadeout="radius: 2"
-  animation__fadeout="property:material.opacity; startEvents: fadeout; from: 0; to: 1; dur: 500"
->
-</a-sky>
+
+<a-circle
+  id="ground"
+  color="#ccc"
+  radius="200"
+  blending="multiply"
+  rotation="-90 0 0"
+  shadow="cast: false; receive: true"
+></a-circle>
+
+<a-camera look-controls-enabled="true" wasd-controls-enabled="false" position="0 1.6 0" far="200">
+  <a-plane
+    id="overlay"
+    shader="flat"
+    color="#111"
+    opacity="1"
+    position="0 0 -0.5"
+    scale="1.8 1 1"
+    event-set__fadein="visible: false; _delay: 500"
+    event-set__fadeout="visible: true; _delay: 100"
+    animation__fadein="property:opacity; startEvents: fadein; from: 1; to: 0; dur: 500;"
+    animation__fadeout="property:opacity; startEvents: fadeout; from: 0; to: 1; dur: 500"
+  ></a-plane>
+  <a-cursor
+    id="cursor"
+    animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+    animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+    event-set__mouseenter="_event: mouseenter; color: #ffd70a"
+    event-set__mouseleave="_event: mouseleave; color: black"
+    raycaster="objects: .cursor; far: 10; showLine: false;"
+  >
+  </a-cursor>
+</a-camera>
