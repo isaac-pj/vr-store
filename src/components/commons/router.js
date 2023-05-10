@@ -9,7 +9,7 @@ const routes = [
 
 AFRAME.registerComponent("router", {
   schema: {
-    index: { type: "number" },
+    index: { type: "number", default: defaultRouteIndex },
     path: { type: "string", default: routes[defaultRouteIndex].path },
   },
   init: async function () {
@@ -31,7 +31,7 @@ AFRAME.registerComponent("router", {
     this.matchRoute(index, path);
   },
   matchRoute: function (index, path) {
-    const activeRoute = index ? routes[index] : routes.find(({ path: routePath }) => routePath === path);
+    const activeRoute = index !== defaultRouteIndex ? routes[index] : routes.find(({ path: routePath }) => routePath === path);
     if (!activeRoute) return;
     this.overlayEl.emit("fadeout");
     this.el.setAttribute("template", "src", activeRoute.src);
