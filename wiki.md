@@ -114,30 +114,61 @@ OK - Insert template with webpack on init step by javascript
 
 ## TODO
 
+# priority
+
+```
+ok - (details) fix render order box
+no - (details) component rotation
+no - (details) lookat product
+  ok - [BUGS] fix event set component hyphen props
+  ok - [FEAT]create component look-to
+  no - [BUGS] event loaded doesn`t fire after first render
+no - (details) component info
+
+```
+
+# search
+
+no - register font in FONTS
+no - diference between entity, component and system
+no - PR to fix aframe text
+no - check native pivot component
+no - generate new shader without
+no - funcionamento do renderOrder depth e transparent
+no - check aframe-render-order-component fot transparent elements
+
 # next
 
-no - custom font
-no - rotation system
+no - look to for any object
+no - publish look to component
+no - update wait for template render
+ok - custom font
+ok - rotation system
+ok - custom text
+no - create a theme style
+no - add scene fog
+no - popup menu
+no - ground plane
+no - join environment
+no - github repo
 no - interaction system
 no - another products
 no - search voice
 no - seach catecories
 no - back button
 no - umbrella menu
-no - custom text
-no - github repo
+no - animations and feedback
 no - data base products
-no - check pivot component
-no - register font in FONTS
 
 # scenes
 
 ok - home
-no - product
+no - details
 no - cart
 
 # ideas
 
+ok - router system and scene fadein transition // transition needs improvments
 no - generate vite vanilla js
 no - open PR to fix text yOffset
 no - pop menu interactions (chose fonts and icons) see IKEA exemple
@@ -145,15 +176,15 @@ no - details page and product interactios
 no - in scene interactions for change colors and some other props
 no - top down umbrella menu
 no - sections menu isometric top view
-ok - router system and scene fadein transition // transition needs improvments
+no - PR to fix hyphenized component names on event-set
 
 # code
 
+ok - wrapper component for primitive geometry
 no - analyze load performance and possible optimizations
 no - change router system to allow multi routers by id // add primitive c-router
 no - generate a custom font Montserrat based // preload this on a-assets
 no - check possibilities to use aframe-html-shader to render popups // https://github.com/mayognaise/aframe-html-shader
-ok - wrapper component for primitive geometry
 
 ## Exemples
 
@@ -283,4 +314,21 @@ AFRAME.registerPrimitive("c-light", {
     bias: "light.shadowBias",
   },
 });
+```
+
+```plaintext
+De acordo com Nielsen (1994), a usabilidade pode ser dividida em cinco fatores
+sendo eles: facilidade de aprendizado (learnability), facilidade de recordação (Memorability), eficiência (Efficiency), segurança no uso (Safety) e a satisfação do usuário (Satisfaction). Nosso trabalho pretende se concentrar em apenas três deles, facilidade de aprendizado, eficiência e satisfação do usuário.
+
+• Facilidade de Aprendizado
+  – Quantidade de erros cometidos pelos usuários na primeira tentativa com o sistema
+  – Quantos usuários conseguiram completar com sucesso um número x de tarefas
+  – Quantas vezes um usuários solicitou ajuda durante a execução de uma tarefa
+• Eficiência
+  – O tempo de espera necessário para carregamento da página
+  – O tempo que o usuário leva para navegar do ponto A ao ponto B na interface
+  – O tempo que o usuário demora para encontrar o produto desejado
+• Satisfação do usuário
+  – Diante da subjetividade encontrada nesse aspecto, não serão usadas métricas quantitativas para analisar esse fator, e sim uma entrevista com um roteiro semi-estruturado, onde iremos convidar os usuários a falar sobre sua experiência com o sistema
+
 ```

@@ -1,10 +1,11 @@
 // NPM COMPONENTS
 
 import "aframe-aabb-collider-component";
-import "aframe-event-set-component";
+import "aframe-superframe/components/event-set";
 import "aframe-template-component";
 import "aframe-layout-component";
 import "aframe-proxy-event-component";
+import "aframe-look-at-component";
 
 // LOCAL COMPONENTS
 
@@ -13,10 +14,11 @@ import ambience from "./components/ambience/ambience.js";
 import product from "./components/product/product.js";
 import light from "./components/commons/light.js";
 import router from "./components/commons/router.js";
+import lookTo from "./components/commons/look-to.js";
 import montserrat from "./components/commons/montserrat.js";
 import text from "./components/text/text.js";
 
-function start() {
+async function start() {
   // Put your code here
 }
 

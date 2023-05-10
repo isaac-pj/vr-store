@@ -1,4 +1,4 @@
-<a-sky radius="200" src="#backgroundTexture"></a-sky>
+<a-sky radius="100" src="#backgroundTexture"></a-sky>
 
 <!-- SCENE GLOBAL LIGHTS -->
 <a-light type="ambient" intensity="1.2" color="#FFF"></a-light>
@@ -6,13 +6,20 @@
 <a-circle
   id="ground"
   color="#bbb"
-  radius="200"
+  radius="100"
   rotation="-90 0 0"
   blending="multiply"
   shadow="cast: false; receive: true"
 ></a-circle>
 
-<a-camera look-controls-enabled="true" wasd-controls-enabled="false" position="0 1.6 0" far="250" look-at="#plant">
+<a-camera
+  id="mainCamera"
+  look-controls-enabled="true"
+  wasd-controls-enabled="false"
+  position="0 1.6 0"
+  far="120"
+  event-set__lookme="_event: lookme; look-to: c-product;"
+>
   <a-plane
     id="overlay"
     shader="flat"
@@ -20,10 +27,10 @@
     opacity="1"
     position="0 0 -0.5"
     scale="1.8 1 1"
-    event-set__fadein="visible: false; _delay: 500"
-    event-set__fadeout="visible: true; _delay: 100"
-    animation__fadein="property:opacity; startEvents: fadein; from: 1; to: 0; dur: 500;"
-    animation__fadeout="property:opacity; startEvents: fadeout; from: 0; to: 1; dur: 500"
+    event-set__fadein="visible: false; _delay: 1000"
+    event-set__fadeout="visible: true;"
+    animation__fadein="property:opacity; startEvents: fadein; from: 1; to: 0; dur: 1000;"
+    animation__fadeout="property:opacity; startEvents: fadeout; from: 0; to: 1; dur: 1000"
   ></a-plane>
   <a-cursor
     id="cursor"
