@@ -13,7 +13,7 @@
     <!-- CDN COMPONENTS -->
   </head>
   <body id="app">
-    <a-scene shadow="type: pcf">
+    <a-scene shadow="type: pcf" mixin="global-proxy-router">
       <!-- IMPORT ASSETS -->
       <a-assets preload="auto">
         <!-- IMAGES -->
@@ -34,6 +34,9 @@
           crossorigin="anonymous"
           src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"
         ></audio>
+
+        <!-- MIXINS -->
+        <a-mixin id="global-proxy-router" proxy-event__routechange-camera="event: routechange; to: #mainCamera;"></a-mixin>
       </a-assets>
 
       <c-menu></c-menu>
