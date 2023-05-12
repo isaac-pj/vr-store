@@ -1,25 +1,27 @@
 import { isEmpty, waitForTemplateRender } from "../../utils/general";
 
-const defaultRouteIndex = 0;
-
 const routes = [
   { key: "livingRoomRoute", path: "/living-room", src: "./scenes/living-room.html" },
   { key: "productDetailsRoute", path: "/product-details", src: "./scenes/product-details.html" },
 ];
 
+const defaultRouteIndex = 0;
+const defaultActiveRoute = routes[defaultRouteIndex];
+
 AFRAME.registerComponent("router", {
   schema: {
     index: { type: "number", default: defaultRouteIndex },
-    path: { type: "string", default: routes[defaultRouteIndex].path },
+    path: { type: "string", default: defaultActiveRoute.path },
   },
   init: async function () {
     const self = this;
     const { index } = this.data;
+    this.currentActiveRoute = defaultActiveRoute;
     this.overlayEl = await waitForTemplateRender(this.el.sceneEl, ["c-ambience", "#overlay"]);
 
     this.el.addEventListener("templaterendered", ({ target }) => {
       if (target.id !== "router") return;
-      self.overlayEl.emit("fadein");
+      self.overlayEl.emit("fadein", null, false);
     });
 
     this.el.setAttribute("template", "src", routes[index].src);
@@ -31,10 +33,17 @@ AFRAME.registerComponent("router", {
     this.matchRoute(index, path);
   },
   matchRoute: function (index, path) {
+    const self = this;
+    const currentRoute = this.currentActiveRoute;
     const activeRoute = index !== defaultRouteIndex ? routes[index] : routes.find(({ path: routePath }) => routePath === path);
-    if (!activeRoute) return;
-    this.overlayEl.emit("fadeout");
+
+    if (!activeRoute || activeRoute.key === currentRoute.key) return;
+
+    this.overlayEl.emit("fadeout", null, false);
     this.el.setAttribute("template", "src", activeRoute.src);
+
+    this.currentActiveRoute = activeRoute;
+    self.el.sceneEl.emit("routechange", activeRoute);
   },
 });
 

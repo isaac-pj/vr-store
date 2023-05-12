@@ -123,7 +123,15 @@ no - (details) lookat product
   ok - [BUGS] fix event set component hyphen props
   ok - [FEAT]create component look-to
   no - [BUGS] event loaded doesn`t fire after first render
+no - add data too json
 no - (details) component info
+no - (details) add text info
+no - (home) make popup dynamic
+
+
+1. passar uma lista de subbscribes com seletores para ouvir o route change
+2. enviar o evento para sceneEl e fazer proxy para o elemento correto
+3. disparar com a api dispacth event
 
 ```
 
@@ -139,8 +147,10 @@ no - check aframe-render-order-component fot transparent elements
 
 # next
 
+no - create a global config file
 no - look to for any object
 no - publish look to component
+no - publish router component
 no - update wait for template render
 ok - custom font
 ok - rotation system
