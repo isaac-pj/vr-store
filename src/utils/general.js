@@ -6,13 +6,15 @@ export const waitFor = async time => {
   });
 };
 
-export const waitForTemplateRender = async (element, [selector, ...others]) => {
+export const waitForTemplateRender = async (element, [selector, ...others], event = "templaterendered") => {
+  var el = element.querySelector(selector);
   return new Promise(resolve => {
+    if (el && el.hasLoaded) resolve(el);
     element.addEventListener(
-      "templaterendered",
+      event,
       () => {
         const el = element.querySelector(selector);
-        resolve(others?.length ? waitForTemplateRender(el, others) : el);
+        resolve(others?.length ? waitForTemplateRender(el, others, event) : el);
       },
       { once: true }
     );
