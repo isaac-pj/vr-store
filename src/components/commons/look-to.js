@@ -39,20 +39,30 @@ AFRAME.registerComponent("look-to", {
   init: function () {
     var target = this.data;
     var camera = this.el;
+    this.lookAt(camera, target);
+  },
 
-    camera.setAttribute("look-controls", { enabled: false });
+  update: function () {
+    var target = this.data;
+    var camera = this.el;
 
+    if (!target || target === "#") return;
+    this.lookAt(camera, target);
+  },
+
+  lookAt: function (camera, target) {
     this.getVector(target).then(vector => {
       var targetPoint = this.getPoint(camera, vector);
       this.pointCamera(camera, targetPoint);
-      camera.setAttribute("look-controls", { enabled: true });
     });
   },
 
   getVector: async function (target) {
+    var vector = new THREE.Vector3();
+
     // Look at a position.
     if (typeof target === "object") {
-      return new THREE.Vector3(target.x, target.y, target.z);
+      return vector.copy(target.x, target.y, target.z);
     }
 
     // Assume target is a string.
@@ -65,27 +75,31 @@ AFRAME.registerComponent("look-to", {
       return;
     }
 
-    // var entityPosition = new THREE.Vector3();
-    // return targetEl.object3D.getWorldPosition(entityPosition);
-    return targetEl.object3D.position;
+    return targetEl.object3D.getWorldPosition(vector);
+    // return targetEl.object3D.position // local position;
   },
 
   getPoint: function (camera, target) {
-    var cameraPosition = new THREE.Vector3();
-    camera.object3D.getWorldPosition(cameraPosition);
+    var position = new THREE.Vector3();
+    camera.object3D.getWorldPosition(position);
 
     var vector = new THREE.Vector3(target.x, target.y, target.z);
-    vector.subVectors(cameraPosition, vector).add(cameraPosition);
+    vector.subVectors(position, vector).add(position);
     return vector;
   },
 
   pointCamera: function (camera, vector) {
+    camera.setAttribute("look-controls", { enabled: false });
+
     camera.object3D.lookAt(vector);
     camera.object3D.updateMatrix();
 
     var rotation = camera.getAttribute("rotation");
     camera.components["look-controls"].pitchObject.rotation.x = THREE.MathUtils.degToRad(rotation.x);
     camera.components["look-controls"].yawObject.rotation.y = THREE.MathUtils.degToRad(rotation.y);
+
+    camera.setAttribute("look-to", "#");
+    camera.setAttribute("look-controls", { enabled: true });
   },
 
   waitLoad: async function (element, [selector, ...others], event = "loaded") {
