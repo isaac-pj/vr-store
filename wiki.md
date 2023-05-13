@@ -118,15 +118,16 @@ OK - Insert template with webpack on init step by javascript
 
 ```
 ok - (details) fix render order box
-no - (details) component rotation
-no - (details) lookat product
+ok - (details) lookat product
   ok - [BUGS] fix event set component hyphen props
   ok - [FEAT]create component look-to
-  no - [BUGS] event loaded doesn`t fire after first render
-no - add data too json
-no - (details) component info
-no - (details) add text info
+  ok - [BUGS] event loaded doesn`t fire after first render
 no - (home) make popup dynamic
+no - (details) add text info
+no - (details) product info
+no - (details) back button
+no - (details) component rotation
+no - (app) add data too json
 
 
 1. passar uma lista de subbscribes com seletores para ouvir o route change
@@ -147,6 +148,9 @@ no - check aframe-render-order-component fot transparent elements
 
 # next
 
+no - tooltip buttons
+no - aframe gui
+no - fork and adjust rounded component
 no - create a global config file
 no - look to for any object
 no - publish look to component

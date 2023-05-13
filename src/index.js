@@ -6,6 +6,7 @@ import "aframe-template-component";
 import "aframe-layout-component";
 import "aframe-proxy-event-component";
 import "aframe-look-at-component";
+import "aframe-troika-text";
 
 // LOCAL COMPONENTS
 
