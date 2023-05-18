@@ -1,11 +1,7 @@
 import { isEmpty, waitForTemplateRender } from "../../utils/general";
+import { routes } from "../../routes";
 
-const routes = [
-  { key: "livingRoomRoute", path: "/living-room", src: "./scenes/living-room.html" },
-  { key: "productDetailsRoute", path: "/product-details", src: "./scenes/product-details.html" },
-];
-
-const defaultRouteIndex = 0;
+const defaultRouteIndex = 1;
 const defaultActiveRoute = routes[defaultRouteIndex];
 
 AFRAME.registerComponent("router", {
@@ -16,7 +12,7 @@ AFRAME.registerComponent("router", {
   init: async function () {
     const self = this;
     const { index } = this.data;
-    this.currentActiveRoute = defaultActiveRoute;
+    this.currentActiveRoute = routes[index] ?? defaultActiveRoute;
     this.overlayEl = await waitForTemplateRender(this.el.sceneEl, ["c-ambience", "#overlay"]);
 
     this.el.addEventListener("templaterendered", ({ target }) => {
@@ -24,7 +20,10 @@ AFRAME.registerComponent("router", {
       self.overlayEl.emit("fadein", null, false);
     });
 
-    this.el.setAttribute("template", "src", routes[index].src);
+    this.el.setAttribute("template", {
+      src: this.currentActiveRoute.src,
+      type: this.currentActiveRoute.type,
+    });
   },
   update: function (params) {
     const { index, path } = this.data;
@@ -40,7 +39,10 @@ AFRAME.registerComponent("router", {
     if (!activeRoute || activeRoute.key === currentRoute.key) return;
 
     this.overlayEl.emit("fadeout", null, false);
-    this.el.setAttribute("template", "src", activeRoute.src);
+    this.el.setAttribute("template", {
+      src: activeRoute.src,
+      type: activeRoute.type,
+    });
 
     this.currentActiveRoute = activeRoute;
     self.el.sceneEl.emit("routechange", activeRoute);
