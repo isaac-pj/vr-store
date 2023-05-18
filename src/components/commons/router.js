@@ -1,7 +1,8 @@
 import { isEmpty, waitForTemplateRender } from "../../utils/general";
 import { routes } from "../../routes";
+import { database } from "../../data/database";
 
-const defaultRouteIndex = 1;
+const defaultRouteIndex = 2;
 const defaultActiveRoute = routes[defaultRouteIndex];
 
 AFRAME.registerComponent("router", {
@@ -23,6 +24,7 @@ AFRAME.registerComponent("router", {
     this.el.setAttribute("template", {
       src: this.currentActiveRoute.src,
       type: this.currentActiveRoute.type,
+      data: { ...database }, // set by object or component name as dataset
     });
   },
   update: function (params) {
@@ -42,6 +44,7 @@ AFRAME.registerComponent("router", {
     this.el.setAttribute("template", {
       src: activeRoute.src,
       type: activeRoute.type,
+      data: { ...database },
     });
 
     this.currentActiveRoute = activeRoute;
