@@ -1,7 +1,7 @@
 import { isEmpty, waitForTemplateRender } from "../../utils/general";
 import { routes } from "../../routes";
 
-const defaultRouteIndex = 2;
+const defaultRouteIndex = 0;
 const defaultActiveRoute = routes[defaultRouteIndex];
 
 AFRAME.registerComponent("router", {
