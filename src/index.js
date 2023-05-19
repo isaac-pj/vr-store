@@ -3,6 +3,7 @@
 import "aframe-aabb-collider-component";
 import "aframe-superframe/components/event-set";
 import "aframe-superframe/components/template";
+// import "aframe-superframe/components/state";
 import "aframe-layout-component";
 import "aframe-proxy-event-component";
 import "aframe-look-at-component";
@@ -17,6 +18,7 @@ import light from "./components/commons/light.js";
 import router from "./components/commons/router.js";
 import lookTo from "./components/commons/look-to.js";
 import montserrat from "./components/commons/montserrat.js";
+import database from "./data/database.js";
 import text from "./components/text/text.js";
 
 async function start() {

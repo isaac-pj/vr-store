@@ -12,6 +12,8 @@
     <!-- NODE MODULES -->
     <script src="../node_modules/aframe/dist/aframe-master.min.js"></script>
     <script src="../node_modules/mustache/mustache.min.js"></script>
+
+    <script src="https://unpkg.com/aframe-state-component@7.1.0/dist/aframe-state-component.min.js"></script>
   </head>
   <body id="app">
     <a-scene shadow="type: pcf" mixin="global-proxy-router">
@@ -44,7 +46,12 @@
       </a-assets>
 
       <c-menu></c-menu>
-      <a-entity id="router" router></a-entity>
+      <a-entity id="router" router data-position="0 1 -2"></a-entity>
+
+      <a-plane color="orange" position="0 1 -3">
+        <a-text bind="value: name" position="0 0 0" align="center" color="#333"></a-text>
+      </a-plane>
+
       <c-ambience></c-ambience>
     </a-scene>
   </body>
