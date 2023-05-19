@@ -3,7 +3,6 @@
 import "aframe-aabb-collider-component";
 import "aframe-superframe/components/event-set";
 import "aframe-superframe/components/template";
-// import "aframe-superframe/components/state";
 import "aframe-layout-component";
 import "aframe-proxy-event-component";
 import "aframe-look-at-component";
