@@ -4,6 +4,9 @@
   geometry="primitive: box;"
   material="color: #FAC200; wireframe: false; opacity: 0; visible: false;"
   event-set__ready="_event: wrapped; class: cursor;"
+  proxy-event__show="event: mouseenter; to: #menuPopup;"
+  proxy-event__hide="event: click; to: #menuPopup;"
 >
-  <a-entity id="${model}" gltf-model="#${model}-3d" shadow="receive: true; cast: true"></a-entity>
+  <a-entity id="${model}" gltf-model="#${model}-3d" shadow="receive: true; cast: true"> </a-entity>
+  ${children}
 </a-entity>
