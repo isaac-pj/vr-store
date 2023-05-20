@@ -1,3 +1,15 @@
-<a-plane color="orange" position="0 1 -3">
-  <a-text bind="value: name" position="0 0 0" align="center" color="#333"></a-text>
-</a-plane>
+<c-mybox>
+  <a-plane
+    id="teste"
+    class="cursor"
+    color="orange"
+    height="0.5"
+    position="0 1 0"
+    event-set__on="_event: mouseenter; color: blue;"
+    event-set__off="_event: mouseleave; color: orange;"
+    event-set__clear="_event: mouseenter; _target: #teste > *; color: #ddd;"
+    event-set__dark="_event: mouseleave; _target: #teste > *; color: #333;"
+  >
+    <a-text bind="value: name" position="0 0 0" align="center" color="#333"></a-text>
+  </a-plane>
+</c-mybox>
