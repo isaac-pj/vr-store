@@ -3,6 +3,7 @@ AFRAME.registerPrimitive("c-product", {
     "template-children": "",
     template: {
       src: "./components/product/product.html",
+      type: "mustache",
     },
   },
   mappings: {},
