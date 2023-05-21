@@ -1,5 +1,3 @@
-<!-- <a-entity id="lookme" position="0 1.746 -4.42" proxy-event="event: loaded; to: #mainCamera; as: lookme;"></a-entity> -->
-
 <a-entity id="wall" gltf-model="#wall-3d" scale="1" position="0 0 -4.5" shadow="receive: true; cast: true">
   <c-light type="directional" color="#FFFFF0" target="#wall" position="1 3 3"></c-light>
 </a-entity>
@@ -10,96 +8,12 @@
 
 <c-product data-model="painting" data-pivot="center" position="0 1.746 -4.42"></c-product>
 
-<c-product data-model="table" data-pivot="bottom" position="0.987 0.125 -4.019"></c-product>
+<c-product data-model="table" data-pivot="bottom" position="0.987 0.125 -4.019"> </c-product>
 
-<c-product data-model="lamp" data-pivot="bottom" rotation="0 24.8 0" position="0.874 0.864 -4.035"></c-product>
-
-<c-product position="-1.43 0.12 -3.793" data-model="plant" data-pivot="bottom">
-  <a-plane
-    id="menuPopup"
-    opacity="0"
-    position="0 0 0"
-    height="1.05"
-    radius="0.05"
-    scale="0 0 0"
-    look-at="#mainCamera"
-    animation__scaleup="property: scale; startEvents: mouseenter; to: 1 1 1; dur: 200"
-    animation__scaledown="delay: 300; property: scale; startEvents: mouseleave, click; to: 0 0 0; dur: 200"
-    animation__fadein="property: opacity; startEvents: mouseenter; to: 0.6; dur: 200"
-    animation__fadeout="delay: 300; property: opacity; startEvents: mouseleave, click; to: 0; dur: 200"
-    animation__slideup="property: position; startEvents: mouseenter; to: 0 1.5 0; dur: 200"
-    animation__slidedown="delay: 300; property: position; startEvents: mouseleave, click; to: 0 0 0; dur: 200"
-  >
-    <!-- event-set__fadein="_event: animationcomplete__fadeout; visible: false;" -->
-    <!-- event-set__fadeout="_event: mou; visible: true;" -->
-    <!-- scale="0 0 0" -->
-    <c-text value="Beatle" position="-0.4 0.40 0.01" weight="700"></c-text>
-    <c-text value="Classic Fabric Armchair" position="-0.4 0.23 0.01" width="4"></c-text>
-    <c-text value="$899.00" position="-0.4 0.15 0.01" width="6" weight="600"></c-text>
-
-    <a-plane
-      class="cursor"
-      material="shader: flat"
-      color="#444357"
-      radius="0.05"
-      position="0 -0.1 0.01"
-      width="0.8"
-      height="0.2"
-      text="value: SEE MORE; width: 1.6; align: center; letterSpacing: 10px; yOffset: 0.01;"
-      montserrat="weight: 700"
-      route="path: /product-details;"
-      proxy-event__show="event: mouseenter; to: #menuPopup;"
-      proxy-event__hide="event: click; to: #menuPopup;"
-    ></a-plane>
-    <a-plane
-      material="shader: flat"
-      color="#FAC200"
-      position="0 -0.35 0.01"
-      width="0.8"
-      height="0.2"
-      text="value: GET THIS; width: 1.6; align: center; letterSpacing: 10px; yOffset: 0.01; color: #272727;"
-      montserrat="weight: 700"
-      proxy-event__show="event: mouseenter; to: #menuPopup;"
-      proxy-event__hide="event: click; to: #menuPopup;"
-    ></a-plane>
-  </a-plane>
+<c-product data-model="lamp" data-pivot="bottom" rotation="0 24.8 0" position="0.874 0.864 -4.035">
+  <!-- <a-entity id="lookme" proxy-event="event: loaded; to: #mainCamera; as: lookme;"></a-entity> -->
 </c-product>
 
-<!-- <a-entity position="-1.43 0.12 -3.793">
-  <a-plane id="menuPopup" opacity="0.6" position="0 2 0" height="1.05" radius="0.05" scale="0 0 0" rotation="0 30 0">
-    <c-text value="Beatle" position="-0.4 0.40 0.01" weight="700"></c-text>
-    <c-text value="Classic Fabric Armchair" position="-0.4 0.23 0.01" width="4"></c-text>
-    <c-text value="$899.00" position="-0.4 0.15 0.01" width="6" weight="600"></c-text>
-
-    <a-plane
-      class="cursor"
-      material="shader: flat"
-      color="#444357"
-      radius="0.05"
-      position="0 -0.1 0.01"
-      width="0.8"
-      height="0.2"
-      text="value: SEE MORE; width: 1.6; align: center; letterSpacing: 10px; yOffset: 0.01;"
-      montserrat="weight: 700"
-      route="path: /product-details;"
-    ></a-plane>
-    <a-plane
-      material="shader: flat"
-      color="#FAC200"
-      position="0 -0.35 0.01"
-      width="0.8"
-      height="0.2"
-      text="value: GET THIS; width: 1.6; align: center; letterSpacing: 10px; yOffset: 0.01; color: #272727;"
-      montserrat="weight: 700"
-    ></a-plane>
-  </a-plane>
-
-  <c-product
-    data-model="plant"
-    data-pivot="bottom"
-    event-set__mouseenter="_target: #menuPopup; _delay: 300; scale: 1 1 1;"
-    event-set__click="_target: document; _delay: 300; scale: 0 0 0;"
-  >
-    event-set__mouseleave="_target: #menuPopup; _delay: 300; scale: 0 0 0;"
-  </c-product>
-</a-entity> -->
+<c-product position="-1.43 0.12 -3.793" data-model="plant" data-pivot="bottom">
+  <c-popup></c-popup>
+</c-product>
