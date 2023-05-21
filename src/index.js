@@ -18,16 +18,16 @@ import children from "./components/commons/children";
 
 // EXTENDS COMPONENT
 
-import light from "./components/commons/light.js";
-import text from "./components/text/text.js";
+import light from "./primitives/extends/light.js";
+import text from "./primitives/extends/text.js";
 
 // CUSTOM PRIMITIVES
 
-import menu from "./components/menu/menu.js";
-import ambience from "./components/ambience/ambience.js";
-import product from "./components/product/product.js";
-import mybox from "./components/mybox/mybox.js";
-import popup from "./components/popup/popup.js";
+import menu from "./primitives/menu/menu.js";
+import ambience from "./primitives/ambience/ambience.js";
+import product from "./primitives/product/product.js";
+import mybox from "./primitives/mybox/mybox.js";
+import popup from "./primitives/popup/popup.js";
 
 // DATABASE COMPONENT
 

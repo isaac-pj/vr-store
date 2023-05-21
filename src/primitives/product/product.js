@@ -2,7 +2,7 @@ AFRAME.registerPrimitive("c-product", {
   defaultComponents: {
     "template-children": "",
     template: {
-      src: "./components/product/product.html",
+      src: "./primitives/product/product.html",
       type: "mustache",
     },
   },

@@ -1,7 +1,7 @@
 AFRAME.registerPrimitive("c-popup", {
   defaultComponents: {
     template: {
-      src: "./components/popup/popup.html",
+      src: "./primitives/popup/popup.html",
       type: "mustache",
     },
   },
