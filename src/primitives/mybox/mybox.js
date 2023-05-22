@@ -2,7 +2,7 @@ AFRAME.registerPrimitive("c-mybox", {
   defaultComponents: {
     "template-children": "",
     template: {
-      src: "./components/mybox/mybox.html",
+      src: "./primitives/mybox/mybox.html",
       type: "mustache",
     },
   },
