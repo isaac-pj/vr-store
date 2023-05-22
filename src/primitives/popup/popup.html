@@ -1,5 +1,5 @@
 <a-plane
-  id="menuPopup"
+  id="{{id}}"
   opacity="0"
   position="0 0 0"
   height="1.05"
@@ -27,7 +27,7 @@
     height="0.2"
     text="value: SEE MORE; width: 1.6; align: center; letterSpacing: 10px; yOffset: 0.01;"
     montserrat="weight: 700"
-    route="path: /product-details;"
+    route="path: {{route}}; data: {{payload}}"
     proxy-event__show="event: mouseenter; to: #menuPopup;"
     proxy-event__hide="event: click; to: #menuPopup;"
   ></a-plane>

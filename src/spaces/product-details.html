@@ -6,12 +6,13 @@
   <c-product
     class="cursor"
     data-pivot="bottom"
-    data-model="armchair"
+    data-model="{{product}}"
     animation__toleft="property: rotation; to: 0 360 0; dir: reverse; dur: 10000; easing: linear; loop: true; autoplay: false; resumeEvents: toleft; pauseEvents: topause, toright;"
     animation__toright="property: rotation; to: 0 360 0; dur: 10000; easing: linear; loop: true; autoplay: false; resumeEvents: toright; pauseEvents: topause, toleft;"
     proxy-event__lookme="event: loaded; to: #mainCamera; as: lookme;"
     proxy-event__off="event: mouseenter; to: #info; as: tohide;"
     proxy-event__on="event: mouseleave; to: #info; as: toshow;"
+    data-debug="true"
   >
   </c-product>
 
