@@ -16,44 +16,42 @@
     <script src="/build/bundle.js"></script>
   </head>
   <body id="app">
-    <a-scene>
-      <a-person position="0 0 -3"></a-person>
-      <a-person position="1 0 -3" skin-color="peachpuff" shirt-color="grey" pants-color="darkgrey"></a-person>
-      <a-person position="-1 0 -3" skin-color="sienna" shirt-color="pink" pants-color="white"></a-person>
-    </a-scene>
-
-    <!-- <a-scene shadow="type: pcf" mixin="global-proxy-router">
-      IMPORT ASSETS
+    <a-scene shadow="type: pcf" mixin="global-proxy-router">
+      <!-- IMPORT ASSETS -->
       <a-assets preload="auto">
-        IMAGES
-        <img id="backgroundTexture" crossorigin="anonymous" src="./assets/images/360/background.jpg" />
+        <!-- IMAGES -->
+        <!-- <img id="backgroundTexture" crossorigin="anonymous" src="./assets/images/360/background.jpg" /> -->
 
-        3D OBJECTS
-        <a-asset-item id="armchair-3d" src="./assets/models/scene_01/Armchair.gltf"></a-asset-item>
+        <!-- 3D OBJECTS -->
+        <!-- <a-asset-item id="armchair-3d" src="./assets/models/scene_01/Armchair.gltf"></a-asset-item>
         <a-asset-item id="lamp-3d" src="./assets/models/scene_01/Lamp.gltf"></a-asset-item>
         <a-asset-item id="rug-3d" src="./assets/models/scene_01/Rug.gltf"></a-asset-item>
         <a-asset-item id="table-3d" src="./assets/models/scene_01/Table.gltf"></a-asset-item>
         <a-asset-item id="wall-3d" src="./assets/models/scene_01/Wall.gltf"></a-asset-item>
         <a-asset-item id="painting-3d" src="./assets/models/scene_01/Painting.gltf"></a-asset-item>
-        <a-asset-item id="plant-3d" src="./assets/models/scene_01/Plant.gltf"></a-asset-item>
+        <a-asset-item id="plant-3d" src="./assets/models/scene_01/Plant.gltf"></a-asset-item> -->
 
-        AUDIOS
-        <audio
+        <!-- AUDIOS -->
+        <!-- <audio
           id="click-sound"
           crossorigin="anonymous"
           src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"
-        ></audio>
+					></audio> -->
 
-        MIXINS
-        <a-mixin id="global-proxy-router" proxy-event__routechange-camera="event: routechange; to: #mainCamera;"></a-mixin>
+        <!-- MIXINS -->
+        <!-- <a-mixin id="global-proxy-router" proxy-event__routechange-camera="event: routechange; to: #mainCamera;"></a-mixin> -->
 
-        FONTS
-        <a-asset-item id="material-icons-font" src="assets/fonts/icons/MaterialIconsOutlined-Regular.otf"></a-asset-item>
+        <!-- FONTS -->
+        <!-- <a-asset-item id="material-icons-font" src="assets/fonts/icons/MaterialIconsOutlined-Regular.otf"></a-asset-item> -->
       </a-assets>
 
-      <c-menu></c-menu>
-      <a-entity id="router" router="index: 0"></a-entity>
-      <c-ambience></c-ambience>
-    </a-scene> -->
+      <a-person position="0 0 -3"></a-person>
+      <a-person position="1 0 -3" skin-color="peachpuff" shirt-color="grey" pants-color="darkgrey"></a-person>
+      <a-person position="-1 0 -3" skin-color="sienna" shirt-color="pink" pants-color="white"></a-person>
+
+      <!-- <c-menu></c-menu> -->
+      <!-- <a-entity id="router" router="index: 0"></a-entity> -->
+      <!-- <c-ambience></c-ambience> -->
+    </a-scene>
   </body>
 </html>
