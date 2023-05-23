@@ -1,6 +1,6 @@
 import { waitFor } from "../../utils/general";
 
-AFRAME.registerComponent("wrapper", {
+export default AFRAME.registerComponent("wrapper", {
   schema: {
     selector: { type: "string", default: "" },
     pivot: { type: "string", default: "center" },
@@ -10,7 +10,9 @@ AFRAME.registerComponent("wrapper", {
     const { pivot, selector } = this.data;
 
     const wrapper = this.el;
-    const target = selector ? document.querySelector(selector) : wrapper?.firstElementChild;
+    const target = selector
+      ? document.querySelector(selector)
+      : wrapper?.firstElementChild;
     const isGltfModel = target?.hasAttribute("gltf-model");
 
     if (!target) return;
@@ -30,7 +32,12 @@ AFRAME.registerComponent("wrapper", {
       const offset = height / 2;
 
       const wrapperGeometry = wrapper.getAttribute("geometry");
-      wrapper.setAttribute("geometry", { ...wrapperGeometry, width, height, depth });
+      wrapper.setAttribute("geometry", {
+        ...wrapperGeometry,
+        width,
+        height,
+        depth,
+      });
       self.handlePivot(pivot, wrapper, target, offset);
     }
 
@@ -47,12 +54,18 @@ AFRAME.registerComponent("wrapper", {
 
     switch (pivot) {
       case "top":
-        wrapper.setAttribute("position", { ...wrapperPosition, y: offsetReverse });
+        wrapper.setAttribute("position", {
+          ...wrapperPosition,
+          y: offsetReverse,
+        });
         target.setAttribute("position", { ...targetPosition, y: offset });
         break;
       case "bottom":
         wrapper.setAttribute("position", { ...wrapperPosition, y: offset });
-        target.setAttribute("position", { ...targetPosition, y: offsetReverse });
+        target.setAttribute("position", {
+          ...targetPosition,
+          y: offsetReverse,
+        });
         break;
       case "center":
         // no offset

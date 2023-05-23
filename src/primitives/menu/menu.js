@@ -1,10 +1,10 @@
 import menuRing from "../menu-ring/menu-ring.js";
 import menuItem from "../menu-item/menu-item.js";
 
-AFRAME.registerPrimitive("c-menu", {
+export default AFRAME.registerPrimitive("c-menu", {
   defaultComponents: {
     template: {
-      src: "./primitives/menu/menu.html",
+      src: "./build/primitives/menu/menu.html",
     },
   },
 });

@@ -18,11 +18,11 @@ AFRAME.registerComponent("popup", {
   play: function () {},
 });
 
-AFRAME.registerPrimitive("c-popup", {
+export default AFRAME.registerPrimitive("c-popup", {
   defaultComponents: {
     popup: {},
     template: {
-      src: "./primitives/popup/popup.html",
+      src: "./build/primitives/popup/popup.html",
       type: "mustache",
     },
   },

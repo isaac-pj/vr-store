@@ -1,5 +1,6 @@
 import "aframe";
 import "mustache";
+import "../public/global.css";
 
 // NPM COMPONENTS
 
@@ -13,24 +14,24 @@ import "aframe-troika-text";
 
 // LOCAL COMPONENTS
 
-// import lookTo from "./components/commons/look-to.js";
-// import montserrat from "./components/commons/montserrat.js";
-// import router from "./components/commons/router.js";
-// import wrapper from "./components/commons/wrapper.js";
-// import children from "./components/commons/children";
+import lookTo from "./components/commons/look-to.js";
+import montserrat from "./components/commons/montserrat.js";
+import router from "./components/commons/router.js";
+import wrapper from "./components/commons/wrapper.js";
+import children from "./components/commons/children";
 
 // EXTENDS COMPONENT
 
-// import light from "./primitives/extends/light.js";
-// import text from "./primitives/extends/text.js";
+import light from "./primitives/extends/light.js";
+import text from "./primitives/extends/text.js";
 
 // CUSTOM PRIMITIVES
 
-// import menu from "./primitives/menu/menu.js";
-// import ambience from "./primitives/ambience/ambience.js";
-// import product from "./primitives/product/product.js";
-// import mybox from "./primitives/mybox/mybox.js";
-// import popup from "./primitives/popup/popup.js";
+import menu from "./primitives/menu/menu.js";
+import ambience from "./primitives/ambience/ambience.js";
+import product from "./primitives/product/product.js";
+import mybox from "./primitives/mybox/mybox.js";
+import popup from "./primitives/popup/popup.js";
 
 // DATABASE COMPONENT
 
@@ -39,7 +40,11 @@ import "aframe-troika-text";
 import { registerWebComponent } from "svawc";
 import APerson from "./APerson.svelte";
 
-registerWebComponent({ Component: APerson, tagname: "a-person", props: ["skinColor", "shirtColor", "pantsColor"] });
+registerWebComponent({
+  Component: APerson,
+  tagname: "a-person",
+  props: ["skinColor", "shirtColor", "pantsColor"],
+});
 
 async function start() {
   // Put your code here

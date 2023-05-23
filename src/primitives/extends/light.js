@@ -1,4 +1,4 @@
-AFRAME.registerPrimitive("c-light", {
+export default AFRAME.registerPrimitive("c-light", {
   defaultComponents: {
     light: {
       castShadow: true,

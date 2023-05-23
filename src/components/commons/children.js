@@ -1,4 +1,4 @@
-AFRAME.registerComponent("template-children", {
+export default AFRAME.registerComponent("template-children", {
   schema: {
     // insert: { oneOf: ["before", "after", "inner", "replace"], default: "before" },
   },

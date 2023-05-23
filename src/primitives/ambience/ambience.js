@@ -1,7 +1,7 @@
-AFRAME.registerPrimitive("c-ambience", {
+export default AFRAME.registerPrimitive("c-ambience", {
   defaultComponents: {
     template: {
-      src: "./primitives/ambience/ambience.html",
+      src: "./build/primitives/ambience/ambience.html",
     },
   },
 });

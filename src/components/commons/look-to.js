@@ -15,7 +15,7 @@ delete AFRAME.components["look-to"];
  * If tracking an object via setting the component value via a selector, look-to will register
  * a behavior to the scene to update rotation on every tick.
  */
-AFRAME.registerComponent("look-to", {
+export default AFRAME.registerComponent("look-to", {
   dependencies: ["look-controls"],
   schema: {
     default: "0 0 0",
@@ -95,8 +95,10 @@ AFRAME.registerComponent("look-to", {
     camera.object3D.updateMatrix();
 
     var rotation = camera.getAttribute("rotation");
-    camera.components["look-controls"].pitchObject.rotation.x = THREE.MathUtils.degToRad(rotation.x);
-    camera.components["look-controls"].yawObject.rotation.y = THREE.MathUtils.degToRad(rotation.y);
+    camera.components["look-controls"].pitchObject.rotation.x =
+      THREE.MathUtils.degToRad(rotation.x);
+    camera.components["look-controls"].yawObject.rotation.y =
+      THREE.MathUtils.degToRad(rotation.y);
 
     camera.setAttribute("look-to", "#");
     camera.setAttribute("look-controls", { enabled: true });

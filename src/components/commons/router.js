@@ -7,7 +7,7 @@ const warn = debug("components:look-to:warn");
 const defaultRouteIndex = 0;
 const defaultActiveRoute = routes[defaultRouteIndex];
 
-AFRAME.registerComponent("router", {
+export default AFRAME.registerComponent("router", {
   schema: {
     index: { type: "number", default: defaultRouteIndex },
     path: { type: "string", default: defaultActiveRoute.path },
@@ -17,7 +17,10 @@ AFRAME.registerComponent("router", {
     const self = this;
     const { index, data } = this.data;
     this.currentActiveRoute = routes[index] ?? defaultActiveRoute;
-    this.overlayEl = await waitForTemplateRender(this.el.sceneEl, ["c-ambience", "#overlay"]);
+    this.overlayEl = await waitForTemplateRender(this.el.sceneEl, [
+      "c-ambience",
+      "#overlay",
+    ]);
 
     this.el.addEventListener("templaterendered", ({ target }) => {
       if (target.id !== "router") return;
@@ -39,7 +42,10 @@ AFRAME.registerComponent("router", {
   matchRoute: function (index, path, data) {
     const self = this;
     const currentRoute = this.currentActiveRoute;
-    const activeRoute = index !== defaultRouteIndex ? routes[index] : routes.find(({ path: routePath }) => routePath === path);
+    const activeRoute =
+      index !== defaultRouteIndex
+        ? routes[index]
+        : routes.find(({ path: routePath }) => routePath === path);
 
     if (!activeRoute || activeRoute.key === currentRoute.key) return;
 

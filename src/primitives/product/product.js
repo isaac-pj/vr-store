@@ -1,8 +1,8 @@
-AFRAME.registerPrimitive("c-product", {
+export default AFRAME.registerPrimitive("c-product", {
   defaultComponents: {
     "template-children": "",
     template: {
-      src: "./primitives/product/product.html",
+      src: "./build/primitives/product/product.html",
       type: "mustache",
     },
   },

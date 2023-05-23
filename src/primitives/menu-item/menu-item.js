@@ -1,7 +1,7 @@
-AFRAME.registerPrimitive("c-menu-item", {
+export default AFRAME.registerPrimitive("c-menu-item", {
   defaultComponents: {
     template: {
-      src: "./primitives/menu-item/menu-item.html",
+      src: "./build/primitives/menu-item/menu-item.html",
     },
   },
 });

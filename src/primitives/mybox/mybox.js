@@ -1,4 +1,4 @@
-AFRAME.registerPrimitive("c-mybox", {
+export default AFRAME.registerPrimitive("c-mybox", {
   defaultComponents: {
     "template-children": "",
     template: {
