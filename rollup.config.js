@@ -4,6 +4,7 @@ import resolve from "@rollup/plugin-node-resolve";
 import livereload from "rollup-plugin-livereload";
 import { terser } from "rollup-plugin-terser";
 import css from "rollup-plugin-css-only";
+import html from "rollup-plugin-html";
 import copy from "rollup-plugin-copy";
 
 const production = !process.env.ROLLUP_WATCH;
@@ -52,6 +53,12 @@ export default {
     // a separate file - better for performance
     css({ output: "bundle.css" }),
 
+    // Rollup plugin to import HTML files
+    html({
+      // Defines witch HTML files should be imported (can be modified)
+      include: "**/*.html",
+    }),
+
     // If you have external dependencies installed from
     // npm, you'll most likely need these plugins. In
     // some cases you'll need additional configuration -
@@ -79,7 +86,10 @@ export default {
 
     // Watch the `public` directory and refresh the
     // browser on changes when not in production
-    !production && livereload("public"),
+    !production &&
+      livereload({
+        watch: ["public", "src/**/*.html", "src/**/*.js"],
+      }),
 
     // If we're building for production (npm run build
     // instead of npm run dev), minify
