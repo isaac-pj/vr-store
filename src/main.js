@@ -1,4 +1,7 @@
-import { registerWebComponent } from 'svawc'
-import APerson from "./APerson.svelte"
+import "aframe";
+import "mustache";
 
-registerWebComponent({Component: APerson, tagname: "a-person", props: ["skinColor", "shirtColor", "pantsColor"] })
+import { registerWebComponent } from "svawc";
+import APerson from "./APerson.svelte";
+
+registerWebComponent({ Component: APerson, tagname: "a-person", props: ["skinColor", "shirtColor", "pantsColor"] });
