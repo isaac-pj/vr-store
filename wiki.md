@@ -122,22 +122,87 @@ ok - (details) lookat product
   ok - [BUGS] fix event set component hyphen props
   ok - [FEAT]create component look-to
   ok - [BUGS] event loaded doesn`t fire after first render
+ok - (details) product text info
+ok - (details) back button
+ok - (details) component rotation
+ok - (app) powerup templates mustache
+  ok - [FEAT] interpolation
+  ok - [FEAT] loop
+  ok - [FEAT] conditional render
+ok - (app) sotre and update state
+  ok - [FEAT] data binding
+  ok - [FEAT] interpolation
+  ok - [FEAT] expressions
+  ok - [FEAT] loop
+ok - (app) render children elements
+ok - (app) separate component and primitives
+
+-------------------------------------------------------------
+
+>> no - (app) render scene elements dynamically
+
+no - (details) dot interactions // shein and google lens visual reference
+no - (details) parts of objects to animation
 no - (home) make popup dynamic
-no - (details) add text info
-no - (details) product info
-no - (details) back button
-no - (details) component rotation
-no - (app) add data too json
+no - (home) cetegories filter
+no - (home) menu categories umbrella
+no - (home) keyboar and search
+no - (app) reactive framework angular, vue, svelte
+no - (app) add data to json
+no - (app) add montserrat type font
+no - (app) render children
+no - (app) replace scenes by spaces
+no - (app) make components reusable
+no - (home) increase camera overlay for wide screen
 
-
-1. passar uma lista de subbscribes com seletores para ouvir o route change
-2. enviar o evento para sceneEl e fazer proxy para o elemento correto
-3. disparar com a api dispacth event
 
 ```
 
+# remember
+
+0. organize ideas concepts and next steps
+1. passar uma lista de subbscribes com seletores para ouvir o route change
+2. enviar o evento para sceneEl e fazer proxy para o elemento correto
+3. disparar com a api dispacth event
+4. template string mesmo comentado ainda é avaliado no render
+5. state component needs to be added on index html
+6. fazer o usuario passar mais tempo navegando (mais conversão) mas
+   sem que isso se apresente como uma clara desvantagem que seja por interess e não obrigação
+7. using state bind for arrays need to be in root of initialState
+
+# colab
+
+no - emit event in capture phase
+no - send data in proxy event
+no - open pr to template
+no - publish look to component
+no - publish router component
+no - colab with svawc port
+no - colar or create a flexbox component layout
+
+# ideas
+
+no - add proxy events to multiple events e multiple targets
+ok - data children component
+no - create a rounded component with circles and plane for aframe  
+no - aframe material design // publish a lib ui components based on material design guidelines for aframe
+no - default values in es6 template string in template component // use tagged template literals to add default value
+no - loop and conditional render in es6 template string in template component
+no - custom layout on layout component
+no - add delay prop to proxy-event component
+no - stopEvents property on animation // leave element in current state
+no - comand line tool to svawc component generate
+no - pass template literals as src for template component
+no - wrapper scale offset
+no - offset look to me
+
 # search
 
+no - search for angle command line
+no - custom elements native v2
+no - look for react aframe
+no - fix a little white stroke in icons (only in radius)
+no - aframe gui lib
 no - register font in FONTS
 no - diference between entity, component and system
 no - PR to fix aframe text
@@ -148,21 +213,27 @@ no - check aframe-render-order-component fot transparent elements
 
 # next
 
+```
+ok - custom font
+ok - rotation system
+ok - custom text
+-----------------------------------------------
+no - migrate to svelte reactive by svawc
+no - render camera overlay before anything else
+no - use location e history in router
+no - create a component to encapsulate product interactios
+no - create buttons
+no - render template handlebars
 no - tooltip buttons
 no - aframe gui
 no - fork and adjust rounded component
 no - create a global config file
 no - look to for any object
-no - publish look to component
-no - publish router component
 no - update wait for template render
-ok - custom font
-ok - rotation system
-ok - custom text
 no - create a theme style
 no - add scene fog
 no - popup menu
-no - ground plane
+ok - ground plane
 no - join environment
 no - github repo
 no - interaction system
@@ -173,10 +244,19 @@ no - back button
 no - umbrella menu
 no - animations and feedback
 no - data base products
+no - teleport component
+no - flying menu sections
+no - random poiter space
+no - change product color
+no - randomize similar products in space
+no - add index param to route schema
+
+```
 
 # scenes
 
 ok - home
+ok - list
 no - details
 no - cart
 
@@ -272,13 +352,24 @@ AFRAME.registerPrimitive("my-new-element", {
 # Set custom template data
 
 ```html
-<c-product data-model="armchair" product-data="color: gray; scale: 2 2 2;" pos="0 0.123 -3.95" z="90"></c-product>
+<c-product
+  data-model="armchair"
+  product-data="color: gray; scale: 2 2 2;"
+  pos="0 0.123 -3.95"
+  z="90"
+></c-product>
 <!-- custom-data="custom"
 custom="color: gray; scale: 3 3 3;" -->
 ```
 
 ```html
-<a-entity id="${model}" class="cursor" gltf-model="#${model}-3d" scale="${scale}" shadow="receive: true; cast: true"></a-entity>
+<a-entity
+  id="${model}"
+  class="cursor"
+  gltf-model="#${model}-3d"
+  scale="${scale}"
+  shadow="receive: true; cast: true"
+></a-entity>
 ```
 
 ```javascript
@@ -311,7 +402,12 @@ AFRAME.registerPrimitive("c-product", {
 # Extends primitive and inherit props
 
 ```html
-<c-light type="directional" color="#FFFFF0" target="#wall" position="1 3 3"></c-light>
+<c-light
+  type="directional"
+  color="#FFFFF0"
+  target="#wall"
+  position="1 3 3"
+></c-light>
 ```
 
 ```javascript
