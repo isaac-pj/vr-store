@@ -65,12 +65,3 @@ AFRAME.registerComponent("wrapper", {
     this.el.emit("wrapped", {});
   },
 });
-
-AFRAME.registerPrimitive("c-product", {
-  defaultComponents: {
-    template: {
-      src: "./components/product/product.html",
-    },
-  },
-  mappings: {},
-});

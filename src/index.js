@@ -10,15 +10,28 @@ import "aframe-troika-text";
 
 // LOCAL COMPONENTS
 
-import menu from "./components/menu/menu.js";
-import ambience from "./components/ambience/ambience.js";
-import product from "./components/product/product.js";
-import light from "./components/commons/light.js";
-import router from "./components/commons/router.js";
 import lookTo from "./components/commons/look-to.js";
 import montserrat from "./components/commons/montserrat.js";
+import router from "./components/commons/router.js";
+import wrapper from "./components/commons/wrapper.js";
+import children from "./components/commons/children";
+
+// EXTENDS COMPONENT
+
+import light from "./primitives/extends/light.js";
+import text from "./primitives/extends/text.js";
+
+// CUSTOM PRIMITIVES
+
+import menu from "./primitives/menu/menu.js";
+import ambience from "./primitives/ambience/ambience.js";
+import product from "./primitives/product/product.js";
+import mybox from "./primitives/mybox/mybox.js";
+import popup from "./primitives/popup/popup.js";
+
+// DATABASE COMPONENT
+
 import database from "./data/database.js";
-import text from "./components/text/text.js";
 
 async function start() {
   // Put your code here

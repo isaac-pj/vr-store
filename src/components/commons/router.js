@@ -1,6 +1,9 @@
 import { isEmpty, waitForTemplateRender } from "../../utils/general";
 import { routes } from "../../routes";
 
+const debug = AFRAME.utils.debug;
+const warn = debug("components:look-to:warn");
+
 const defaultRouteIndex = 0;
 const defaultActiveRoute = routes[defaultRouteIndex];
 
@@ -8,10 +11,11 @@ AFRAME.registerComponent("router", {
   schema: {
     index: { type: "number", default: defaultRouteIndex },
     path: { type: "string", default: defaultActiveRoute.path },
+    data: { type: "string", default: "" },
   },
   init: async function () {
     const self = this;
-    const { index } = this.data;
+    const { index, data } = this.data;
     this.currentActiveRoute = routes[index] ?? defaultActiveRoute;
     this.overlayEl = await waitForTemplateRender(this.el.sceneEl, ["c-ambience", "#overlay"]);
 
@@ -23,15 +27,16 @@ AFRAME.registerComponent("router", {
     this.el.setAttribute("template", {
       src: this.currentActiveRoute.src,
       type: this.currentActiveRoute.type,
+      data: this.parseData(data),
     });
   },
   update: function (params) {
-    const { index, path } = this.data;
+    const { index, path, data } = this.data;
 
     if (isEmpty(params)) return;
-    this.matchRoute(index, path);
+    this.matchRoute(index, path, data);
   },
-  matchRoute: function (index, path) {
+  matchRoute: function (index, path, data) {
     const self = this;
     const currentRoute = this.currentActiveRoute;
     const activeRoute = index !== defaultRouteIndex ? routes[index] : routes.find(({ path: routePath }) => routePath === path);
@@ -42,10 +47,23 @@ AFRAME.registerComponent("router", {
     this.el.setAttribute("template", {
       src: activeRoute.src,
       type: activeRoute.type,
+      data: this.parseData(data),
     });
 
     this.currentActiveRoute = activeRoute;
     self.el.sceneEl.emit("routechange", activeRoute);
+  },
+  parseData: function (data) {
+    if (!data) return "";
+
+    let parsedData = {};
+    try {
+      parsedData = JSON.parse(data.replaceAll("'", '"'));
+    } catch (error) {
+      warn('"' + data + '" the current data is not a valid json formmat');
+      parsedData = {};
+    }
+    return parsedData;
   },
 });
 
@@ -53,16 +71,17 @@ AFRAME.registerComponent("route", {
   schema: {
     path: { type: "string" },
     event: { type: "string", default: "click" },
+    data: { type: "string", default: "" },
   },
   init: async function () {
-    const { event, path } = this.data;
+    const { event, path, data } = this.data;
 
     this.el.addEventListener(event, () => {
-      this.updateRoute(path);
+      this.updateRoute(path, data);
     });
   },
-  updateRoute: function (path) {
+  updateRoute: function (path, data) {
     const routerEl = this.el.sceneEl.querySelector("#router");
-    routerEl.setAttribute("router", "path", path);
+    routerEl.setAttribute("router", { path, data });
   },
 });
