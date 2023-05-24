@@ -1,3 +1,5 @@
+import "./popup.html";
+
 AFRAME.registerComponent("popup", {
   schema: {
     target: { type: "selector" },
