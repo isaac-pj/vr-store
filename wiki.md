@@ -88,6 +88,10 @@
 - Cristal: 1.870
 - Diamond: 2.417 - 2.541
 
+# Templates
+
+- template string is parsed even when it is commented out
+
 # Use External Template
 
 OK - Create template by default components registring a new primitive // Caution! AFRAME.registerPrimitive is deprecated
@@ -136,11 +140,12 @@ ok - (app) sotre and update state
   ok - [FEAT] loop
 ok - (app) render children elements
 ok - (app) separate component and primitives
+ok - (app) render scene elements dynamically // mustache
 
 -------------------------------------------------------------
+>> no - (app) svelte migration components
 
->> no - (app) render scene elements dynamically
-
+no - (app) migrate to App.svelte
 no - (details) dot interactions // shein and google lens visual reference
 no - (details) parts of objects to animation
 no - (home) make popup dynamic
