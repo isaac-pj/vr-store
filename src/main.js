@@ -14,11 +14,11 @@ import "aframe-troika-text";
 
 // LOCAL COMPONENTS
 
-import lookTo from "./components/commons/look-to.js";
-import montserrat from "./components/commons/montserrat.js";
-import router from "./components/commons/router.js";
-import wrapper from "./components/commons/wrapper.js";
-import children from "./components/commons/children";
+import lookTo from "./components/aframe/look-to.js";
+import montserrat from "./components/aframe/montserrat.js";
+import router from "./components/aframe/router.js";
+import wrapper from "./components/aframe/wrapper.js";
+import children from "./components/aframe/children";
 
 // EXTENDS COMPONENT
 
@@ -39,11 +39,18 @@ import popup from "./primitives/popup/popup.js";
 
 import { registerWebComponent } from "svawc";
 import APerson from "./APerson.svelte";
+import Mybox from "./components/svelte/Mybox.svelte";
 
 registerWebComponent({
   Component: APerson,
   tagname: "a-person",
   props: ["skinColor", "shirtColor", "pantsColor"],
+});
+
+registerWebComponent({
+  Component: Mybox,
+  tagname: "a-mybox",
+  props: ["boxColor", "boxScale", "boxPosition"],
 });
 
 async function start() {
