@@ -1,9 +1,12 @@
+import { livingRoomSceneData } from "./data/livingroom.scene.data";
+
 export const routes = [
   {
     key: "livingRoomRoute",
     path: "/living-room",
     src: "./build/spaces/living-room.html",
     type: "mustache",
+    data: livingRoomSceneData,
   },
   {
     key: "productDetailsRoute",
