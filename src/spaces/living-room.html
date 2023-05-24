@@ -13,90 +13,21 @@
   ></c-light>
 </a-entity>
 
+{{#products}}
 <c-product
-  data-model="rug"
-  data-pivot="bottom"
-  position="0 0.123 -3.544"
+  data-model="{{name}}"
+  data-pivot="{{pivot}}"
+  position="{{position}}"
+  rotation="{{rotation}}"
   data-event="mouseenter"
-  data-target="#menuPopupRug"
+  data-target="#popup-{{name}}"
 >
   <c-popup
-    data-id="menuPopupRug"
+    data-id="popup-{{name}}"
     data-route="/product-details"
-    data-payload="{ 'product': 'rug'}"
+    data-payload="{ 'product': '{{name}}'}"
     event="mouseenter"
-    target="#box-rug"
+    target="#box-{{name}}"
   ></c-popup>
 </c-product>
-
-<c-product
-  data-model="armchair"
-  data-pivot="bottom"
-  position="0 0.123 -3.95"
-  data-event="mouseenter"
-  data-target="#menuPopupArmchair"
->
-  <c-popup
-    data-id="menuPopupArmchair"
-    data-route="/product-details"
-    data-payload="{ 'product': 'armchair'}"
-  ></c-popup>
-</c-product>
-
-<c-product
-  data-model="painting"
-  data-pivot="center"
-  position="0 1.746 -4.42"
-  data-event="mouseenter"
-  data-target="#menuPopupPainting"
->
-  <c-popup
-    data-id="menuPopupPainting"
-    data-route="/product-details"
-    data-payload="{ 'product': 'painting'}"
-  ></c-popup>
-</c-product>
-
-<c-product
-  data-model="table"
-  data-pivot="bottom"
-  position="0.987 0.125 -4.019"
-  data-event="mouseenter"
-  data-target="#menuPopupTable"
->
-  <c-popup
-    data-id="menuPopupTable"
-    data-route="/product-details"
-    data-payload="{ 'product': 'table'}"
-  ></c-popup>
-</c-product>
-
-<c-product
-  data-model="lamp"
-  data-pivot="bottom"
-  rotation="0 24.8 0"
-  position="0.874 0.864 -4.035"
-  data-event="mouseenter"
-  data-target="#menuPopupLamp"
->
-  <c-popup
-    data-id="menuPopupLamp"
-    data-route="/product-details"
-    data-payload="{ 'product': 'lamp'}"
-  ></c-popup>
-  <!-- <a-entity id="lookme" proxy-event="event: loaded; to: #mainCamera; as: lookme;"></a-entity> -->
-</c-product>
-
-<c-product
-  data-model="plant"
-  data-pivot="bottom"
-  position="-1.43 0.12 -3.793"
-  data-event="mouseenter"
-  data-target="#menuPopupPlant"
->
-  <c-popup
-    data-id="menuPopupPlant"
-    data-route="/product-details"
-    data-payload="{ 'product': 'plant'}"
-  ></c-popup>
-</c-product>
+{{/products}}
