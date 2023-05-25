@@ -1,7 +1,3 @@
-<script>
-  import APerson from "./components/svelte/APerson.svelte";
-</script>
-
 <a-scene shadow="type: pcf" mixin="global-proxy-router">
   <!-- IMPORT ASSETS -->
   <a-assets preload="auto">
@@ -55,9 +51,7 @@
   </a-assets>
 
   <c-menu />
-  <!-- <a-entity id="router" router="index: 2;" /> -->
-
-  <APerson position="1 0 -3" shirtColor="brown" />
+  <a-entity id="router" router="index: 2;" />
 
   <c-ambience />
 </a-scene>

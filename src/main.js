@@ -37,12 +37,12 @@ import "./primitives/popup/popup.js";
 
 // SVELTE COMPONENTS
 
-// import registerSvelteComponents from "./register";
-// registerSvelteComponents();
+import registerSvelteComponents from "./register";
+registerSvelteComponents();
 
 import App from "./App.svelte";
 
-let app;
+let app = null;
 document.addEventListener("DOMContentLoaded", () => {
   app = new App({
     target: document.body || document.querySelector("#app"),
