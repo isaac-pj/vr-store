@@ -1,8 +1,11 @@
+// GLOBAL STYLES
+
+import "../public/global.css";
+
 // LIBRARIES
 
 import "aframe";
 import "mustache";
-import "../public/global.css";
 
 // NPM COMPONENTS
 
