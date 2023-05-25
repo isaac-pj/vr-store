@@ -1,3 +1,5 @@
+// LIBRARIES
+
 import "aframe";
 import "mustache";
 import "../public/global.css";
@@ -12,50 +14,41 @@ import "aframe-proxy-event-component";
 import "aframe-look-at-component";
 import "aframe-troika-text";
 
-// LOCAL COMPONENTS
+// CUSTOM COMPONENTS
 
-import lookTo from "./components/aframe/look-to.js";
-import montserrat from "./components/aframe/montserrat.js";
-import router from "./components/aframe/router.js";
-import wrapper from "./components/aframe/wrapper.js";
-import children from "./components/aframe/children";
+import "./components/aframe/look-to.js";
+import "./components/aframe/montserrat.js";
+import "./components/aframe/router.js";
+import "./components/aframe/wrapper.js";
+import "./components/aframe/children";
 
-// EXTENDS COMPONENT
+// EXTENDS COMPONENTS
 
-import light from "./primitives/extends/light.js";
-import text from "./primitives/extends/text.js";
+import "./primitives/extends/light.js";
+import "./primitives/extends/text.js";
 
 // CUSTOM PRIMITIVES
 
-import menu from "./primitives/menu/menu.js";
-import ambience from "./primitives/ambience/ambience.js";
-import product from "./primitives/product/product.js";
-import mybox from "./primitives/mybox/mybox.js";
-import popup from "./primitives/popup/popup.js";
+import "./primitives/menu/menu.js";
+import "./primitives/ambience/ambience.js";
+import "./primitives/product/product.js";
+import "./primitives/mybox/mybox.js";
+import "./primitives/popup/popup.js";
 
-// DATABASE COMPONENT
+// SVELTE COMPONENTS
 
-// import database from "./data/database.js";
+import registerSveltComponents from "./register";
 
-import { registerWebComponent } from "svawc";
-import APerson from "./APerson.svelte";
-import Mybox from "./components/svelte/Mybox.svelte";
+registerSveltComponents();
 
-registerWebComponent({
-  Component: APerson,
-  tagname: "a-person",
-  props: ["skinColor", "shirtColor", "pantsColor"],
+import App from "./App.svelte";
+
+let app;
+document.addEventListener("DOMContentLoaded", () => {
+  app = new App({
+    target: document.body || document.querySelector("#app"),
+    props: {},
+  });
 });
 
-registerWebComponent({
-  Component: Mybox,
-  tagname: "a-mybox",
-  props: ["boxColor", "boxScale", "boxPosition"],
-});
-
-async function start() {
-  // Put your code here
-}
-
-const scene = document.querySelector("a-scene");
-scene?.addEventListener("loaded", start);
+export default app;
