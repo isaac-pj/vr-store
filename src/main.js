@@ -37,8 +37,8 @@ import "./primitives/popup/popup.js";
 
 // SVELTE COMPONENTS
 
-import registerSvelteComponents from "./register";
-registerSvelteComponents();
+// import registerSvelteComponents from "./register";
+// registerSvelteComponents();
 
 import App from "./App.svelte";
 

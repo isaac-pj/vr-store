@@ -9,9 +9,9 @@ export default () => {
     props: ["skinColor", "shirtColor", "pantsColor"],
   });
 
-  // registerWebComponent({
-  //   Component: Mybox,
-  //   tagname: "a-mybox",
-  //   props: ["boxColor", "boxScale", "boxPosition"],
-  // });
+  registerWebComponent({
+    Component: Mybox,
+    tagname: "a-mybox",
+    props: ["boxColor", "boxScale", "boxPosition"],
+  });
 };
