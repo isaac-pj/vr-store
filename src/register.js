@@ -6,7 +6,7 @@ export default () => {
   registerWebComponent({
     Component: APerson,
     tagname: "a-person",
-    props: ["skinColor", "shirtColor", "pantsColor"],
+    props: ["skinColor", "shirtColor", "pantsColor", "personPosition"],
   });
 
   registerWebComponent({

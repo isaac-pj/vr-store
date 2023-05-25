@@ -51,7 +51,7 @@
   </a-assets>
 
   <c-menu />
-  <a-entity id="router" router="index: 2;" />
+  <a-entity id="router" router="index: 0;" />
 
   <c-ambience />
 </a-scene>

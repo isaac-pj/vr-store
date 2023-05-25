@@ -4,18 +4,18 @@
   export let skinColor = "burlywood";
   export let shirtColor = "seagreen";
   export let pantsColor = "slateblue";
-  export let position;
+  export let personPosition;
   // computed variables
   $: skinMaterial = { color: skinColor, roughness: 0.9 };
   $: shirtMaterial = { color: shirtColor };
   $: pantsMaterial = { color: pantsColor };
-  $: position = position;
+  $: personPosition = personPosition;
   const limbs = [-1, 1];
 </script>
 
 <Mybox boxColor="green" boxScale="0.3 0.3 0.3" boxPosition="0 2 0" />
 
-<a-entity {position}>
+<a-entity {personPosition}>
   <a-entity
     class="head"
     position={{ x: 0, y: 1.6, z: 0 }}
