@@ -1,16 +1,22 @@
-<a-sky radius="200" src="#backgroundTexture"></a-sky>
+<script>
+  export let radius = 100;
+  $: spaceRadius = radius;
+  $: cameraFar = radius + 5;
+</script>
+
+<a-sky {radius} src="#backgroundTexture" />
 
 <!-- SCENE GLOBAL LIGHTS -->
-<a-light type="ambient" intensity="1.2" color="#FFF"></a-light>
+<a-light type="ambient" intensity="1.2" color="#FFF" />
 
 <a-circle
   id="ground"
   color="#bbb"
-  radius="200"
+  radius={spaceRadius}
   rotation="-90 0 0"
   blending="multiply"
   shadow="cast: false; receive: true"
-></a-circle>
+/>
 
 <a-camera
   id="mainCamera"
@@ -27,12 +33,12 @@
     opacity="1"
     position="0 0 -0.5"
     scale="1.8 1 1"
-    event-set__ready="_event: loaded; _target: #mainCamera; far: 206;"
+    event-set__ready={`_event: loaded; _target: #mainCamera; far: ${cameraFar};`}
     animation__fadein="property:opacity; startEvents: fadein; from: 1; to: 0; dur: 1000;"
     animation__fadeout="property:opacity; startEvents: fadeout; from: 0; to: 1; dur: 1000"
     event-set__fadein="_event: animationcomplete__fadein; visible: false;"
     event-set__fadeout="_event: fadeout; visible: true;"
-  ></a-plane>
+  />
   <a-cursor
     id="cursor"
     animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
@@ -40,6 +46,5 @@
     event-set__mouseenter="_event: mouseenter; color: #ffd70a"
     event-set__mouseleave="_event: mouseleave; color: black"
     raycaster="objects: .cursor; far: 10; showLine: false;"
-  >
-  </a-cursor>
+  />
 </a-camera>
