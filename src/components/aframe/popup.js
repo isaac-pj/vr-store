@@ -1,4 +1,4 @@
-import "./popup.html";
+// import "./popup.html";
 
 AFRAME.registerComponent("popup", {
   schema: {
@@ -18,18 +18,4 @@ AFRAME.registerComponent("popup", {
   remove: function () {},
   pause: function () {},
   play: function () {},
-});
-
-export default AFRAME.registerPrimitive("c-popup", {
-  defaultComponents: {
-    popup: {},
-    template: {
-      src: "./build/primitives/popup/popup.html",
-      type: "mustache",
-    },
-  },
-  mappings: {
-    target: "popup.target",
-    event: "popup.event",
-  },
 });
