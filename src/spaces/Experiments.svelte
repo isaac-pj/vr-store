@@ -44,7 +44,7 @@
   </template>
 </a-entity> -->
 
-<a-person position="0 0 -3"></a-person>
+<!-- <a-person position="0 0 -3"></a-person>
 <a-person
   position="1 0 -3"
   skin-color="peachpuff"
@@ -56,8 +56,8 @@
   skin-color="sienna"
   shirt-color="pink"
   pants-color="white"
-></a-person>
+></a-person> -->
 
-<!-- <a-mybox box-color="#f00" box-scale="1 3 1" box-position="-1 1 -3"></a-mybox>
-<a-mybox box-color="#00f" box-scale="1 2 1" box-position="1 1 -3"></a-mybox>
-<a-light type="ambient" intensity="1.2" color="#FFF"></a-light> -->
+<a-mybox box-color="#f00" box-scale="0.5 0.5 0.5" box-position="-1 1 -3" />
+<a-mybox box-color="#00f" box-scale="0.5 0.5 0.5" box-position="1 1 -3" />
+<a-light type="ambient" intensity="1.2" color="#FFF" />
