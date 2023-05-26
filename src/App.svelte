@@ -1,3 +1,11 @@
+<script>
+  import { Router, Route } from "svelte-routing";
+  import Ambience from "./components/svelte/Ambience.svelte";
+  import LivingRoom from "./spaces/LivingRoom.svelte";
+  import Experiments from "./spaces/Experiments.svelte";
+  import ProductDetails from "./spaces/ProductDetails.svelte";
+</script>
+
 <a-scene shadow="type: pcf" mixin="global-proxy-router">
   <!-- IMPORT ASSETS -->
   <a-assets preload="auto">
@@ -41,6 +49,8 @@
     <a-mixin
       id="global-proxy-router"
       proxy-event__routechange-camera="event: routechange; to: #mainCamera;"
+      proxy-event__fadein-overlay="event: fadein; to: #overlay;"
+      proxy-event__fadeout-overlay="event: fadeout; to: #overlay;"
     />
 
     <!-- FONTS -->
@@ -51,7 +61,13 @@
   </a-assets>
 
   <c-menu />
-  <a-entity id="router" router="index: 0;" />
 
-  <c-ambience />
+  <Router>
+    <Route path="/" component={LivingRoom} />
+    <Route path="/living-room" component={LivingRoom} />
+    <Route path="/product-details" component={ProductDetails} />
+    <Route path="/experiments" component={Experiments} />
+  </Router>
+
+  <Ambience radius={200} />
 </a-scene>

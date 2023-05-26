@@ -112,6 +112,11 @@ OK - Insert template with webpack on init step by javascript
 - use aabb-collider // do not work because boxHelper grow horizontaly when rotate in Y axis
 - create box wrapper
 
+# Svelte Components
+
+- always properties need to defined e.g. position
+- register components is a good way to define and reuse
+
 # Generate Component
 
 - create a command line tool to generate component
@@ -184,9 +189,12 @@ no - publish look to component
 no - publish router component
 no - colab with svawc port
 no - colar or create a flexbox component layout
+no - port typescript svawc
+no - create a svawc command line
 
 # ideas
 
+no - create a component for auto close camera
 no - add proxy events to multiple events e multiple targets
 ok - data children component
 no - create a rounded component with circles and plane for aframe  
