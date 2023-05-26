@@ -21,7 +21,7 @@ import "aframe-troika-text";
 
 import "./components/aframe/look-to.js";
 import "./components/aframe/montserrat.js";
-import "./components/aframe/router.js";
+import "./components/aframe/navigate.js";
 import "./components/aframe/wrapper.js";
 import "./components/aframe/children";
 
@@ -33,22 +33,19 @@ import "./primitives/extends/text.js";
 // CUSTOM PRIMITIVES
 
 import "./primitives/menu/menu.js";
-import "./primitives/ambience/ambience.js";
-import "./primitives/product/product.js";
 import "./primitives/mybox/mybox.js";
-import "./primitives/popup/popup.js";
 
 // SVELTE COMPONENTS
 
-import registerSvelteComponents from "./register";
-registerSvelteComponents();
+import registerWebComponents from "./register";
+registerWebComponents();
 
 import App from "./App.svelte";
 
 let app = null;
 document.addEventListener("DOMContentLoaded", () => {
   app = new App({
-    target: document.body || document.querySelector("#app"),
+    target: document.body || document.getElementById("#app"),
     props: {},
   });
 });
