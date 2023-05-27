@@ -146,24 +146,33 @@ ok - (app) sotre and update state
 ok - (app) render children elements
 ok - (app) separate component and primitives
 ok - (app) render scene elements dynamically // mustache
+ok - (app) svelte migration components
+ok - (app) migrate to App.svelte
+ok - (app) reactive framework angular, vue, svelte
+ok - (app) replace scenes by spaces
+ok - (app) render children
 
 -------------------------------------------------------------
->> no - (app) svelte migration components
 
-no - (app) migrate to App.svelte
+>> no - (home) make popup dynamic
+
+no - (list) create list space
 no - (details) dot interactions // shein and google lens visual reference
 no - (details) parts of objects to animation
-no - (home) make popup dynamic
 no - (home) cetegories filter
+no - (app) add montserrat type font
 no - (home) menu categories umbrella
 no - (home) keyboar and search
-no - (app) reactive framework angular, vue, svelte
 no - (app) add data to json
-no - (app) add montserrat type font
-no - (app) render children
-no - (app) replace scenes by spaces
 no - (app) make components reusable
+no - (list) circular inverse carousel
 no - (home) increase camera overlay for wide screen
+no - (home) add new products and spaces
+no - (list) inifinity scroll carousel
+no - (home) circular spaces
+no - (home) keyboard and search
+no - (home) keyboard swipe
+no - (home) search by categories
 
 
 ```

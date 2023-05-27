@@ -50,9 +50,7 @@ export default {
     copy({
       targets: [
         { src: "src/assets", dest: "public/build" },
-        { src: "src/components", dest: "public/build" },
-        { src: "src/primitives", dest: "public/build" },
-        { src: "src/spaces", dest: "public/build" },
+        { src: "src/primitives/**/*.html", dest: "public/build/templates" },
       ],
     }),
 

@@ -4,7 +4,7 @@ import menuItem from "../menu-item/menu-item.js";
 export default AFRAME.registerPrimitive("c-menu", {
   defaultComponents: {
     template: {
-      src: "./build/primitives/menu/menu.html",
+      src: "./build/templates/menu.html",
     },
   },
 });
