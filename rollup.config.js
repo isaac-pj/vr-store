@@ -21,7 +21,7 @@ function serve() {
       if (server) return;
       server = require("child_process").spawn(
         "npm",
-        ["run", "start", "--", "--dev"],
+        ["run", "start", "--", "--dev", "--single", "--port", "5000"],
         {
           stdio: ["ignore", "inherit", "inherit"],
           shell: true,
@@ -56,7 +56,7 @@ export default {
     // Rollup plugin to import HTML files
     html({
       // Defines witch HTML files should be imported (can be modified)
-      include: "**/*.html",
+      include: "src/primitives/**/*.html",
     }),
 
     // If you have external dependencies installed from
@@ -86,8 +86,13 @@ export default {
 
     // Watch the `public` directory and refresh the
     // browser on changes when not in production
-    !production && livereload("public"),
-    // livereload({ watch: ["public", "src/**/*.html", "src/**/*.js"] }),
+    // !production && livereload("public"),
+    !production &&
+      livereload({
+        watch: "public",
+        delay: 400,
+        // watch: ["public", "src/**/*.html", "src/**/*.js"]
+      }),
 
     // If we're building for production (npm run build
     // instead of npm run dev), minify
