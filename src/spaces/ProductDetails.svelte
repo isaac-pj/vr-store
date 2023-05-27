@@ -1,12 +1,31 @@
-<!-- <a-entity id="lookme" position="0 0 -2"></a-entity> -->
+<script>
+  // export let product;
+  // $: product = history.state?.product;
 
-<c-light type="directional" color="#FFFFF0" target="#container" position="2 4 1"></c-light>
+  import { onMount } from "svelte";
+  import Product from "../components/svelte/Product.svelte";
+
+  let historyState;
+  onMount(() => {
+    historyState = history.state;
+    console.log(historyState);
+  });
+
+  $: product = historyState?.product;
+</script>
+
+<!-- <a-entity id="lookme" position="0 0 -2" /> -->
+
+<c-light
+  type="directional"
+  color="#FFFFF0"
+  target="#container"
+  position="2 4 1"
+/>
 
 <a-entity id="container" position="0 0 -2">
-  <c-product
+  <a-entity
     class="cursor"
-    data-pivot="bottom"
-    data-model="{{product}}"
     animation__toleft="property: rotation; to: 0 360 0; dir: reverse; dur: 10000; easing: linear; loop: true; autoplay: false; resumeEvents: toleft; pauseEvents: topause, toright;"
     animation__toright="property: rotation; to: 0 360 0; dur: 10000; easing: linear; loop: true; autoplay: false; resumeEvents: toright; pauseEvents: topause, toleft;"
     proxy-event__lookme="event: loaded; to: #mainCamera; as: lookme;"
@@ -14,7 +33,14 @@
     proxy-event__on="event: mouseleave; to: #info; as: toshow;"
     data-debug="true"
   >
-  </c-product>
+    <Product
+      model={product}
+      pivot="bottom"
+      position="0 0 0"
+      rotation="0 0 0"
+      debug={true}
+    />
+  </a-entity>
 
   <a-plane
     color="red"
@@ -46,17 +72,16 @@
       animation__leave="property: opacity; startEvents: mouseleave; to: 0.2; dur: 200;"
     >
       <a-troika-text
-        class="cursor"
+        class="cursor buttons"
         event-set="_event: mouseenter; color: #FAC200;"
         event-set__2="_event: mouseleave; color: #FFFFFF;"
         event-set__3="_event: click; _target: #mainCamera; camera.zoom: 1;"
-        class="buttons"
         value="rotate_right"
         font="#material-icons-font"
         rotation="0 180 -106"
         position="-0.843 0.707 -0.001"
         font-size="0.100"
-      ></a-troika-text>
+      />
     </a-ring>
   </a-plane>
 
@@ -90,17 +115,16 @@
       animation__leave="property: opacity; startEvents: mouseleave; to: 0.2; dur: 200;"
     >
       <a-troika-text
-        class="cursor"
+        class="cursor buttons"
         event-set="_event: mouseenter; color: #FAC200;"
         event-set__2="_event: mouseleave; color: #FFFFFF;"
         event-set__3="_event: click; _target: #mainCamera; camera.zoom: 1;"
-        class="buttons"
         value="rotate_left"
         font="#material-icons-font"
         rotation="0 180 106"
         position="0.843 0.707 -0.001"
         font-size="0.100"
-      ></a-troika-text>
+      />
     </a-ring>
   </a-plane>
 
@@ -133,30 +157,28 @@
       animation__leave="property: opacity; startEvents: mouseleave; to: 0.2; dur: 200;"
     >
       <a-troika-text
-        class="cursor"
+        class="cursor buttons"
         event-set="_event: mouseenter; color: #FAC200;"
         event-set__2="_event: mouseleave; color: #FFFFFF;"
         event-set__3="_event: click; _target: #mainCamera; camera.zoom: 1;"
-        class="buttons"
         value="remove"
         font="#material-icons-font"
         rotation="0 180 -106"
         position="1.05 0.290 -0.001"
         font-size="0.100"
-      ></a-troika-text>
+      />
 
       <a-troika-text
-        class="cursor"
+        class="cursor buttons"
         event-set="_event: mouseenter; color: #FAC200;"
         event-set__2="_event: mouseleave; color: #FFFFFF;"
-        class="buttons"
         value="close"
         font="#material-icons-font"
         rotation="0 180 -90"
         position="1.09 0 -0.001"
         font-size="0.100"
         route="event: click;"
-      ></a-troika-text>
+      />
 
       <a-troika-text
         class="cursor"
@@ -168,7 +190,7 @@
         rotation="0 -180 -74"
         position="1.05 -0.290 -0.001"
         font-size="0.100"
-      ></a-troika-text>
+      />
     </a-ring>
   </a-plane>
 </a-entity>
@@ -189,14 +211,14 @@
   animation__show="property: visible; startEvents: toshow; to: true; dur: 400;"
   look-at="#mainCamera"
 >
-  <c-text value="Beatle" position="-0.51 0.5 0.01" weight="700" width="16"></c-text>
-  <c-text value="Classic Fabric Armchair" position="-0.5 0.3 0.01" width="5"></c-text>
-  <c-text value="$899.00" position="-0.5 0.15 0.01" width="7" weight="700"></c-text>
+  <c-text value="Beatle" position="-0.51 0.5 0.01" weight="700" width="16" />
+  <c-text value="Classic Fabric Armchair" position="-0.5 0.3 0.01" width="5" />
+  <c-text value="$899.00" position="-0.5 0.15 0.01" width="7" weight="700" />
 
   <c-text
     value="Apresentamos a elegante \nPoltrona Beatle de linho Azul teste teste teste \ncom Pés de Madeira, \numa peça de mobiliário que \ncombina estilo e conforto \npara transformar sua casa."
     position="-0.5 -0.2 0.01"
     width="4"
     weight="400"
-  ></c-text>
+  />
 </a-plane>
