@@ -2,6 +2,7 @@
   export let id;
   export let route;
   export let payload;
+  export let position;
   // export let target;
   // export let event;
   $: routeParams = { path: route, data: payload };
@@ -19,7 +20,7 @@
   animation__scaledown="delay: 300; property: scale; startEvents: mouseleave, click; to: 0 0 0; dur: 200"
   animation__fadein="property: opacity; startEvents: mouseenter; to: 0.6; dur: 200"
   animation__fadeout="delay: 300; property: opacity; startEvents: mouseleave, click; to: 0; dur: 200"
-  animation__slideup="property: position; startEvents: mouseenter; to: 0 1.5 0; dur: 200"
+  animation__slideup={`property: position; startEvents: mouseenter; to: ${position}; dur: 200`}
   animation__slidedown="delay: 300; property: position; startEvents: mouseleave, click; to: 0 0 0; dur: 200"
 >
   <c-text value="Beatle" position="-0.4 0.40 0.01" weight="700" />

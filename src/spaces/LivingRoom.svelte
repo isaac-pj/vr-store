@@ -18,7 +18,7 @@
   <c-light type="directional" color="#FFFFF0" target="#wall" position="1 3 3" />
 </a-entity>
 
-{#each products as { id, name, pivot, position, rotation } (id)}
+{#each products as { id, name, pivot, position, rotation, popup } (id)}
   <Product
     model={name}
     {pivot}
@@ -26,12 +26,13 @@
     {rotation}
     event="mouseenter"
     target={`#popup-${name}`}
-    debug={true}
+    debug={false}
   >
     <Popup
       id={`popup-${name}`}
       route="/product-details"
       payload={{ product: name }}
+      position={popup.position}
     />
   </Product>
 {/each}

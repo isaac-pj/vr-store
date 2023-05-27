@@ -8,6 +8,12 @@ export const livingRoomSceneData = {
       pivot: "bottom",
       name: "armchair",
       src: "./assets/models/scene_01/Armchair.gltf",
+      price: "",
+      popup: {
+        position: "0 1 -0.32",
+        title: "",
+        subtitle: "",
+      },
     },
     {
       id: 2,
@@ -17,6 +23,12 @@ export const livingRoomSceneData = {
       pivot: "bottom",
       name: "lamp",
       src: "./assets/models/scene_01/Lamp.gltf",
+      price: "",
+      popup: {
+        position: "0 0 0",
+        title: "",
+        subtitle: "",
+      },
     },
     {
       id: 3,
@@ -26,6 +38,12 @@ export const livingRoomSceneData = {
       pivot: "bottom",
       name: "rug",
       src: "./assets/models/scene_01/Rug.gltf",
+      price: "",
+      popup: {
+        position: "0 0 0",
+        title: "",
+        subtitle: "",
+      },
     },
     {
       id: 4,
@@ -35,6 +53,12 @@ export const livingRoomSceneData = {
       pivot: "bottom",
       name: "table",
       src: "./assets/models/scene_01/Table.gltf",
+      price: "",
+      popup: {
+        position: "0 0 0",
+        title: "",
+        subtitle: "",
+      },
     },
     {
       id: 5,
@@ -44,6 +68,12 @@ export const livingRoomSceneData = {
       pivot: "center",
       name: "painting",
       src: "./assets/models/scene_01/Painting.gltf",
+      price: "",
+      popup: {
+        position: "0 1.030 0.265",
+        title: "",
+        subtitle: "",
+      },
     },
     {
       id: 6,
@@ -53,6 +83,12 @@ export const livingRoomSceneData = {
       pivot: "bottom",
       name: "plant",
       src: "./assets/models/scene_01/Plant.gltf",
+      price: "",
+      popup: {
+        position: "0 0 0",
+        title: "",
+        subtitle: "",
+      },
     },
   ],
 };
