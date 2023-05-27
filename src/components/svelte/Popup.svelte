@@ -3,6 +3,9 @@
   export let route;
   export let payload;
   export let position;
+  export let title;
+  export let subtitle;
+  export let price;
   // export let target;
   // export let event;
   $: routeParams = { path: route, data: payload };
@@ -23,9 +26,9 @@
   animation__slideup={`property: position; startEvents: mouseenter; to: ${position}; dur: 200`}
   animation__slidedown="delay: 300; property: position; startEvents: mouseleave, click; to: 0 0 0; dur: 200"
 >
-  <c-text value="Beatle" position="-0.4 0.40 0.01" weight="700" />
-  <c-text value="Classic Fabric Armchair" position="-0.4 0.23 0.01" width="4" />
-  <c-text value="$899.00" position="-0.4 0.15 0.01" width="6" weight="600" />
+  <c-text value={title} position="-0.4 0.40 0.01" weight="700" />
+  <c-text value={subtitle} position="-0.4 0.23 0.01" width="4" />
+  <c-text value={price} position="-0.4 0.15 0.01" width="6" weight="600" />
 
   <a-plane
     class="cursor"

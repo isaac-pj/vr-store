@@ -13,12 +13,13 @@
   position="0 0 -4.5"
   shadow="receive: true; cast: true"
   proxy-event__loaded="event: model-loaded; to: #overlay; as: fadein"
+  proxy-event__lookme="event: loaded; to: #mainCamera; as: lookme;"
 >
-  <a-entity id="lookme" position="3 0 0" />
+  <a-entity id="lookme" position="0 1.2 0" />
   <c-light type="directional" color="#FFFFF0" target="#wall" position="1 3 3" />
 </a-entity>
 
-{#each products as { id, name, pivot, position, rotation, popup } (id)}
+{#each products as { id, name, pivot, position, rotation, price, popup } (id)}
   <Product
     model={name}
     {pivot}
@@ -33,6 +34,9 @@
       route="/product-details"
       payload={{ product: name }}
       position={popup.position}
+      title={popup.title}
+      subtitle={popup.subtitle}
+      {price}
     />
   </Product>
 {/each}

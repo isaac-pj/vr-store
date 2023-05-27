@@ -8,11 +8,11 @@ export const livingRoomSceneData = {
       pivot: "bottom",
       name: "armchair",
       src: "./assets/models/scene_01/Armchair.gltf",
-      price: "",
+      price: "$980.00",
       popup: {
         position: "0 1 -0.32",
-        title: "",
-        subtitle: "",
+        title: "Beatle",
+        subtitle: "Classic Fabric Armchair",
       },
     },
     {
@@ -25,7 +25,7 @@ export const livingRoomSceneData = {
       src: "./assets/models/scene_01/Lamp.gltf",
       price: "",
       popup: {
-        position: "0 0 0",
+        position: "0 0.8 0",
         title: "",
         subtitle: "",
       },
@@ -38,11 +38,11 @@ export const livingRoomSceneData = {
       pivot: "bottom",
       name: "rug",
       src: "./assets/models/scene_01/Rug.gltf",
-      price: "",
+      price: "$588.00",
       popup: {
-        position: "0 0 0",
-        title: "",
-        subtitle: "",
+        position: "1.2 0.6 0.25",
+        title: "Tapete Luke",
+        subtitle: "Classic zebra pattern",
       },
     },
     {
@@ -55,7 +55,7 @@ export const livingRoomSceneData = {
       src: "./assets/models/scene_01/Table.gltf",
       price: "",
       popup: {
-        position: "0 0 0",
+        position: "0.7 0.95 0",
         title: "",
         subtitle: "",
       },
@@ -85,7 +85,7 @@ export const livingRoomSceneData = {
       src: "./assets/models/scene_01/Plant.gltf",
       price: "",
       popup: {
-        position: "0 0 0",
+        position: "0 1.265 0",
         title: "",
         subtitle: "",
       },
