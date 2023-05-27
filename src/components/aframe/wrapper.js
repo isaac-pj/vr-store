@@ -6,46 +6,49 @@ export default AFRAME.registerComponent("wrapper", {
     pivot: { type: "string", default: "center" },
   },
   init: function () {
-    const self = this;
-    const { pivot, selector } = this.data;
-
+    const { selector } = this.data;
     const wrapper = this.el;
     const target = selector
       ? document.querySelector(selector)
       : wrapper?.firstElementChild;
+
     const isGltfModel = target?.hasAttribute("gltf-model");
 
     if (!target) return;
 
-    async function boundingBoxUpdate() {
-      await waitFor(100);
-      const boundingBox = new THREE.Box3();
-
-      boundingBox.setFromObject(this?.object3D || target?.object3D);
-
-      const { min, max } = boundingBox;
-
-      const width = max.x - min.x;
-      const height = max.y - min.y;
-      const depth = max.z - min.z;
-
-      const offset = height / 2;
-
-      const wrapperGeometry = wrapper.getAttribute("geometry");
-      wrapper.setAttribute("geometry", {
-        ...wrapperGeometry,
-        width,
-        height,
-        depth,
-      });
-      self.handlePivot(pivot, wrapper, target, offset);
-    }
-
     if (isGltfModel) {
-      target.addEventListener("model-loaded", boundingBoxUpdate);
+      target.addEventListener(
+        "model-loaded",
+        this.boundingBoxUpdate.bind(this, target, wrapper)
+      );
     } else {
-      boundingBoxUpdate();
+      this.boundingBoxUpdate(target, wrapper);
     }
+  },
+  boundingBoxUpdate: async function (target, wrapper) {
+    const { pivot } = this.data;
+
+    await waitFor(100);
+    const boundingBox = new THREE.Box3();
+
+    boundingBox.setFromObject(target?.object3D);
+
+    const { min, max } = boundingBox;
+
+    const width = max.x - min.x;
+    const height = max.y - min.y;
+    const depth = max.z - min.z;
+
+    const offset = height / 2;
+
+    const wrapperGeometry = wrapper.getAttribute("geometry");
+    wrapper.setAttribute("geometry", {
+      ...wrapperGeometry,
+      width,
+      height,
+      depth,
+    });
+    this.handlePivot(pivot, wrapper, target, offset);
   },
   handlePivot: function (pivot, wrapper, target, offset) {
     const offsetReverse = offset * -1;
@@ -56,12 +59,18 @@ export default AFRAME.registerComponent("wrapper", {
       case "top":
         wrapper.setAttribute("position", {
           ...wrapperPosition,
-          y: offsetReverse,
+          y: wrapperPosition.y + offsetReverse,
         });
-        target.setAttribute("position", { ...targetPosition, y: offset });
+        target.setAttribute("position", {
+          ...targetPosition,
+          y: offset,
+        });
         break;
       case "bottom":
-        wrapper.setAttribute("position", { ...wrapperPosition, y: offset });
+        wrapper.setAttribute("position", {
+          ...wrapperPosition,
+          y: wrapperPosition.y + offset,
+        });
         target.setAttribute("position", {
           ...targetPosition,
           y: offsetReverse,
