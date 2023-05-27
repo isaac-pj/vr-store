@@ -100,7 +100,7 @@ export default AFRAME.registerComponent("look-to", {
     camera.components["look-controls"].yawObject.rotation.y =
       THREE.MathUtils.degToRad(rotation.y);
 
-    camera.setAttribute("look-to", "#");
+    camera.removeAttribute("look-to");
     camera.setAttribute("look-controls", { enabled: true });
   },
 
