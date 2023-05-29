@@ -1,3 +1,10 @@
+<a-entity
+  id="lookme"
+  position="0 0 -3"
+  proxy-event__loaded="event: loaded; to: #overlay; as: fadein"
+/>
+<a-light type="ambient" intensity="1.2" color="#FFF" />
+
 <!-- TEST 01 -->
 <!-- <c-mybox>
   <a-plane
@@ -24,16 +31,16 @@
 <!-- <a-entity
   bind-for="for: item; in: shoppingList; key: name; updateInPlace: true"
 >
-  <template>
-    <a-plane
-      class="cursor"
+<template>
+  <a-plane
+  class="cursor"
       color="orange"
       height="0.5"
       bind-item__position="item.pos"
       position="0 1 -2"
     >
-      <a-text
-        bind-item__text="value: item.name"
+    <a-text
+    bind-item__text="value: item.name"
         bind-item__color="item.color"
         position="0 0 0"
         align="center"
@@ -58,6 +65,12 @@
   pants-color="white"
 ></a-person> -->
 
+<a-sphere position="0 1 -5" color="green" rarius="0.5" />
+
 <a-mybox box-color="#f00" box-scale="0.5 0.5 0.5" box-position="-1 1 -3" />
-<a-mybox box-color="#00f" box-scale="0.5 0.5 0.5" box-position="1 1 -3" />
-<a-light type="ambient" intensity="1.2" color="#FFF" />
+<a-mybox
+  box-color="#00f"
+  box-scale="0.5 0.5 0.5"
+  box-position="1 1 -3"
+  proxy-event__lookme="event: loaded; to: #mainCamera; as: lookme;"
+/>
