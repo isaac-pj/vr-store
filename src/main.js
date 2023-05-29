@@ -32,7 +32,6 @@ import "./primitives/extends/text.js";
 
 // CUSTOM PRIMITIVES
 
-import "./primitives/menu/menu.js";
 import "./primitives/mybox/mybox.js";
 
 // SVELTE COMPONENTS

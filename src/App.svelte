@@ -4,6 +4,8 @@
   import LivingRoom from "./spaces/LivingRoom.svelte";
   import Experiments from "./spaces/Experiments.svelte";
   import ProductDetails from "./spaces/ProductDetails.svelte";
+  import ProductList from "./spaces/ProductList.svelte";
+  import Menu from "./components/svelte/Menu.svelte";
 </script>
 
 <a-scene shadow="type: pcf" mixin="global-proxy-router">
@@ -60,13 +62,14 @@
     />
   </a-assets>
 
-  <c-menu />
+  <Menu />
 
   <Router>
     <Route path="/" component={LivingRoom} />
     <Route path="/living-room" component={LivingRoom} />
     <Route path="/product-details" component={ProductDetails} />
     <Route path="/experiments" component={Experiments} />
+    <Route path="/list" component={ProductList} />
   </Router>
 
   <Ambience radius={200} />

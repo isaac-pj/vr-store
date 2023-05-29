@@ -6,5 +6,5 @@
   radius-outer="0.1"
   color="#FFF"
   material="shader: flat"
-  proxy-event="event: mouseenter; to: #menu; as: mouseenter"
-></a-ring>
+/>
+<!-- proxy-event="event: mouseenter; to: #menu; as: mouseenter" -->

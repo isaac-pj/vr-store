@@ -45,6 +45,6 @@
     animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
     event-set__mouseenter="_event: mouseenter; color: #ffd70a"
     event-set__mouseleave="_event: mouseleave; color: black"
-    raycaster="objects: .cursor; far: 10; showLine: false;"
+    raycaster="objects: .cursor; far: 15; showLine: false;"
   />
 </a-camera>
