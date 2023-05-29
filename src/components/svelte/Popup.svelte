@@ -21,8 +21,6 @@
   look-at="#mainCamera"
   animation__scaleup="property: scale; startEvents: mouseenter; to: 1 1 1; dur: 200"
   animation__scaledown="delay: 300; property: scale; startEvents: mouseleave, click; to: 0 0 0; dur: 200"
-  animation__fadein="property: opacity; startEvents: mouseenter; to: 0.6; dur: 200"
-  animation__fadeout="delay: 300; property: opacity; startEvents: mouseleave, click; to: 0; dur: 200"
   animation__slideup={`property: position; startEvents: mouseenter; to: ${position}; dur: 200`}
   animation__slidedown="delay: 300; property: position; startEvents: mouseleave, click; to: 0 0 0; dur: 200"
 >
