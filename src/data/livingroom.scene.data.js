@@ -8,11 +8,11 @@ export const livingRoomSceneData = {
       pivot: "bottom",
       name: "armchair",
       src: "./assets/models/scene_01/Armchair.gltf",
-      price: "$980.00",
+      price: "2.980,00",
       popup: {
         position: "0 1 -0.32",
-        title: "Beatle",
-        subtitle: "Classic Fabric Armchair",
+        title: "Poltrona Beatle",
+        subtitle: "Acabamento em linho e madeira",
       },
     },
     {
@@ -23,11 +23,11 @@ export const livingRoomSceneData = {
       pivot: "bottom",
       name: "lamp",
       src: "./assets/models/scene_01/Lamp.gltf",
-      price: "",
+      price: "345,00",
       popup: {
         position: "0 0.8 0",
-        title: "",
-        subtitle: "",
+        title: "Luminária Cupp",
+        subtitle: "Luminária de mesa industrial",
       },
     },
     {
@@ -38,11 +38,11 @@ export const livingRoomSceneData = {
       pivot: "bottom",
       name: "rug",
       src: "./assets/models/scene_01/Rug.gltf",
-      price: "$588.00",
+      price: "1.880,00",
       popup: {
         position: "1.2 0.6 0.25",
         title: "Tapete Luke",
-        subtitle: "Classic zebra pattern",
+        subtitle: "Clássico padrão zebrado",
       },
     },
     {
@@ -53,11 +53,11 @@ export const livingRoomSceneData = {
       pivot: "bottom",
       name: "table",
       src: "./assets/models/scene_01/Table.gltf",
-      price: "",
+      price: "1.087,00",
       popup: {
         position: "0.7 0.95 0",
-        title: "",
-        subtitle: "",
+        title: "Mesa Pazzi",
+        subtitle: "Mesa lateral flutuante",
       },
     },
     {
@@ -68,11 +68,11 @@ export const livingRoomSceneData = {
       pivot: "center",
       name: "painting",
       src: "./assets/models/scene_01/Painting.gltf",
-      price: "",
+      price: "340,00",
       popup: {
         position: "0 1.030 0.265",
-        title: "",
-        subtitle: "",
+        title: "B&W Cactus",
+        subtitle: "Quadro minimalista preto e branco",
       },
     },
     {
@@ -83,11 +83,11 @@ export const livingRoomSceneData = {
       pivot: "bottom",
       name: "plant",
       src: "./assets/models/scene_01/Plant.gltf",
-      price: "",
+      price: "645,00",
       popup: {
         position: "0 1.265 0",
-        title: "",
-        subtitle: "",
+        title: "Costela de adão",
+        subtitle: "Planta tropical decorativa",
       },
     },
   ],
