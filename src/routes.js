@@ -20,4 +20,10 @@ export const routes = [
     src: "./build/spaces/experiments.html",
     type: "mustache",
   },
+  {
+    key: "productListRoute",
+    path: "/list",
+    src: "./spaces/product-list.html",
+    type: "mustache",
+  },
 ];
