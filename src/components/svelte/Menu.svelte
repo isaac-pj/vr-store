@@ -23,7 +23,7 @@
   animation__hide="property: opacity; to: 0; dur: 300; startEvents: mouseleave"
   animation__open="property: theta-length; to: 65; dur: 300; startEvents: mouseenter"
   animation__close="property: theta-length; to: 0; dur: 300; startEvents: mouseleave"
-  event-set__show="_event: animationcomplete__open; _target: #circleLayout; visible: true; _delay: 100;"
+  proxy-event__show="event: animationcomplete__open; to: #circleLayout; as: show;"
 >
   <a-sphere
     id="umbrellaTrigger"
@@ -42,8 +42,6 @@
       event-set__show="_event: show; visible: true; _delay: 100;"
       event-set__hide="_event: hide; visible: false;"
     >
-      <!-- event-set__show="_event: mouseenter; visible: true; _delay: 100;" -->
-      <!-- event-set__hide="_event: mouseleave; visible: false;" -->
       <MenuItem label="Celulares" ref="" />
       <MenuItem label="Brinquedos" ref="" />
       <MenuItem label="Games" ref="" />
