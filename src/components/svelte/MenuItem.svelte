@@ -17,15 +17,3 @@
   animation__mouseleave-textcolor="property: text.color; to: #272727; dur: 300; startEvents: mouseleave"
   route="path: /list;"
 />
-<!-- proxy-event__open="event: mouseenter; to: #umbrellaMenu; as: open; captureBubbles: true; bubbles: true;" -->
-<!-- proxy-event__close="event: mouseleave; to: #umbrellaMenu; as: close; captureBubbles: true; bubbles: true;" -->
-
-<!-- proxy-event__open="event: mouseenter; to: #umbrellaMenu; as: open" -->
-<!-- proxy-event__close="event: mouseleave; to: #umbrellaMenu; as: close" -->
-<!-- proxy-event__hide="event: mouseleave; to: #circleLayout; as: hide" -->
-
-<!-- event-set__show="_event: mouseenter; proxy-event__open.enabled: false;" -->
-<!-- event-set__hide="_event: mouseleave; proxy-event__open.enabled: true;" -->
-
-<!-- event-set__on="_event: mouseenter; proxy-event__close.enabled: false;" -->
-<!-- event-set__off="_event: mouseleave; proxy-event__close.enabled: true;" -->
