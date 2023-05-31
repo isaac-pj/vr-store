@@ -12,9 +12,10 @@
   animation__mouseenter-textcolor="property: color; to: #FFFFFF; dur: 300; startEvents: mouseenter"
   animation__mouseleave-textcolor="property: color; to: #272727; dur: 300; startEvents: mouseleave"
   sound="on: mouseenter; src: #click-sound; volume: 1; positional: false;"
-  font="#montserrat-regular"
+  font="#montserrat-semibold"
   curve-radius="10"
-  font-size="0.8"
+  font-size="0.5"
+  letter-spacing="0.2"
   navigate="path: /list;"
   look-at="#circleLayout"
 />
