@@ -49,6 +49,7 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
+    "aframe-html-shader": "https://github.com/isaac-pj/aframe-html-shader.git#master",
     "angle": "^0.9.1",
     "handlebars": "^4.0.5",
     "mustache": "^2.2.1",
