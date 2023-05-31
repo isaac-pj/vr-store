@@ -151,22 +151,22 @@ ok - (app) migrate to App.svelte
 ok - (app) reactive framework angular, vue, svelte
 ok - (app) replace scenes by spaces
 ok - (app) render children
+ok - (list) create list space
+ok - (app) add data to json
+ok - (home) menu categories umbrella
+ok - (app) add montserrat type font
 
 -------------------------------------------------------------
 
->> no - (home) make popup dynamic
+>> ok - (home) make popup dynamic
 
-no - (list) create list space
+no - (home) increase camera overlay for wide screen
+no - (home) cetegories filter
 no - (details) dot interactions // shein and google lens visual reference
 no - (details) parts of objects to animation
-no - (home) cetegories filter
-no - (app) add montserrat type font
-no - (home) menu categories umbrella
-no - (home) keyboar and search
-no - (app) add data to json
+no - (details) make animation rotate
 no - (app) make components reusable
 no - (list) circular inverse carousel
-no - (home) increase camera overlay for wide screen
 no - (home) add new products and spaces
 no - (list) inifinity scroll carousel
 no - (home) circular spaces
@@ -200,9 +200,16 @@ no - colab with svawc port
 no - colar or create a flexbox component layout
 no - port typescript svawc
 no - create a svawc command line
+no - implements animationbegin\_\_hasID // need to publish
+no - event-set-if baseado em condicao
+no - capture phase e once in event proxy e event set
+no - fix layout componente warn default value number
+no - replace THREE.Math for THREE.MathUtils
+no - mapping html shader to cylinder // no set width
 
 # ideas
 
+no - create a component cascade to inherit props
 no - create a component for auto close camera
 no - add proxy events to multiple events e multiple targets
 ok - data children component
