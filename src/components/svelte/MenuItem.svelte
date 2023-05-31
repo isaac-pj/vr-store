@@ -11,7 +11,7 @@
   value={label?.toUpperCase()}
   animation__mouseenter-textcolor="property: color; to: #FFFFFF; dur: 300; startEvents: mouseenter"
   animation__mouseleave-textcolor="property: color; to: #272727; dur: 300; startEvents: mouseleave"
-  sound="on: mouseenter; src: #click-sound; volume: 2"
+  sound="on: mouseenter; src: #click-sound; volume: 1; positional: false;"
   font="#montserrat-regular"
   curve-radius="10"
   font-size="0.8"
