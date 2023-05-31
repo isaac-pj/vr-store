@@ -6,6 +6,7 @@
   import ProductDetails from "./spaces/ProductDetails.svelte";
   import ProductList from "./spaces/ProductList.svelte";
   import Menu from "./components/svelte/Menu.svelte";
+  import { fonts } from "./constants/assetsImport.js";
 </script>
 
 <a-scene shadow="type: pcf" mixin="global-proxy-router">
@@ -60,12 +61,21 @@
       id="material-icons-font"
       src="./build/assets/fonts/icons/MaterialIconsOutlined-Regular.otf"
     />
+
+    {#each fonts.montserrat.files as { name, format } (name)}
+      <a-asset-item
+        id={name?.toLowerCase()}
+        src={`${fonts.montserrat.path}${name}.${
+          format || fonts.montserrat.format
+        }`}
+      />
+    {/each}
   </a-assets>
 
   <Menu />
 
   <Router>
-    <Route path="/" component={LivingRoom} />
+    <Route path="/" component={Experiments} />
     <Route path="/living-room" component={LivingRoom} />
     <Route path="/product-details" component={ProductDetails} />
     <Route path="/experiments" component={Experiments} />
