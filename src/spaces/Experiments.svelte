@@ -1,3 +1,11 @@
+<script>
+  import Teste04 from "../components/svelte/experiments/EX04.svelte";
+  import Teste01 from "../components/svelte/experiments/EX01.svelte";
+  import Teste02 from "../components/svelte/experiments/EX02.svelte";
+  import Teste05 from "../components/svelte/experiments/EX05.svelte";
+  import Teste03 from "../components/svelte/experiments/EX03.svelte";
+</script>
+
 <a-entity
   id="lookme"
   position="0 0 -3"
@@ -5,72 +13,8 @@
 />
 <a-light type="ambient" intensity="1.2" color="#FFF" />
 
-<!-- TEST 01 -->
-<!-- <c-mybox>
-  <a-plane
-    id="teste"
-    class="cursor"
-    color="orange"
-    height="0.5"
-    position="0 1 0"
-    event-set__on="_event: mouseenter; color: blue;"
-    event-set__off="_event: mouseleave; color: orange;"
-    event-set__clear="_event: mouseenter; _target: #teste > *; color: #ddd;"
-    event-set__dark="_event: mouseleave; _target: #teste > *; color: #333;"
-  >
-    <a-text
-      bind="value: name"
-      position="0 0 0"
-      align="center"
-      color="#333"
-    ></a-text>
-  </a-plane>
-</c-mybox> -->
-
-<!-- TEST 02 -->
-<!-- <a-entity
-  bind-for="for: item; in: shoppingList; key: name; updateInPlace: true"
->
-<template>
-  <a-plane
-  class="cursor"
-      color="orange"
-      height="0.5"
-      bind-item__position="item.pos"
-      position="0 1 -2"
-    >
-    <a-text
-    bind-item__text="value: item.name"
-        bind-item__color="item.color"
-        position="0 0 0"
-        align="center"
-        color="#333"
-        data-amount="{{ amount }}"
-      ></a-text>
-    </a-plane>
-  </template>
-</a-entity> -->
-
-<!-- <a-person position="0 0 -3"></a-person>
-<a-person
-  position="1 0 -3"
-  skin-color="peachpuff"
-  shirt-color="grey"
-  pants-color="darkgrey"
-></a-person>
-<a-person
-  position="-1 0 -3"
-  skin-color="sienna"
-  shirt-color="pink"
-  pants-color="white"
-></a-person> -->
-
-<a-sphere position="0 1 -5" color="green" rarius="0.5" />
-
-<a-mybox box-color="#f00" box-scale="0.5 0.5 0.5" box-position="-1 1 -3" />
-<a-mybox
-  box-color="#00f"
-  box-scale="0.5 0.5 0.5"
-  box-position="1 1 -3"
-  proxy-event__lookme="event: loaded; to: #mainCamera; as: lookme;"
-/>
+<!-- <Teste01 /> -->
+<!-- <Teste02 /> -->
+<!-- <Teste03 /> -->
+<Teste04 />
+<!-- <Teste05 /> -->
