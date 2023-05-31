@@ -11,7 +11,7 @@
     "build": "rollup -c",
     "prepublish": "npm run build",
     "dev": "rollup -c -w",
-    "start": "sirv public --no-clear",
+    "start": "sirv public --no-clear --port 5200 --http2 --key localhost-key.pem --cert localhost-cert.pem",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
