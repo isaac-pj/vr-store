@@ -75,7 +75,7 @@
   <Menu />
 
   <Router>
-    <Route path="/" component={Experiments} />
+    <Route path="/" component={LivingRoom} />
     <Route path="/living-room" component={LivingRoom} />
     <Route path="/product-details" component={ProductDetails} />
     <Route path="/experiments" component={Experiments} />
