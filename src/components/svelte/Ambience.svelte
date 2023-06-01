@@ -39,7 +39,7 @@
     color="#fff"
     opacity="1"
     position="0 0 -0.5"
-    scale="1.8 1 1"
+    scale="2 1 1"
     event-set__ready={`_event: loaded; _target: #mainCamera; far: ${cameraFar};`}
     animation__fadein="property:opacity; startEvents: fadein; from: 1; to: 0; dur: 1000;"
     animation__fadeout="property:opacity; startEvents: fadeout; from: 0; to: 1; dur: 1000"
