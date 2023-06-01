@@ -2,11 +2,11 @@
   import MenuItem from "./MenuItem.svelte";
   import MenuRing from "./MenuRing.svelte";
 
-  let circleLayout;
+  let circleLayoutRef;
 
   const handleMouseLeave = ({ target }) => {
     if (target?.id !== "umbrellaTrigger") return;
-    circleLayout.emit("hide");
+    circleLayoutRef.emit("hide");
   };
 </script>
 
@@ -34,7 +34,7 @@
     on:raycaster-intersected-cleared={handleMouseLeave}
   >
     <a-entity
-      bind:this={circleLayout}
+      bind:this={circleLayoutRef}
       id="circleLayout"
       layout="type: circle; radius: 10; plane: xz;"
       position="0 7 0"
