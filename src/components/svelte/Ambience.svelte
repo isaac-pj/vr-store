@@ -2,6 +2,13 @@
   export let radius = 100;
   $: spaceRadius = radius;
   $: cameraFar = radius + 5;
+
+  let cursorRef;
+
+  const handleMouseAtive = ({ type, detail: { intersectedEl } }) => {
+    if (!intersectedEl.classList.contains("active")) return;
+    cursorRef.emit(type === "mouseenter" ? "mouseon" : "mouseoff");
+  };
 </script>
 
 <a-sky {radius} src="#backgroundTexture" />
@@ -43,8 +50,11 @@
     id="cursor"
     animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
     animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
-    event-set__mouseenter="_event: mouseenter; color: #ffd70a"
-    event-set__mouseleave="_event: mouseleave; color: black"
+    event-set__mouseenter="_event: mouseon; color: #ffd70a"
+    event-set__mouseleave="_event: mouseoff; color: black"
     raycaster="objects: .cursor; far: 15; showLine: false;"
+    bind:this={cursorRef}
+    on:mouseenter={handleMouseAtive}
+    on:mouseleave={handleMouseAtive}
   />
 </a-camera>

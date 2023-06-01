@@ -23,7 +23,7 @@
   wrapper={{ pivot }}
   geometry="primitive: box;"
   material={{ color: "#FAC200", wireframe: true, visible: debug }}
-  event-set__ready="_event: wrapped; class: cursor;"
+  event-set__ready="_event: wrapped; class: cursor active;"
   proxy-event={{ event, to: `:has(> #box-${model}) ${target}` }}
 >
   <a-entity
