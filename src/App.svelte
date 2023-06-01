@@ -54,6 +54,7 @@
       proxy-event__routechange-camera="event: routechange; to: #mainCamera;"
       proxy-event__fadein-overlay="event: fadein; to: #overlay;"
       proxy-event__fadeout-overlay="event: fadeout; to: #overlay;"
+      proxy-event__popupclose-popups="event: popupclose; to: .popup; as: mouseleave;"
     />
 
     <!-- FONTS -->
