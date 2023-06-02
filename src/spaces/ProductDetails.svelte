@@ -1,201 +1,53 @@
 <script>
-  // export let product;
-  // $: product = history.state?.product;
-
-  import { onMount } from "svelte";
+  import Container from "../components/svelte/Container.svelte";
+  // import { onMount } from "svelte";
+  // import { useHistory } from "svelte-routing";
   import Product from "../components/svelte/Product.svelte";
+  import { livingRoomSceneData } from "./../data/livingroom.scene.data.js";
 
-  let historyState;
-  onMount(() => {
-    historyState = history.state;
-    console.log(historyState);
-  });
+  const { products } = livingRoomSceneData;
 
-  $: product = historyState?.product;
+  export let product = "";
+
+  // let historyState;
+  // onMount(() => (historyState = history.state));
+
+  const { productId } = history.state;
+
+  const findProduct = productId => {
+    if (!productId) return;
+    return products.find(({ id }) => id === productId);
+  };
+
+  const getPosition = product => {
+    return `0 ${product.pivot === "center" ? product.box.height / 2 : 0} 0`;
+  };
+
+  $: product = product || findProduct(productId);
 </script>
 
-<!-- <a-entity id="lookme" position="0 0 -2" /> -->
+<a-entity id="lookme" position="0 0 -2" />
 
 <c-light
   type="directional"
   color="#FFFFF0"
   target="#container"
+  automatic="#container"
   position="2 4 1"
+  bias="-0.00015"
 />
 
-<a-entity id="container" position="0 0 -2">
-  <a-entity
-    class="cursor"
-    animation__toleft="property: rotation; to: 0 360 0; dir: reverse; dur: 10000; easing: linear; loop: true; autoplay: false; resumeEvents: toleft; pauseEvents: topause, toright;"
-    animation__toright="property: rotation; to: 0 360 0; dur: 10000; easing: linear; loop: true; autoplay: false; resumeEvents: toright; pauseEvents: topause, toleft;"
-    proxy-event__lookme="event: loaded; to: #mainCamera; as: lookme;"
-    proxy-event__off="event: mouseenter; to: #info; as: tohide;"
-    proxy-event__on="event: mouseleave; to: #info; as: toshow;"
-    data-debug="true"
-  >
-    <Product
-      model={product}
-      pivot="bottom"
-      position="0 0 0"
-      rotation="0 0 0"
-      debug={true}
-    />
-  </a-entity>
+<Container>
+  <Product
+    model={product.name}
+    pivot={product.pivot}
+    position={getPosition(product)}
+    rotation="0 0 0"
+    debug={false}
+  />
+</Container>
 
-  <a-plane
-    color="red"
-    material="visible: false"
-    class="cursor"
-    height="1.8"
-    width="1.2"
-    rotation="-90 0 0"
-    position="-0.6 0.001 0"
-    proxy-event__resume="event: mouseenter; to: c-product; as: toleft"
-    proxy-event__pause="event: mouseleave; to: c-product; as: topause"
-    proxy-event__in="event: mouseenter; to: #rotateLeftButton;"
-    proxy-event__out="event: mouseleave; to: #rotateLeftButton;"
-    proxy-event__off="event: mouseenter; to: #info; as: tohide;"
-    proxy-event__on="event: mouseleave; to: #info; as: toshow;"
-  >
-    <a-ring
-      id="rotateLeftButton"
-      rotation="-180 0 0"
-      position="0.6 0 0.001"
-      radius-inner="1.2"
-      radius-outer="1"
-      color="#111"
-      opacity="0.2"
-      theta-start="135"
-      theta-length="90"
-      material="shader: flat"
-      animation__enter="property: opacity; startEvents: mouseenter; to: 0.5; dur: 200;"
-      animation__leave="property: opacity; startEvents: mouseleave; to: 0.2; dur: 200;"
-    >
-      <a-troika-text
-        class="cursor buttons"
-        event-set="_event: mouseenter; color: #FAC200;"
-        event-set__2="_event: mouseleave; color: #FFFFFF;"
-        event-set__3="_event: click; _target: #mainCamera; camera.zoom: 1;"
-        value="rotate_right"
-        font="#material-icons-font"
-        rotation="0 180 -106"
-        position="-0.843 0.707 -0.001"
-        font-size="0.100"
-      />
-    </a-ring>
-  </a-plane>
-
-  <a-plane
-    color="blue"
-    material="visible: false"
-    class="cursor"
-    height="1.8"
-    width="1.2"
-    rotation="-90 0 0"
-    position="0.6 0.001 0"
-    proxy-event__resume="event: mouseenter; to: c-product; as: toright"
-    proxy-event__pause="event: mouseleave; to: c-product; as: topause"
-    proxy-event__in="event: mouseenter; to: #rotateRightButton;"
-    proxy-event__out="event: mouseleave; to: #rotateRightButton;"
-    proxy-event__off="event: mouseenter; to: #info; as: tohide;"
-    proxy-event__on="event: mouseleave; to: #info; as: toshow;"
-  >
-    <a-ring
-      id="rotateRightButton"
-      rotation="-180 0 0"
-      position="-0.6 0 0.001"
-      radius-inner="1.2"
-      radius-outer="1"
-      color="#111"
-      opacity="0.2"
-      theta-start="315"
-      theta-length="90"
-      material="shader: flat"
-      animation__enter="property: opacity; startEvents: mouseenter; to: 0.5; dur: 200;"
-      animation__leave="property: opacity; startEvents: mouseleave; to: 0.2; dur: 200;"
-    >
-      <a-troika-text
-        class="cursor buttons"
-        event-set="_event: mouseenter; color: #FAC200;"
-        event-set__2="_event: mouseleave; color: #FFFFFF;"
-        event-set__3="_event: click; _target: #mainCamera; camera.zoom: 1;"
-        value="rotate_left"
-        font="#material-icons-font"
-        rotation="0 180 106"
-        position="0.843 0.707 -0.001"
-        font-size="0.100"
-      />
-    </a-ring>
-  </a-plane>
-
-  <a-plane
-    class="cursor"
-    color="yellow"
-    material="visible: false"
-    height="1"
-    width="1.2"
-    rotation="-90 -90 0"
-    position="0 0.002 0.6"
-    proxy-event__in="event: mouseenter; to: #controlButtons;"
-    proxy-event__out="event: mouseleave; to: #controlButtons;"
-    proxy-event__off="event: mouseenter; to: #info; as: tohide;"
-    proxy-event__on="event: mouseleave; to: #info; as: toshow;"
-  >
-    <a-ring
-      class="cursor"
-      id="controlButtons"
-      rotation="-180 0 0"
-      position="-0.6 0 0.001"
-      radius-inner="1.2"
-      radius-outer="1"
-      color="#111"
-      opacity="0.2"
-      theta-start="335"
-      theta-length="50"
-      material="shader: flat"
-      animation__enter="property: opacity; startEvents: mouseenter; to: 0.5; dur: 200;"
-      animation__leave="property: opacity; startEvents: mouseleave; to: 0.2; dur: 200;"
-    >
-      <a-troika-text
-        class="cursor buttons"
-        event-set="_event: mouseenter; color: #FAC200;"
-        event-set__2="_event: mouseleave; color: #FFFFFF;"
-        event-set__3="_event: click; _target: #mainCamera; camera.zoom: 1;"
-        value="remove"
-        font="#material-icons-font"
-        rotation="0 180 -106"
-        position="1.05 0.290 -0.001"
-        font-size="0.100"
-      />
-
-      <a-troika-text
-        class="cursor buttons"
-        event-set="_event: mouseenter; color: #FAC200;"
-        event-set__2="_event: mouseleave; color: #FFFFFF;"
-        value="close"
-        font="#material-icons-font"
-        rotation="0 180 -90"
-        position="1.09 0 -0.001"
-        font-size="0.100"
-        route="event: click;"
-      />
-
-      <a-troika-text
-        class="cursor"
-        event-set="_event: mouseenter; color: #FAC200;"
-        event-set__2="_event: mouseleave; color: #FFFFFF;"
-        event-set__3="_event: click; _target: #mainCamera; camera.zoom: 1.5;"
-        value="add"
-        font="#material-icons-font"
-        rotation="0 -180 -74"
-        position="1.05 -0.290 -0.001"
-        font-size="0.100"
-      />
-    </a-ring>
-  </a-plane>
-</a-entity>
-
-<a-plane
+<!-- <a-plane
   id="info"
   class="cursor"
   color="#fff"
@@ -216,9 +68,9 @@
   <c-text value="$899.00" position="-0.5 0.15 0.01" width="7" weight="700" />
 
   <c-text
-    value="Apresentamos a elegante \nPoltrona Beatle de linho Azul teste teste teste \ncom Pés de Madeira, \numa peça de mobiliário que \ncombina estilo e conforto \npara transformar sua casa."
+    value="Apresentamos a elegante \nPoltrona Beatle de linho Azul \ncom Pés de Madeira, \numa peça de mobiliário que \ncombina estilo e conforto \npara transformar sua casa."
     position="-0.5 -0.2 0.01"
     width="4"
     weight="400"
   />
-</a-plane>
+</a-plane> -->

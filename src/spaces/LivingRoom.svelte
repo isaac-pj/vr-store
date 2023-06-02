@@ -16,7 +16,13 @@
   proxy-event__lookme="event: loaded; to: #mainCamera; as: lookme;"
 >
   <a-entity id="lookme" position="0 1.05 0" />
-  <c-light type="directional" color="#FFFFF0" target="#wall" position="1 3 3" />
+  <c-light
+    type="directional"
+    color="#FFFFF0"
+    target="#wall"
+    position="2 3 3"
+    bias="-0.00017"
+  />
 </a-entity>
 
 {#each products as { id, name, pivot, position, rotation, price, popup } (id)}
@@ -32,7 +38,7 @@
     <Popup
       id={`popup-${name}`}
       route="/product-details"
-      payload={{ product: name }}
+      payload={{ productId: id }}
       position={popup.position}
       title={popup.title}
       subtitle={popup.subtitle}
