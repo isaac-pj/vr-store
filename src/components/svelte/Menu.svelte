@@ -24,6 +24,7 @@
   animation__open="property: theta-length; to: 65; dur: 300; startEvents: mouseenter"
   animation__close="property: theta-length; to: 0; dur: 300; startEvents: mouseleave"
   proxy-event__show="event: animationcomplete__open; to: #circleLayout; as: show;"
+  proxy-event__hide="event: animationcomplete__close; to: #circleLayout; as: hide;"
 >
   <a-sphere
     id="umbrellaTrigger"
