@@ -31,6 +31,5 @@
     gltf-model={`#${model}-3d`}
     shadow="receive: true; cast: true"
   />
-
   <slot />
 </a-entity>
