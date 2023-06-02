@@ -15,7 +15,7 @@
   proxy-event__loaded="event: model-loaded; to: #overlay; as: fadein"
   proxy-event__lookme="event: loaded; to: #mainCamera; as: lookme;"
 >
-  <a-entity id="lookme" position="0 1.2 0" />
+  <a-entity id="lookme" position="0 1.05 0" />
   <c-light type="directional" color="#FFFFF0" target="#wall" position="1 3 3" />
 </a-entity>
 
