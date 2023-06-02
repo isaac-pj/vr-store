@@ -1,9 +1,9 @@
 <script lang="js">
   export let model;
-  export let event;
-  export let target;
-  export let position;
-  export let rotation;
+  export let event = "";
+  export let target = "";
+  export let position = "0 0 0";
+  export let rotation = "0 0 0";
   export let pivot = "center";
   export let debug = false;
 
