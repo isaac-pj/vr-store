@@ -6,6 +6,7 @@
   export let rotation = "0 0 0";
   export let pivot = "center";
   export let debug = false;
+  export let wrapper = true;
 
   $: model = model;
   $: event = event;
@@ -14,13 +15,14 @@
   $: rotation = rotation;
   $: pivot = pivot;
   $: debug = debug;
+  $: wrapper = wrapper;
 </script>
 
 <a-entity
   {position}
   {rotation}
   id={`box-${model}`}
-  wrapper={{ pivot }}
+  wrapper={{ pivot, enabled: wrapper }}
   geometry="primitive: box;"
   material={{ color: "#FAC200", wireframe: true, visible: debug }}
   event-set__ready="_event: wrapped; class: cursor active;"
