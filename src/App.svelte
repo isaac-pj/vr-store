@@ -1,10 +1,7 @@
 <script>
+  import { routes } from "./routes.js";
   import { Router, Route } from "svelte-routing";
   import Ambience from "./components/svelte/Ambience.svelte";
-  import LivingRoom from "./spaces/LivingRoom.svelte";
-  import Experiments from "./spaces/Experiments.svelte";
-  import ProductDetails from "./spaces/ProductDetails.svelte";
-  import ProductList from "./spaces/ProductList.svelte";
   import Menu from "./components/svelte/Menu.svelte";
   import { fonts } from "./constants/assetsImport.js";
 </script>
@@ -75,11 +72,9 @@
   <Menu />
 
   <Router>
-    <Route path="/" component={LivingRoom} />
-    <Route path="/living-room" component={LivingRoom} />
-    <Route path="/product-details" component={ProductDetails} />
-    <Route path="/experiments" component={Experiments} />
-    <Route path="/list" component={ProductList} />
+    {#each routes as { key, path, component } (key)}
+      <Route {path} {component} />
+    {/each}
   </Router>
 
   <Ambience radius={200} />
