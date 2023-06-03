@@ -43,15 +43,15 @@
       event-set__show="_event: show; visible: true; _delay: 100;"
       event-set__hide="_event: hide; visible: false;"
     >
-      <MenuItem label="Celulares" ref="" />
-      <MenuItem label="Brinquedos" ref="" />
-      <MenuItem label="Games" ref="" />
-      <MenuItem label="Limpeza" ref="" />
-      <MenuItem label="Moveis" ref="" />
-      <MenuItem label="Roupas" ref="" />
-      <MenuItem label="Beleza" ref="" />
-      <MenuItem label="Saude" ref="" />
-      <MenuItem label="Decoração" ref="" />
+      <!-- <MenuItem label="Home" category="" /> -->
+      <MenuItem label="Ambientes" category="" />
+      <MenuItem label="Móveis" category="móveis" />
+      <MenuItem label="Decoração" category="decoração" />
+      <MenuItem label="Designers" category="" />
+      <MenuItem label="Combos" category="" />
+      <MenuItem label="Descontos" category="" />
+      <!-- <MenuItem label="Busca" category="" /> -->
+      <!-- <MenuItem label="Carrinho" category="" /> -->
     </a-entity>
   </a-sphere>
 </a-sphere>

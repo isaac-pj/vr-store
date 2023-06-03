@@ -1,11 +1,10 @@
 <script>
   export let label;
-  export let ref = "";
+  export let category;
 </script>
 
 <!-- material="shader: flat; visible: false" -->
 <a-troika-text
-  {ref}
   color="#272727"
   class="cursor buttons"
   value={label?.toUpperCase()}
@@ -16,6 +15,6 @@
   curve-radius="10"
   font-size="0.5"
   letter-spacing="0.2"
-  navigate="path: /list;"
+  navigate={`path: /search-list?filter=${category};`}
   look-at="#circleLayout"
 />

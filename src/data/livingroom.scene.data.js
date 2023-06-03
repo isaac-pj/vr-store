@@ -9,6 +9,8 @@ export const livingRoomSceneData = {
       name: "armchair",
       src: "./assets/models/scene_01/Armchair.gltf",
       price: "2.980,00",
+      categories: ["móveis"],
+      subcategories: [],
       box: {
         width: 0,
         height: 0,
@@ -29,6 +31,8 @@ export const livingRoomSceneData = {
       name: "lamp",
       src: "./assets/models/scene_01/Lamp.gltf",
       price: "345,00",
+      categories: ["decoração"],
+      subcategories: [],
       box: {
         width: 0,
         height: 0,
@@ -49,6 +53,8 @@ export const livingRoomSceneData = {
       name: "rug",
       src: "./assets/models/scene_01/Rug.gltf",
       price: "1.880,00",
+      categories: ["decoração"],
+      subcategories: [],
       box: {
         width: 0,
         height: 0,
@@ -69,6 +75,8 @@ export const livingRoomSceneData = {
       name: "table",
       src: "./assets/models/scene_01/Table.gltf",
       price: "1.087,00",
+      categories: ["móveis"],
+      subcategories: [],
       box: {
         width: 0,
         height: 0,
@@ -89,6 +97,8 @@ export const livingRoomSceneData = {
       name: "painting",
       src: "./assets/models/scene_01/Painting.gltf",
       price: "340,00",
+      categories: ["decoração"],
+      subcategories: [],
       box: {
         width: 0.6,
         height: 0.85,
@@ -109,6 +119,8 @@ export const livingRoomSceneData = {
       name: "plant",
       src: "./assets/models/scene_01/Plant.gltf",
       price: "645,00",
+      categories: ["decoração"],
+      subcategories: [],
       box: {
         width: 0,
         height: 0,
