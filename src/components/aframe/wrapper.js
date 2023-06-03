@@ -4,9 +4,13 @@ export default AFRAME.registerComponent("wrapper", {
   schema: {
     selector: { type: "string", default: "" },
     pivot: { type: "string", default: "center" },
+    enabled: { type: "boolean", default: true },
   },
   init: function () {
-    const { selector } = this.data;
+    const { selector, enabled } = this.data;
+
+    if (!enabled) return;
+
     const wrapper = this.el;
     const target = selector
       ? document.querySelector(selector)
