@@ -12,7 +12,7 @@ import "mustache";
 import "aframe-aabb-collider-component";
 import "aframe-superframe/components/event-set";
 import "aframe-superframe/components/template";
-import "aframe-layout-component";
+import "aframe-superframe/components/layout";
 import "aframe-proxy-event-component";
 import "aframe-look-at-component";
 import "aframe-troika-text";

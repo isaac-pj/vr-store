@@ -1,9 +1,10 @@
 <script>
-  import Teste04 from "../components/svelte/experiments/EX04.svelte";
-  import Teste01 from "../components/svelte/experiments/EX01.svelte";
-  import Teste02 from "../components/svelte/experiments/EX02.svelte";
-  import Teste05 from "../components/svelte/experiments/EX05.svelte";
-  import Teste03 from "../components/svelte/experiments/EX03.svelte";
+  import EX06 from "./../components/svelte/experiments/EX06.svelte";
+  import EX05 from "../components/svelte/experiments/EX05.svelte";
+  import EX04 from "../components/svelte/experiments/EX04.svelte";
+  import EX03 from "../components/svelte/experiments/EX03.svelte";
+  import EX02 from "../components/svelte/experiments/EX02.svelte";
+  import EX01 from "../components/svelte/experiments/EX01.svelte";
 </script>
 
 <a-entity
@@ -13,8 +14,9 @@
 />
 <a-light type="ambient" intensity="1.2" color="#FFF" />
 
-<!-- <Teste01 /> -->
-<!-- <Teste02 /> -->
-<!-- <Teste03 /> -->
-<Teste04 />
-<!-- <Teste05 /> -->
+<!-- <EX01 /> -->
+<!-- <EX02 /> -->
+<!-- <EX03 /> -->
+<!-- <EX04 /> -->
+<!-- <EX05 /> -->
+<EX06 />
