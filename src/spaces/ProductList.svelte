@@ -11,6 +11,16 @@
   let searchResult = products.filter(({ categories }) =>
     categories.includes(queryParams.filter)
   );
+
+  $: scrollPos = -90;
+
+  const scollListRight = () => {
+    scrollPos += 10;
+  };
+
+  const scollListLeft = () => {
+    scrollPos -= 10;
+  };
 </script>
 
 <c-light
@@ -38,8 +48,8 @@
 
 <a-entity
   position="0 0 -25"
-  layout="type: circle; plane: xz; radius: 21;"
-  rotation="0 -90 0"
+  layout="type: circle; plane: xz; radius: 21; angle: 10;"
+  rotation={`0 ${scrollPos} 0`}
 >
   {#each searchResult as { id, name, pivot, box } (id)}
     <a-entity>
@@ -47,7 +57,7 @@
         <a-box
           class="cursor active"
           wrapper={{ pivot, selector: `#${name}` }}
-          material="visible: true; wireframe: true; color: lightgreen; shader: flat;"
+          material="visible: false; wireframe: true; color: lightgreen; shader: flat;"
           proxy-event__1={`event: mouseenter; to: #active-${name};`}
           proxy-event__2={`event: mouseleave; to: #active-${name};`}
           rotation="0 90 0"
@@ -87,3 +97,80 @@
     </a-entity>
   {/each}
 </a-entity>
+
+<a-plane
+  class="cursor active"
+  color="#111"
+  opacity="0.2"
+  rotation="-90 0 0"
+  position="-0.6 0.001 -2.5"
+  scale="0.5 0.5 0.5"
+  animation__enter="property: opacity; startEvents: mouseenter; to: 0.5; dur: 200;"
+  animation__leave="property: opacity; startEvents: mouseleave; to: 0.2; dur: 200;"
+  proxy-event__enter="event: mouseenter; to: #icon-left;"
+  proxy-event__leave="event: mouseleave; to: #icon-left;"
+  on:click={scollListRight}
+  on:keyup={() => {}}
+/>
+<a-troika-text
+  id="icon-left"
+  color="#FFFFFF"
+  animation__enter="property: color; startEvents: mouseenter; to: #FAC200; dur: 200;"
+  animation__leave="property: color; startEvents: mouseleave; to: #FFFFFF; dur: 200;"
+  value="rotate_left"
+  font="#material-icons-font"
+  position="-0.6 0.0015 -2.5"
+  rotation="-90 0 0"
+  font-size="0.25"
+/>
+
+<a-plane
+  class="cursor active"
+  color="#111"
+  opacity="0.2"
+  rotation="-90 0 0"
+  position="0 0.001 -2.5"
+  scale="0.5 0.5 0.5"
+  animation__enter="property: opacity; startEvents: mouseenter; to: 0.5; dur: 200;"
+  animation__leave="property: opacity; startEvents: mouseleave; to: 0.2; dur: 200;"
+  proxy-event__enter="event: mouseenter; to: #icon-close;"
+  proxy-event__leave="event: mouseleave; to: #icon-close;"
+  navigate="path: GOBACK;"
+/>
+<a-troika-text
+  id="icon-close"
+  color="#FFFFFF"
+  animation__enter="property: color; startEvents: mouseenter; to: #FAC200; dur: 200;"
+  animation__leave="property: color; startEvents: mouseleave; to: #FFFFFF; dur: 200;"
+  value="close"
+  font="#material-icons-font"
+  position="0 0.0015 -2.5"
+  rotation="-90 0 0"
+  font-size="0.25"
+/>
+
+<a-plane
+  class="cursor active"
+  color="#111"
+  opacity="0.2"
+  rotation="-90 0 0"
+  position="0.6 0.001 -2.5"
+  scale="0.5 0.5 0.5"
+  animation__enter="property: opacity; startEvents: mouseenter; to: 0.5; dur: 200;"
+  animation__leave="property: opacity; startEvents: mouseleave; to: 0.2; dur: 200;"
+  proxy-event__enter="event: mouseenter; to: #icon-right;"
+  proxy-event__leave="event: mouseleave; to: #icon-right;"
+  on:click={scollListLeft}
+  on:keyup={() => {}}
+/>
+<a-troika-text
+  id="icon-right"
+  color="#FFFFFF"
+  animation__enter="property: color; startEvents: mouseenter; to: #FAC200; dur: 200;"
+  animation__leave="property: color; startEvents: mouseleave; to: #FFFFFF; dur: 200;"
+  value="rotate_right"
+  font="#material-icons-font"
+  rotation="-90 0 0"
+  position="0.6 0.0015 -2.5"
+  font-size="0.25"
+/>
