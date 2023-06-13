@@ -37,8 +37,9 @@
     <a-entity
       bind:this={circleLayoutRef}
       id="circleLayout"
-      layout="type: circle; radius: 10; plane: xz;"
+      layout="type: circle; radius: 10; plane: xz; angle: 30;"
       position="0 7 0"
+      rotation={`0 ${160} 0`}
       visible="false"
       event-set__show="_event: show; visible: true; _delay: 100;"
       event-set__hide="_event: hide; visible: false;"
