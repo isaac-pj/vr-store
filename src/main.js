@@ -34,6 +34,7 @@ import "./primitives/extends/text.js";
 // CUSTOM PRIMITIVES
 
 import "./primitives/mybox/mybox.js";
+import "./primitives/a-bevel.js";
 
 // CUSTOM GEOMETRIES
 
