@@ -1,37 +1,37 @@
+const debug = AFRAME.utils.debug;
+const warn = debug("geometries:bevel:warn");
+
 export default AFRAME.registerGeometry("bevel", {
   schema: {
     depth: { default: 1, min: 0 },
     height: { default: 1, min: 0 },
     width: { default: 1, min: 0 },
     bevelEnabled: { default: true, type: "boolean" },
-    bevelThickness: { default: 1, min: 0 },
-    bevelSize: { default: 1, min: 0 },
+    bevelThickness: { default: 0.1, min: 0 },
+    bevelSize: { default: 0.1, min: 0 },
     bevelOffset: { default: 0, min: 0 },
     bevelSegments: { default: 1, min: 1 },
   },
 
   init: function (data) {
-    const width = data.width;
-    const height = data.height;
-    const depth = data.depth;
-    const bevelEnabled = data.bevelEnabled;
-    const bevelThickness = data.bevelThickness;
     const bevelSize = data.bevelSize;
     const bevelOffset = data.bevelOffset;
+    const bevelThickness = data.bevelThickness;
     const bevelSegments = data.bevelSegments;
-
-    const centerX = width / 2;
-    const centerY = height / 2;
-    const centerZ = depth / 2;
+    const offset = bevelSize + bevelThickness;
+    const bevelEnabled = data.bevelEnabled && this.hasValidBevel(data, offset);
 
     const shape = new THREE.Shape();
+    shape.moveTo(0, 0);
 
-    shape.moveTo(-centerX, -centerZ);
+    const width = bevelEnabled ? data.width - offset : data.width;
+    const height = bevelEnabled ? data.height - offset : data.height;
+    const depth = bevelEnabled ? data.depth - offset : data.depth;
 
-    shape.lineTo(-centerX, centerY);
-    shape.lineTo(centerY, centerX);
-    shape.lineTo(centerX, -centerY);
-    shape.lineTo(-centerY, -centerX);
+    shape.lineTo(0, height);
+    shape.lineTo(width, height);
+    shape.lineTo(width, 0);
+    shape.lineTo(0, 0);
 
     const extrudeSettings = {
       steps: 1,
@@ -42,8 +42,19 @@ export default AFRAME.registerGeometry("bevel", {
       bevelOffset,
       bevelSegments,
     };
-
-    const geometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
+    const geometry = new THREE.ExtrudeGeometry(shape, extrudeSettings).center();
     this.geometry = geometry;
+  },
+  hasValidBevel: function (data, offset) {
+    const { width, height, depth } = data;
+
+    if (width > offset && height > offset && depth > offset) return true;
+
+    warn(
+      "Invalid bevel size: " +
+        offset +
+        "was defined. The bevel size can not be bigger than bounding box"
+    );
+    return false;
   },
 });
