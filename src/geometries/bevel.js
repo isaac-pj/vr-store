@@ -53,7 +53,7 @@ export default AFRAME.registerGeometry("bevel", {
     warn(
       "Invalid bevel size: " +
         offset +
-        "was defined. The bevel size can not be bigger than bounding box"
+        " was defined. The bevel size + thickness can not be bigger than bounding box"
     );
     return false;
   },
