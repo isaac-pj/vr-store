@@ -35,6 +35,10 @@ import "./primitives/extends/text.js";
 
 import "./primitives/mybox/mybox.js";
 
+// CUSTOM GEOMETRIES
+
+import "./geometries/bevel.js";
+
 // SVELTE COMPONENTS
 
 import registerWebComponents from "./register";
