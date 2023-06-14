@@ -10,7 +10,7 @@ export default AFRAME.registerGeometry("bevel", {
     bevelThickness: { default: 0.1, min: 0 },
     bevelSize: { default: 0.1, min: 0 },
     bevelOffset: { default: 0, min: 0 },
-    bevelSegments: { default: 1, min: 1 },
+    bevelSegments: { default: 1, min: 1, max: 64 },
   },
 
   init: function (data) {
