@@ -41,16 +41,16 @@ export default AFRAME.registerGeometry("rounded", {
     ];
 
     // prettier-ignore
-    let uvs = [
+    // const uvs = [
 
-      ul, 0, ur, 0, ur, 1,
-      ul, 0, ur, 1, ul, 1,
-      0, vl, ul, vl, ul, vh,
-      0, vl, ul, vh, 0, vh,
-      ur, vl, 1, vl, 1, vh,
-      ur, vl, 1, vh,ur, vh
+    //   ul, 0, ur, 0, ur, 1,
+    //   ul, 0, ur, 1, ul, 1,
+    //   0, vl, ul, vl, ul, vh,
+    //   0, vl, ul, vh, 0, vh,
+    //   ur, vl, 1, vl, 1, vh,
+    //   ur, vl, 1, vh,ur, vh
 
-    ];
+    // ];
 
     let phia = 0;
     let phib, xc, yc;
@@ -60,8 +60,8 @@ export default AFRAME.registerGeometry("rounded", {
       yc = i < 2 * segments ? hi : -hi;
       phib = (Math.PI * 2 * (i + 1)) / (4 * segments);
 
-      vertices.push(xc, yc, 0);
-      vertices.push(xc + radius * Math.cos(phia));
+      vertices.push(xc, yc);
+      vertices.push(0, xc + radius * Math.cos(phia));
       vertices.push(yc + radius * Math.sin(phia), 0);
       vertices.push(xc + radius * Math.cos(phib));
       vertices.push(yc + radius * Math.sin(phib), 0);
@@ -71,23 +71,14 @@ export default AFRAME.registerGeometry("rounded", {
       // still without  uvs ...
     }
 
-    // const material = new THREE.MeshBasicMaterial({
-    //   color: 0xffffff,
-    //   side: THREE.DoubleSide,
-    //   // wireframe: true,
-    // });
-
     const geometry = new THREE.BufferGeometry();
     geometry.setAttribute(
       "position",
       new THREE.Float32BufferAttribute(vertices, 3)
     );
-    // geometry.setAttribute("uv", new THREE.Float32BufferAttribute(vertices, 3));
-    // geometry.normalizeNormals();
-    // geometry.computeVertexNormals()
 
-    // const mesh = new THREE.Mesh(geometry, material);
-    // this.el.setObject3D("mesh", mesh);
+    // geometry.setAttribute("uv", new THREE.Float32BufferAttribute(vertices, 3));
+    geometry.computeVertexNormals();
 
     this.geometry = geometry;
   },
