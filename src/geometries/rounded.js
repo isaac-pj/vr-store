@@ -5,66 +5,110 @@ export default AFRAME.registerGeometry("rounded", {
   schema: {
     height: { default: 1, min: 0 },
     width: { default: 1, min: 0 },
-    radius: { default: 0.1, min: 0 },
     segments: { default: 8, min: 0, max: 64 },
+    radius: {
+      default: "0.1",
+      parse: function (radius) {
+        let [A, B, C, D] = radius.split(",");
+
+        if (A && !B && !C && !D) {
+          B = C = D = A;
+        } else if (A && B && !C && !D) {
+          C = D = B;
+          B = A;
+        }
+        return [A, B, C, D].map(corner => Number(corner));
+      },
+      stringify: function (radius) {
+        return radius?.map(corner => corner.toString());
+      },
+    },
   },
 
   init: function (data) {
     const segments = data.segments; // smoothness
     const width = data.width;
     const height = data.height;
-    const radiusEnabled = data.radius && this.hasValidRadius(data);
-    const radius = radiusEnabled ? data.radius : 0;
 
-    // helper const's mash
-    const wi = width / 2 - radius;
-    const hi = height / 2 - radius;
-    const w2 = width / 2;
-    const h2 = height / 2;
+    const radiusEnabled = data.radius.length && this.hasValidRadius(data);
+    const radius = radiusEnabled ? data.radius : [0, 0, 0, 0];
+    const [LT, RT, RB, LB] = radius;
 
-    // helper const's UVs
-    const ul = radius / width;
-    const ur = (width - radius) / width;
-    const vl = radius / height;
-    const vh = (height - radius) / height;
+    const x = width / 2;
+    const y = height / 2;
 
-    // prettier-ignore
+    const leftSquare = {
+      v1: [-x, -(y - LB), 0],
+      v2: [-(x - LB), -(y - LB), 0],
+      v3: [-(x - LT), y - LT, 0],
+      v4: [-x, -(y - LB), 0],
+      v5: [-(x - LT), y - LT, 0],
+      v6: [-x, y - LT, 0],
+    };
+
+    const topSquare = {
+      v1: [-(x - LT), y - LT, 0],
+      v2: [x - RT, y - RT, 0],
+      v3: [x - RT, y, 0],
+      v4: [-(x - LT), y - LT, 0],
+      v5: [x - RT, y, 0],
+      v6: [-(x - LT), y, 0],
+    };
+
+    const midleSquare = {
+      v1: [-(x - LB), -(y - LB), 0],
+      v2: [x - RB, -(y - RB), 0],
+      v3: [x - RT, y - RT, 0],
+      v4: [-(x - LB), -(y - LB), 0],
+      v5: [x - RT, y - RT, 0],
+      v6: [-(x - LT), y - LT, 0],
+    };
+
+    const rightSquare = {
+      v1: [x - RB, -(y - RB), 0],
+      v2: [x, -(y - RB), 0],
+      v3: [x, y - RT, 0],
+      v4: [x - RB, -(y - RB), 0],
+      v5: [x, y - RT, 0],
+      v6: [x - RT, y - RT, 0],
+    };
+
+    const bottomSquare = {
+      v1: [-(x - LB), -y, 0],
+      v2: [x - RB, -y, 0],
+      v3: [x - RB, -(y - RB), 0],
+      v4: [-(x - LB), -y, 0],
+      v5: [x - RB, -(y - RB), 0],
+      v6: [-(x - LB), -(y - LB), 0],
+    };
+
     const vertices = [
-
-      -wi, -h2, 0,  wi, -h2, 0,  wi, h2, 0,
-      -wi, -h2, 0,  wi,  h2, 0, -wi, h2, 0,	
-      -w2, -hi, 0, -wi, -hi, 0, -wi, hi, 0,
-      -w2, -hi, 0, -wi,  hi, 0, -w2, hi, 0,	
-      wi, -hi, 0,  w2, -hi, 0,  w2, hi, 0,
-      wi, -hi, 0,  w2,  hi, 0,  wi, hi, 0
-
+      ...Object.values(leftSquare).flat(),
+      ...Object.values(topSquare).flat(),
+      ...Object.values(midleSquare).flat(),
+      ...Object.values(rightSquare).flat(),
+      ...Object.values(bottomSquare).flat(),
     ];
 
-    // prettier-ignore
-    // const uvs = [
-
-    //   ul, 0, ur, 0, ur, 1,
-    //   ul, 0, ur, 1, ul, 1,
-    //   0, vl, ul, vl, ul, vh,
-    //   0, vl, ul, vh, 0, vh,
-    //   ur, vl, 1, vl, 1, vh,
-    //   ur, vl, 1, vh,ur, vh
-
-    // ];
-
     let phia = 0;
-    let phib, xc, yc;
+    let phib, xc, yc, rds;
 
     for (let i = 0; i < segments * 4; i++) {
-      xc = i < segments || i >= 3 * segments ? wi : -wi;
-      yc = i < 2 * segments ? hi : -hi;
+      const index = i / segments;
+
+      if (index < 1) rds = RT;
+      else if (index < 2) rds = LT;
+      else if (index < 3) rds = LB;
+      else rds = RB;
+
+      xc = index < 1 || index >= 3 ? x - rds : -(x - rds);
+      yc = index < 2 ? y - rds : -(y - rds);
+
       phib = (Math.PI * 2 * (i + 1)) / (4 * segments);
 
-      vertices.push(xc, yc);
-      vertices.push(0, xc + radius * Math.cos(phia));
-      vertices.push(yc + radius * Math.sin(phia), 0);
-      vertices.push(xc + radius * Math.cos(phib));
-      vertices.push(yc + radius * Math.sin(phib), 0);
+      vertices.push(xc, yc, 0);
+      vertices.push(xc + rds * Math.cos(phia), yc + rds * Math.sin(phia), 0);
+      vertices.push(xc + rds * Math.cos(phib), yc + rds * Math.sin(phib), 0);
 
       phia = phib;
 
@@ -72,12 +116,8 @@ export default AFRAME.registerGeometry("rounded", {
     }
 
     const geometry = new THREE.BufferGeometry();
-    geometry.setAttribute(
-      "position",
-      new THREE.Float32BufferAttribute(vertices, 3)
-    );
-
-    // geometry.setAttribute("uv", new THREE.Float32BufferAttribute(vertices, 3));
+    const position = new THREE.Float32BufferAttribute(vertices, 3);
+    geometry.setAttribute("position", position);
     geometry.computeVertexNormals();
 
     this.geometry = geometry;
@@ -85,11 +125,11 @@ export default AFRAME.registerGeometry("rounded", {
   hasValidRadius: function (data) {
     const { width, height, radius } = data;
 
-    if (width >= radius && height >= radius) return true;
+    if (radius.every(rds => width >= rds && height >= rds)) return true;
 
     warn(
       "Invalid radius size: " +
-        offset +
+        radius +
         " was defined. The radius size can not be bigger than height or width"
     );
     return false;
