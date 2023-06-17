@@ -24,7 +24,8 @@ import "./components/aframe/look-to.js";
 import "./components/aframe/montserrat.js";
 import "./components/aframe/navigate.js";
 import "./components/aframe/wrapper.js";
-import "./components/aframe/children";
+import "./components/aframe/children.js";
+import "./components/aframe/pivot.js";
 
 // EXTENDS COMPONENTS
 
