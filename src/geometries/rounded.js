@@ -1,5 +1,5 @@
 const debug = AFRAME.utils.debug;
-const warn = debug("geometries:bevel:warn");
+const warn = debug("geometries:rounded:warn");
 
 export default AFRAME.registerGeometry("rounded", {
   schema: {
@@ -7,20 +7,28 @@ export default AFRAME.registerGeometry("rounded", {
     width: { default: 1, min: 0 },
     segments: { default: 8, min: 0, max: 64 },
     radius: {
-      default: "0.1",
-      parse: function (radius) {
-        let [A, B, C, D] = radius.split(",");
+      type: "array",
+      default: [0.1],
+      parse: function (value) {
+        const commaRegex = /,/g;
+        const whitespaceRegex = /\s+/g;
+        if (!value) return Array(4).fill(this.default);
+        const isString = typeof value === "string";
+        const separator = value?.includes(",") ? commaRegex : whitespaceRegex;
+        const radius = isString ? value.trim().split(separator) : value;
+        const [A, B, C, D] = radius;
 
-        if (A && !B && !C && !D) {
-          B = C = D = A;
-        } else if (A && B && !C && !D) {
-          C = D = B;
-          B = A;
-        }
-        return [A, B, C, D].map(corner => Number(corner));
-      },
-      stringify: function (radius) {
-        return radius?.map(corner => corner.toString());
+        const a = A !== undefined && A !== null ? Number(A) : undefined;
+        const b = B !== undefined && B !== null ? Number(B) : undefined;
+        const c = C !== undefined && C !== null ? Number(C) : undefined;
+        const d = D !== undefined && D !== null ? Number(D) : undefined;
+
+        if (a >= 0 && b >= 0 && c >= 0 && d >= 0) return [a, b, c, d];
+        if (a >= 0 && !(b >= 0) && !(c >= 0) && !(d >= 0)) return [a, a, a, a];
+        if (a >= 0 && b >= 0 && !(c >= 0) && !(d >= 0)) return [a, a, b, b];
+        if (a >= 0 && b >= 0 && c >= 0 && !(d >= 0)) return [a, b, c];
+
+        return [0, 0, 0, 0];
       },
     },
   },
@@ -32,7 +40,7 @@ export default AFRAME.registerGeometry("rounded", {
 
     const radiusEnabled = data.radius.length && this.hasValidRadius(data);
     const radius = radiusEnabled ? data.radius : [0, 0, 0, 0];
-    const [LT, RT, RB, LB] = radius;
+    const [LT = 0, RT = 0, RB = 0, LB = 0] = radius;
 
     const x = width / 2;
     const y = height / 2;
@@ -83,11 +91,11 @@ export default AFRAME.registerGeometry("rounded", {
     };
 
     const vertices = [
-      ...Object.values(leftSquare).flat(),
-      ...Object.values(topSquare).flat(),
+      ...Object.values((LB || LT) && leftSquare).flat(),
+      ...Object.values((LT || RT) && topSquare).flat(),
+      ...Object.values((RT || RB) && rightSquare).flat(),
+      ...Object.values((RB || LB) && bottomSquare).flat(),
       ...Object.values(midleSquare).flat(),
-      ...Object.values(rightSquare).flat(),
-      ...Object.values(bottomSquare).flat(),
     ];
 
     let phia = 0;
@@ -125,7 +133,7 @@ export default AFRAME.registerGeometry("rounded", {
   hasValidRadius: function (data) {
     const { width, height, radius } = data;
 
-    if (radius.every(rds => width >= rds && height >= rds)) return true;
+    if (radius.every(rds => width / 2 >= rds && height / 2 >= rds)) return true;
 
     warn(
       "Invalid radius size: " +
