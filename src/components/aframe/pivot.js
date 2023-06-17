@@ -39,20 +39,12 @@ export default AFRAME.registerComponent("pivot", {
     originalGroup.position.set(-1 * origin.x, -1 * origin.y, -1 * origin.z);
 
     // Offset the pivot so that world position not affected.
-    // And / Or restore position onto outer group.
-    if (offset) {
-      outerGroup.position.set(
-        originalPosition.x + origin.x,
-        originalPosition.y + origin.y,
-        originalPosition.z + origin.z
-      );
-    } else {
-      outerGroup.position.set(
-        originalPosition.x,
-        originalPosition.y,
-        originalPosition.z
-      );
-    }
+    // And restore position onto outer group.
+    outerGroup.position.set(
+      originalPosition.x + (offset ? origin.x : 0),
+      originalPosition.y + (offset ? origin.y : 0),
+      originalPosition.z + (offset ? origin.z : 0)
+    );
 
     // Transfer rotation to outer group.
     outerGroup.rotation.copy(originalGroup.rotation);
