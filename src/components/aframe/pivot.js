@@ -49,5 +49,9 @@ export default AFRAME.registerComponent("pivot", {
     // Transfer rotation to outer group.
     outerGroup.rotation.copy(originalGroup.rotation);
     originalGroup.rotation.set(0, 0, 0);
+
+    // Transfer scale to outer group.
+    outerGroup.scale.copy(originalGroup.scale);
+    originalGroup.scale.set(1, 1, 1);
   },
 });
