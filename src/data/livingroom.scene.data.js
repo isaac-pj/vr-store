@@ -22,29 +22,33 @@ export const livingRoomSceneData = {
         subtitle: "Acabamento em linho e madeira",
       },
       info: {
+        description:
+          "Apresentamos a elegante poltrona Beatle de linho Azul com Pés de Madeira, uma peça de mobiliário que combina estilo e conforto para transformar sua casa.",
         details: [
           {
-            message: "Design elegante e contemporâneo",
+            message:
+              "Design elegante e contemporâneo. Combina perfeitamente com qualquer estilo de decoração",
             position: {
-              x: 0.47,
+              x: 0.258,
               y: 0.401,
-              z: 0.47,
+              z: -0.186,
             },
           },
           {
             message: "Conforto excepcional com estofamento de alta qualidade",
             position: {
-              x: -0.47,
-              y: 0.401,
-              z: 0.47,
+              x: -0.185,
+              y: 0.095,
+              z: 0.337,
             },
           },
           {
-            message: "Combina perfeitamente com qualquer estilo de decoração",
+            message:
+              "A base em madeira maciça traz a resistencia e sofisticação",
             position: {
-              x: 0,
-              y: 0.401,
-              z: -0.47,
+              x: 0.456,
+              y: -0.313,
+              z: 0.47,
             },
           },
         ],
@@ -72,30 +76,27 @@ export const livingRoomSceneData = {
         subtitle: "Mesa lateral flutuante",
       },
       info: {
+        description:
+          "A mesa Pazzi é perfeita para espaços compactos e contemporâneos. Seu design moderno e minimalista, feito com materiais duráveis e de alta qualidade, adiciona funcionalidade e estilo à sua decoração.",
         details: [
-          {
-            message: "Design moderno e minimalista",
-            position: {
-              x: 0.2996155,
-              y: 0.3698555,
-              z: 0.2996155,
-            },
-          },
-          {
-            message: "Feita com materiais duráveis e de alta qualidade",
-            position: {
-              x: -0.2996155,
-              y: 0.3698555,
-              z: 0.2996155,
-            },
-          },
           {
             message: "Perfeita para espaços compactos e contemporâneos",
             position: {
-              x: 0,
-              y: 0.3698555,
-              z: -0.2996155,
+              x: -0.106,
+              y: -0.11,
+              z: -0.053,
             },
+            height: 0.45,
+          },
+          {
+            message:
+              "Design moderno e minimalista. Feita com materiais duráveis e de alta qualidade",
+            position: {
+              x: 0.3,
+              y: 0.443,
+              z: -0.02,
+            },
+            height: 0.55,
           },
         ],
       },
@@ -122,6 +123,8 @@ export const livingRoomSceneData = {
         subtitle: "Quadro minimalista preto e branco",
       },
       info: {
+        description:
+          "O quadro B&W Cactus é uma obra de arte abstrata com estilo minimalista. Adicione um toque de elegância à parede e combine-o com diferentes estilos de decoração para criar um ambiente sofisticado.",
         details: [
           {
             message: "Arte abstrata com estilo minimalista",
@@ -172,29 +175,31 @@ export const livingRoomSceneData = {
         subtitle: "Planta tropical decorativa",
       },
       info: {
+        description:
+          "A planta Costela de adão possui uma folhagem exuberante que traz vida ao ambiente. Além disso, ela necessita de pouca manutenção e é resistente, criando uma atmosfera tropical e relaxante em sua casa.",
         details: [
           {
             message: "Folhagem exuberante que traz vida ao ambiente",
             position: {
-              x: 0,
-              y: 0.7250845,
-              z: 0,
+              x: -0.435,
+              y: 0.725,
+              z: 0.121,
             },
           },
           {
             message: "Necessita de pouca manutenção e é resistente",
             position: {
-              x: 0,
-              y: 0.7250845,
-              z: 0,
+              x: 0.104,
+              y: -0.513,
+              z: 0.274,
             },
           },
           {
             message: "Cria uma atmosfera tropical e relaxante",
             position: {
-              x: 0,
-              y: 0.7250845,
-              z: 0,
+              x: 0.543,
+              y: 0.641,
+              z: -0.193,
             },
           },
         ],
@@ -222,6 +227,8 @@ export const livingRoomSceneData = {
         subtitle: "Luminária de mesa industrial",
       },
       info: {
+        description:
+          "A Luminária Cupp é uma luminária de mesa com estilo industrial e acabamento em metal. Com iluminação direcionada e ajustável, ela é perfeita para criar uma atmosfera acolhedora em sua casa.",
         details: [
           {
             message: "Iluminação direcionada e ajustável",
@@ -272,6 +279,8 @@ export const livingRoomSceneData = {
         subtitle: "Clássico padrão zebrado",
       },
       info: {
+        description:
+          "O Tapete Luke é uma escolha clássica com seu padrão zebrado que adiciona um toque de elegância a qualquer ambiente. Com uma textura macia e confortável ao toque, é ideal para delimitar espaços e criar uma atmosfera sofisticada.",
         details: [
           {
             message: "Padrão zebrado que adiciona um toque de elegância",
