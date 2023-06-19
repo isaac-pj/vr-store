@@ -23,9 +23,30 @@ export const livingRoomSceneData = {
       },
       info: {
         details: [
-          "Design elegante e contemporâneo",
-          "Conforto excepcional com estofamento de alta qualidade",
-          "Combina perfeitamente com qualquer estilo de decoração",
+          {
+            message: "Design elegante e contemporâneo",
+            position: {
+              x: 0.47,
+              y: 0.401,
+              z: 0.47,
+            },
+          },
+          {
+            message: "Conforto excepcional com estofamento de alta qualidade",
+            position: {
+              x: -0.47,
+              y: 0.401,
+              z: 0.47,
+            },
+          },
+          {
+            message: "Combina perfeitamente com qualquer estilo de decoração",
+            position: {
+              x: 0,
+              y: 0.401,
+              z: -0.47,
+            },
+          },
         ],
       },
     },
@@ -52,9 +73,30 @@ export const livingRoomSceneData = {
       },
       info: {
         details: [
-          "Design moderno e minimalista",
-          "Feita com materiais duráveis e de alta qualidade",
-          "Perfeita para espaços compactos e contemporâneos",
+          {
+            message: "Design moderno e minimalista",
+            position: {
+              x: 0.2996155,
+              y: 0.3698555,
+              z: 0.2996155,
+            },
+          },
+          {
+            message: "Feita com materiais duráveis e de alta qualidade",
+            position: {
+              x: -0.2996155,
+              y: 0.3698555,
+              z: 0.2996155,
+            },
+          },
+          {
+            message: "Perfeita para espaços compactos e contemporâneos",
+            position: {
+              x: 0,
+              y: 0.3698555,
+              z: -0.2996155,
+            },
+          },
         ],
       },
     },
@@ -81,9 +123,30 @@ export const livingRoomSceneData = {
       },
       info: {
         details: [
-          "Arte abstrata que adiciona estilo à sua parede",
-          "Imagem de alta resolução com detalhes impressionantes",
-          "Combinação versátil de preto e branco para qualquer ambiente",
+          {
+            message: "Arte abstrata com estilo minimalista",
+            position: {
+              x: 0,
+              y: 0.425,
+              z: 0,
+            },
+          },
+          {
+            message: "Adiciona um toque de elegância à parede",
+            position: {
+              x: 0,
+              y: 0.425,
+              z: 0,
+            },
+          },
+          {
+            message: "Combina com diferentes estilos de decoração",
+            position: {
+              x: 0,
+              y: 0.425,
+              z: 0,
+            },
+          },
         ],
       },
     },
@@ -110,9 +173,30 @@ export const livingRoomSceneData = {
       },
       info: {
         details: [
-          "Planta exuberante que traz a natureza para dentro de casa",
-          "Fácil de cuidar e resistente a ambientes internos",
-          "Adiciona um toque de frescor e sofisticação ao ambiente",
+          {
+            message: "Folhagem exuberante que traz vida ao ambiente",
+            position: {
+              x: 0,
+              y: 0.7250845,
+              z: 0,
+            },
+          },
+          {
+            message: "Necessita de pouca manutenção e é resistente",
+            position: {
+              x: 0,
+              y: 0.7250845,
+              z: 0,
+            },
+          },
+          {
+            message: "Cria uma atmosfera tropical e relaxante",
+            position: {
+              x: 0,
+              y: 0.7250845,
+              z: 0,
+            },
+          },
         ],
       },
     },
@@ -139,9 +223,30 @@ export const livingRoomSceneData = {
       },
       info: {
         details: [
-          "Estilo industrial que combina funcionalidade e design",
-          "Iluminação ajustável para criar a atmosfera desejada",
-          "Feita com materiais de alta qualidade e durabilidade",
+          {
+            message: "Iluminação direcionada e ajustável",
+            position: {
+              x: 0.129241,
+              y: 0.217846,
+              z: 0.1093535,
+            },
+          },
+          {
+            message: "Estilo industrial com acabamento em metal",
+            position: {
+              x: -0.129241,
+              y: 0.217846,
+              z: 0.1093535,
+            },
+          },
+          {
+            message: "Perfeita para criar uma atmosfera acolhedora",
+            position: {
+              x: 0,
+              y: 0.217846,
+              z: -0.1093535,
+            },
+          },
         ],
       },
     },
@@ -168,9 +273,31 @@ export const livingRoomSceneData = {
       },
       info: {
         details: [
-          "Tapete luxuoso com padrão zebrado",
-          "Feito com materiais de alta qualidade e durabilidade",
-          "Adiciona elegância e conforto ao ambiente",
+          {
+            message: "Padrão zebrado que adiciona um toque de elegância",
+            position: {
+              x: 0,
+              y: 0.0113295,
+              z: 0,
+            },
+          },
+          {
+            message: "Textura macia e confortável ao toque",
+            position: {
+              x: 0,
+              y: 0.0113295,
+              z: 0,
+            },
+          },
+          {
+            message:
+              "Ideal para delimitar espaços e criar uma atmosfera sofisticada",
+            position: {
+              x: 0,
+              y: 0.0113295,
+              z: 0,
+            },
+          },
         ],
       },
     },
