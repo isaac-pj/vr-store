@@ -43,6 +43,12 @@ export default AFRAME.registerComponent("wrapper", {
     const height = max.y - min.y;
     const depth = max.z - min.z;
 
+    // console.log({
+    //   width: Number(width.toFixed(6)),
+    //   height: Number(height.toFixed(6)),
+    //   depth: Number(depth.toFixed(6)),
+    // });
+
     const offset = height / 2;
 
     const wrapperGeometry = wrapper.getAttribute("geometry");

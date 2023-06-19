@@ -12,9 +12,9 @@ export const livingRoomSceneData = {
       categories: ["móveis"],
       subcategories: [],
       box: {
-        width: 0,
-        height: 0,
-        depth: 0,
+        depth: 0.914351,
+        height: 0.803257,
+        width: 0.940535,
       },
       popup: {
         position: "0 1 -0.32",
@@ -34,9 +34,9 @@ export const livingRoomSceneData = {
       categories: ["móveis"],
       subcategories: [],
       box: {
-        width: 0,
-        height: 0,
-        depth: 0,
+        width: 0.599231,
+        height: 0.739711,
+        depth: 0.599231,
       },
       popup: {
         position: "0.7 0.95 0",
@@ -78,9 +78,9 @@ export const livingRoomSceneData = {
       categories: ["decoração"],
       subcategories: [],
       box: {
-        width: 0,
-        height: 0,
-        depth: 0,
+        depth: 1.446927,
+        height: 1.450169,
+        width: 1.331046,
       },
       popup: {
         position: "0 1.265 0",
@@ -100,9 +100,9 @@ export const livingRoomSceneData = {
       categories: ["decoração"],
       subcategories: [],
       box: {
-        width: 0,
-        height: 0,
-        depth: 0,
+        width: 0.258482,
+        height: 0.435692,
+        depth: 0.218707,
       },
       popup: {
         position: "0 0.8 0",
@@ -122,9 +122,9 @@ export const livingRoomSceneData = {
       categories: ["tapetes"],
       subcategories: [],
       box: {
-        width: 0,
-        height: 0,
-        depth: 0,
+        depth: 1.616078,
+        height: 0.022659,
+        width: 2.415776,
       },
       popup: {
         position: "1.2 0.6 0.25",
