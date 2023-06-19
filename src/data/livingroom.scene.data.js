@@ -21,6 +21,13 @@ export const livingRoomSceneData = {
         title: "Poltrona Beatle",
         subtitle: "Acabamento em linho e madeira",
       },
+      info: {
+        details: [
+          "Design elegante e contemporâneo",
+          "Conforto excepcional com estofamento de alta qualidade",
+          "Combina perfeitamente com qualquer estilo de decoração",
+        ],
+      },
     },
     {
       id: 4,
@@ -42,6 +49,13 @@ export const livingRoomSceneData = {
         position: "0.7 0.95 0",
         title: "Mesa Pazzi",
         subtitle: "Mesa lateral flutuante",
+      },
+      info: {
+        details: [
+          "Design moderno e minimalista",
+          "Feita com materiais duráveis e de alta qualidade",
+          "Perfeita para espaços compactos e contemporâneos",
+        ],
       },
     },
     {
@@ -65,6 +79,13 @@ export const livingRoomSceneData = {
         title: "B&W Cactus",
         subtitle: "Quadro minimalista preto e branco",
       },
+      info: {
+        details: [
+          "Arte abstrata que adiciona estilo à sua parede",
+          "Imagem de alta resolução com detalhes impressionantes",
+          "Combinação versátil de preto e branco para qualquer ambiente",
+        ],
+      },
     },
     {
       id: 6,
@@ -86,6 +107,13 @@ export const livingRoomSceneData = {
         position: "0 1.265 0",
         title: "Costela de adão",
         subtitle: "Planta tropical decorativa",
+      },
+      info: {
+        details: [
+          "Planta exuberante que traz a natureza para dentro de casa",
+          "Fácil de cuidar e resistente a ambientes internos",
+          "Adiciona um toque de frescor e sofisticação ao ambiente",
+        ],
       },
     },
     {
@@ -109,6 +137,13 @@ export const livingRoomSceneData = {
         title: "Luminária Cupp",
         subtitle: "Luminária de mesa industrial",
       },
+      info: {
+        details: [
+          "Estilo industrial que combina funcionalidade e design",
+          "Iluminação ajustável para criar a atmosfera desejada",
+          "Feita com materiais de alta qualidade e durabilidade",
+        ],
+      },
     },
     {
       id: 3,
@@ -130,6 +165,13 @@ export const livingRoomSceneData = {
         position: "1.2 0.6 0.25",
         title: "Tapete Luke",
         subtitle: "Clássico padrão zebrado",
+      },
+      info: {
+        details: [
+          "Tapete luxuoso com padrão zebrado",
+          "Feito com materiais de alta qualidade e durabilidade",
+          "Adiciona elegância e conforto ao ambiente",
+        ],
       },
     },
   ],
