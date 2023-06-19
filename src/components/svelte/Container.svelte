@@ -105,9 +105,9 @@
     class="cursor"
     material={`visible: ${debug}; wireframe: true; color: yellow; shader: flat;`}
     height="1"
-    width="1.2"
+    width="2.1"
     rotation="-90 -90 0"
-    position="0 0.002 0.6"
+    position="0 0.002 0.15"
     proxy-event__in="event: mouseenter; to: #controlButtons;"
     proxy-event__out="event: mouseleave; to: #controlButtons;"
   >
@@ -117,7 +117,7 @@
       class="cursor"
       id="controlButtons"
       rotation="-180 0 0"
-      position="-0.6 0 0.001"
+      position="-0.15 0 0.001"
       radius-inner="1.2"
       radius-outer="1"
       color="#111"
