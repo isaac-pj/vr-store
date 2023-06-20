@@ -26,11 +26,13 @@ import "./components/aframe/navigate.js";
 import "./components/aframe/wrapper.js";
 import "./components/aframe/children.js";
 import "./components/aframe/pivot.js";
+import "./components/aframe/variants.js";
 
 // EXTENDS COMPONENTS
 
 import "./primitives/extends/light.js";
 import "./primitives/extends/text.js";
+import "./primitives/extends/troika.js";
 
 // CUSTOM PRIMITIVES
 
