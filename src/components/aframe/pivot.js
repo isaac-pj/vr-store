@@ -1,5 +1,6 @@
 var originalPosition = new THREE.Vector3();
 var originalRotation = new THREE.Vector3();
+var originalScale = new THREE.Vector3();
 
 delete AFRAME.components["pivot"];
 
@@ -24,6 +25,7 @@ export default AFRAME.registerComponent("pivot", {
 
     originalPosition.copy(originalGroup.position);
     originalRotation.copy(originalGroup.rotation);
+    originalScale.copy(originalGroup.scale);
 
     // Detach current group from parent.
     originalParent.remove(originalGroup);
