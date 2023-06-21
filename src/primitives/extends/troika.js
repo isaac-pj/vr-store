@@ -5,7 +5,7 @@ export default AFRAME.registerPrimitive("c-troika", {
       color: "#272727",
       align: "left",
       anchor: "align",
-      font: "#montserrat-regular",
+      baseline: "top",
     },
     variants: { weight: 400 },
   },
