@@ -27,6 +27,7 @@ import "./components/aframe/wrapper.js";
 import "./components/aframe/children.js";
 import "./components/aframe/pivot.js";
 import "./components/aframe/variants.js";
+import "./components/aframe/origin.js";
 
 // EXTENDS COMPONENTS
 
