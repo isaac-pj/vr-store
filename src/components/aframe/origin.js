@@ -12,6 +12,9 @@ export default AFRAME.registerComponent("origin", {
     var bufferGeometry = el.getObject3D("mesh").geometry;
 
     if (!bufferGeometry) return;
-    bufferGeometry.translate(-1 * data.x, -1 * data.y, -1 * data.z);
+
+    var copyGeometry = bufferGeometry.clone();
+    copyGeometry.translate(-1 * data.x, -1 * data.y, -1 * data.z);
+    el.getObject3D("mesh").geometry = copyGeometry;
   },
 });
