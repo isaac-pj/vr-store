@@ -13,8 +13,11 @@ const variants = {
 export default AFRAME.registerComponent("variants", {
   schema: {
     font: { type: "string", default: "montserrat" },
-    weight: { type: "number", default: 400 },
-    style: { type: "string", default: "normal" },
+    weight: {
+      oneOf: [100, 200, 300, 400, 500, 600, 700, 800, 900],
+      default: 400,
+    },
+    style: { oneOf: ["normal", "italic"], default: "normal" },
   },
   init: function () {
     const { font, weight, style } = this.data;

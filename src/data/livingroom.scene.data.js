@@ -23,7 +23,7 @@ export const livingRoomSceneData = {
       },
       info: {
         description:
-          "Apresentamos a elegante poltrona Beatle de linho Azul com Pés de Madeira, uma peça de mobiliário que combina estilo e conforto para transformar sua casa.",
+          "Apresentamos a elegante poltrona Beatle de linho azul com pés de madeira, uma peça de mobiliário que combina estilo e conforto para transformar sua casa.",
         details: [
           {
             message:
