@@ -11,6 +11,8 @@ export default AFRAME.registerPrimitive("c-troika", {
   },
   mappings: {
     ...AFRAME.primitives.primitives["a-troika-text"].mappings,
+    opacity: "troika-text.fillOpacity",
+    "outline-opacity": "troika-text.outlineOpacity",
     font: "variants.font",
     weight: "variants.weight",
     style: "variants.style",

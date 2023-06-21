@@ -23,6 +23,8 @@
   {position}
   {width}
   {height}
+  class="cursor"
+  class:active={onClick}
   color={background}
   text={`value: ${label.toUpperCase()}; width: 1.6; align: center; letterSpacing: 10px; yOffset: 0.01; color: ${color};`}
   shadow="cast: true; receive: true;"
