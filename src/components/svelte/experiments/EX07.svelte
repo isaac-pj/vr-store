@@ -28,3 +28,19 @@
     position="1 1 0"
   />
 </a-rounded>
+
+<a-plane
+  width="0.5"
+  height="0.5"
+  origin="0 0 0"
+  color="purple"
+  position="-0.5 2 -2"
+/>
+
+<a-plane
+  width="0.5"
+  height="0.5"
+  origin="0 -0.25 0"
+  color="orange"
+  position="0 2 -2"
+/>
