@@ -26,10 +26,22 @@
   class="cursor"
   class:active={onClick}
   color={background}
-  text={`value: ${label.toUpperCase()}; width: 1.6; align: center; letterSpacing: 10px; yOffset: 0.01; color: ${color};`}
   shadow="cast: true; receive: true;"
   material="shader: flat"
-  montserrat="weight: 700"
   on:click={onClick}
   on:keydown={() => {}}
-/>
+>
+  <c-troika
+    {color}
+    max-width={width}
+    align="center"
+    baseline="center"
+    letter-spacing={0.2}
+    depth-offset={-1}
+    font-size="0.07"
+    value={label.toUpperCase()}
+    variants="font: montserrat; weight: 700;"
+  />
+</a-plane>
+<!-- montserrat="weight: 700" -->
+<!-- troika-text={`value: ${label.toUpperCase()}; max-width: ${width}; align: center; letterSpacing: 0.2; color: ${color}; font-size: 0.07; depthOffset: -1;`} -->
