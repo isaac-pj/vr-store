@@ -17,6 +17,7 @@ import "aframe-proxy-event-component";
 import "aframe-look-at-component";
 import "aframe-troika-text";
 import "aframe-html-shader";
+import "aframe-xylayout";
 
 // CUSTOM COMPONENTS
 
