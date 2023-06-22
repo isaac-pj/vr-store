@@ -32,9 +32,11 @@
 >
   <a-entity
     id={model}
-    class={!active ? "cursor" : ""}
+    class={!active ? "cursor active" : ""}
     gltf-model={`#${model}-3d`}
     shadow="receive: true; cast: true"
+    proxy-event__hide="event: mouseenter; to: #info; as: tohide;"
+    proxy-event__show="event: mouseleave; to: #info; as: toshow;"
   />
   <slot />
 </a-entity>
