@@ -1,9 +1,11 @@
 <script>
   export let position = "0 0 -2";
-  const debug = true;
+  const debug = false;
 </script>
 
 <a-entity id="container" {position}>
+  <!-- class="cursor active" -->
+  <!-- proxy-event="event: mouseenter; to: #info;" -->
   <!-- proxy-event__off="event: mouseenter; to: #info; as: tohide;" -->
   <!-- proxy-event__on="event: mouseleave; to: #info; as: toshow;" -->
   <a-entity
@@ -23,6 +25,8 @@
     width="1.2"
     rotation="-90 0 0"
     position="-0.6 0.001 0"
+    proxy-event__hide="event: mouseenter; to: #info; as: tohide;"
+    proxy-event__show="event: mouseleave; to: #info; as: toshow;"
     material={`visible: ${debug}; wireframe: true; color: red; shader: flat;`}
     proxy-event__resume="event: mouseenter; to: #content; as: toleft"
     proxy-event__pause="event: mouseleave; to: #content; as: topause"
@@ -65,6 +69,8 @@
     width="1.2"
     rotation="-90 0 0"
     position="0.6 0.001 0"
+    proxy-event__hide="event: mouseenter; to: #info; as: tohide;"
+    proxy-event__show="event: mouseleave; to: #info; as: toshow;"
     material={`visible: ${debug}; wireframe: true; color: blue; shader: flat;`}
     proxy-event__resume="event: mouseenter; to: #content; as: toright"
     proxy-event__pause="event: mouseleave; to: #content; as: topause"
@@ -110,6 +116,8 @@
     position="0 0.002 0.15"
     proxy-event__in="event: mouseenter; to: #controlButtons;"
     proxy-event__out="event: mouseleave; to: #controlButtons;"
+    proxy-event__hide="event: mouseenter; to: #info; as: tohide;"
+    proxy-event__show="event: mouseleave; to: #info; as: toshow;"
   >
     <!-- proxy-event__off="event: mouseenter; to: #info; as: tohide;" -->
     <!-- proxy-event__on="event: mouseleave; to: #info; as: toshow;" -->
