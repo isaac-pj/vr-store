@@ -1,3 +1,7 @@
+<script>
+  import Icon from "../Icon.svelte";
+</script>
+
 <!-- <a-plane position="0 2 -2" color="gray">
   <a-xycontainer position="0 0 0.001">
     <a-plane color="purple" origin="-0.5 -0.1 0" height="0.2">
@@ -37,4 +41,5 @@
   <a-plane width="0.2" height="0.2" color="yellow" />
   <a-plane width="0.2" height="0.2" color="green" />
   <a-plane width="0.2" height="0.2" color="blue" />
+  <Icon name="keyboard" />
 </a-xycontainer>
