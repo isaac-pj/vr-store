@@ -43,8 +43,11 @@
     "aframe-superframe": "https://github.com/isaac-pj/superframe.git#master",
     "aframe-template-component": "^3.2.1",
     "aframe-troika-text": "^0.10.1",
+    "aframe-xylayout": "0.0.1",
+    "simple-keyboard": "^3.6.18",
     "svawc": "^0.0.1",
-    "svelte-routing": "^1.8.9"
+    "svelte-routing": "^1.8.9",
+    "swipe-keyboard": "^2.2.511"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
