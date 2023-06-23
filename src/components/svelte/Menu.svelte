@@ -53,6 +53,12 @@
       <MenuItem label="Descontos" category="" />
       <!-- <MenuItem label="Busca" category="" /> -->
       <!-- <MenuItem label="Carrinho" category="" /> -->
+      <a-xyinput
+        look-at="#mainCamera"
+        class="cursor active"
+        color="#333333"
+        placeholder="Search"
+      />
     </a-entity>
   </a-sphere>
 </a-sphere>

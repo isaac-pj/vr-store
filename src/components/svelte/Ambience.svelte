@@ -52,7 +52,7 @@
     animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
     event-set__mouseenter="_event: mouseon; color: #ffd70a"
     event-set__mouseleave="_event: mouseoff; color: black"
-    raycaster="objects: .cursor; far: 15; showLine: false;"
+    raycaster="objects: .cursor, .collidable; far: 15; showLine: false;"
     bind:this={cursorRef}
     on:mouseenter={handleMouseAtive}
     on:mouseleave={handleMouseAtive}

@@ -18,6 +18,7 @@ import "aframe-look-at-component";
 import "aframe-troika-text";
 import "aframe-html-shader";
 import "aframe-xylayout";
+// import "aframe-gui"; // has some register conflicts
 
 // CUSTOM COMPONENTS
 
