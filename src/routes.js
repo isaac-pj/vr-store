@@ -1,26 +1,42 @@
+import { livingRoomSceneData } from "./data/livingroom.scene.data";
+import LivingRoom from "./spaces/LivingRoom.svelte";
+import Experiments from "./spaces/Experiments.svelte";
+import ProductDetails from "./spaces/ProductDetails.svelte";
+import ProductList from "./spaces/ProductList.svelte";
+
+const defaultRouteComponent = LivingRoom;
+const fallbackRouteComponent = LivingRoom;
+
 export const routes = [
+  {
+    key: "defaultRoute",
+    path: "/",
+    component: defaultRouteComponent,
+  },
   {
     key: "livingRoomRoute",
     path: "/living-room",
-    src: "./spaces/living-room.html",
-    type: "mustache",
+    component: LivingRoom,
+    data: livingRoomSceneData,
   },
   {
     key: "productDetailsRoute",
     path: "/product-details",
-    src: "./spaces/product-details.html",
-    type: "mustache",
+    component: ProductDetails,
+  },
+  {
+    key: "searchListRoute",
+    path: "/search-list",
+    component: ProductList,
   },
   {
     key: "experimentsRoute",
     path: "/experiments",
-    src: "./spaces/experiments.html",
-    type: "mustache",
+    component: Experiments,
   },
   {
-    key: "productListRoute",
-    path: "/list",
-    src: "./spaces/product-list.html",
-    type: "mustache",
+    key: "fallbackRoute",
+    path: "*",
+    component: fallbackRouteComponent,
   },
 ];

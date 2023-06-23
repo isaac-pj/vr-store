@@ -88,6 +88,10 @@
 - Cristal: 1.870
 - Diamond: 2.417 - 2.541
 
+# Templates
+
+- template string is parsed even when it is commented out
+
 # Use External Template
 
 OK - Create template by default components registring a new primitive // Caution! AFRAME.registerPrimitive is deprecated
@@ -107,6 +111,11 @@ OK - Insert template with webpack on init step by javascript
 
 - use aabb-collider // do not work because boxHelper grow horizontaly when rotate in Y axis
 - create box wrapper
+
+# Svelte Components
+
+- always properties need to defined e.g. position
+- register components is a good way to define and reuse
 
 # Generate Component
 
@@ -136,27 +145,87 @@ ok - (app) sotre and update state
   ok - [FEAT] loop
 ok - (app) render children elements
 ok - (app) separate component and primitives
+ok - (app) render scene elements dynamically // mustache
+ok - (app) svelte migration components
+ok - (app) migrate to App.svelte
+ok - (app) reactive framework angular, vue, svelte
+ok - (app) replace scenes by spaces
+ok - (app) render children
+ok - (list) create list space
+ok - (app) add data to json
+ok - (home) menu categories umbrella
+ok - (app) add montserrat type font
+ok - (home) make popup dynamic
+ok - (home) increase camera overlay for wide screen
+ok - (list) list products in carousel
+ok - (home) search by categories
+ok - (list) rotate scroll carousel // no linear
 
 -------------------------------------------------------------
 
->> no - (app) render scene elements dynamically
+>> no - (details) dot interactions // shein and google lens visual reference
 
-no - (details) dot interactions // shein and google lens visual reference
+no - (app) add box size models // script to output
+no - (app) add another models // convert gltf
+no - (app) github page deploy
+
+#5 ----------------------------------------------------------
+
+no - (details) make animation rotate
+  no - [FIX] fluid swap animation
+  no - [FEAT] no circular buttons
+  no - [FEAT] container adapt size
+no - (list) adaptable content size for active ring
+no - (app) add skelleton box model // pass prop loading // add animation
 no - (details) parts of objects to animation
-no - (home) make popup dynamic
-no - (home) cetegories filter
-no - (home) menu categories umbrella
-no - (home) keyboar and search
-no - (app) reactive framework angular, vue, svelte
-no - (app) add data to json
-no - (app) add montserrat type font
-no - (app) render children
-no - (app) replace scenes by spaces
-no - (app) make components reusable
-no - (home) increase camera overlay for wide screen
 
+#4 ----------------------------------------------------------
+
+no - (app) footer pie menu
+no - (app) top exit pie menu
+no - (app) change cursor icon to scroll // like shein change image
+
+#2 ----------------------------------------------------------
+
+no - (home) add new products and spaces
+no - (home) keyboard and search
+no - (home) keyboard swipe
+
+#1 ----------------------------------------------------------
+
+no - (list) add empty list feedback
+no - (home) circular spaces
+no - (list) circular inverse carousel
+no - (home) subcetegories filter
+no - (list) inifinity scroll carousel
+
+#0 ----------------------------------------------------------
+
+no - (app) menu sublevel with rings
+no - (app) menu fallow camera and cursor in z axis
+no - (app) make components reusable
+no - (app) change lib query string or remove warning // use native new URLSearchParams
+no - (app) await for wrapper event in case of double
 
 ```
+
+# text
+
+motivação
+decisoes de porjeto com base no modelo escolhido
+
+implementação
+teconologia
+e porcesso de desenvolvimento
+
+catalogo de ideias
+
+inspeção heuristica Nielsen
+
+2 seções
+
+projeto e
+implmentação
 
 # remember
 
@@ -169,19 +238,36 @@ no - (home) increase camera overlay for wide screen
 6. fazer o usuario passar mais tempo navegando (mais conversão) mas
    sem que isso se apresente como uma clara desvantagem que seja por interess e não obrigação
 7. using state bind for arrays need to be in root of initialState
+8. priority zone is equador line, bottom, and by last top area
+9. component pivot change the original position to compensation
 
 # colab
 
-no - emit event in capture phase
+no - emit event in capture phase // event set add new params
 no - send data in proxy event
 no - open pr to template
 no - publish look to component
 no - publish router component
 no - colab with svawc port
 no - colar or create a flexbox component layout
+no - port typescript svawc
+no - create a svawc command line
+no - implements animationbegin\_\_hasID // need to publish
+no - event-set-if baseado em condicao
+no - capture phase e once in event proxy e event set
+no - replace THREE.Math for THREE.MathUtils
+no - mapping html shader to cylinder // no set width
+no - props bigger than 3 decimals are rounded on inspect element
+no - fix wireframeLinewidth // does not working
+no - collumns define in circle layout
+no - fix layout componente warn default value number
+no - publish rounded geometry
+no - PR to aframe pivot component
 
 # ideas
 
+no - create a component cascade to inherit props
+no - create a component for auto close camera
 no - add proxy events to multiple events e multiple targets
 ok - data children component
 no - create a rounded component with circles and plane for aframe  

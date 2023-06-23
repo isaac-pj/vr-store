@@ -1,8 +1,8 @@
-AFRAME.registerPrimitive("c-mybox", {
+export default AFRAME.registerPrimitive("c-mybox", {
   defaultComponents: {
     "template-children": "",
     template: {
-      src: "./primitives/mybox/mybox.html",
+      src: "./build/templates/mybox.html",
       type: "mustache",
     },
   },

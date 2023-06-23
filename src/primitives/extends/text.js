@@ -1,4 +1,4 @@
-AFRAME.registerPrimitive("c-text", {
+export default AFRAME.registerPrimitive("c-text", {
   defaultComponents: {
     text: {
       color: "#272727",
