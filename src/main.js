@@ -21,15 +21,21 @@ import "aframe-xylayout";
 
 // CUSTOM COMPONENTS
 
-import "./components/aframe/look-to.js";
-import "./components/aframe/montserrat.js";
-import "./components/aframe/navigate.js";
-import "./components/aframe/wrapper.js";
-import "./components/aframe/children.js";
-import "./components/aframe/pivot.js";
-import "./components/aframe/variants.js";
-import "./components/aframe/origin.js";
-import "./components/aframe/cascade.js";
+import "./components/aframe/look-to";
+import "./components/aframe/montserrat";
+import "./components/aframe/navigate";
+import "./components/aframe/wrapper";
+import "./components/aframe/children";
+import "./components/aframe/pivot";
+import "./components/aframe/variants";
+import "./components/aframe/origin";
+import "./components/aframe/cascade";
+import "./components/aframe/frame";
+import "./components/aframe/flex-layout";
+// import "./components/aframe/keyboard";
+// import "./components/aframe/input";
+// import "./components/aframe/label";
+// import "./components/aframe/resize";
 
 // EXTENDS COMPONENTS
 

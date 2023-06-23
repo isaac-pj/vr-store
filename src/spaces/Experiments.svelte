@@ -1,4 +1,5 @@
 <script>
+  import EX10 from "./../components/svelte/experiments/EX10.svelte";
   import EX09 from "../components/svelte/experiments/EX09.svelte";
   import EX08 from "./../components/svelte/experiments/EX08.svelte";
   import EX07 from "./../components/svelte/experiments/EX07.svelte";
@@ -31,4 +32,5 @@
 <!-- <EX06 /> -->
 <!-- <EX07 /> -->
 <!-- <EX08 /> -->
-<EX09 />
+<!-- <EX09 /> -->
+<EX10 />
