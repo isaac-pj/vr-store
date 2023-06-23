@@ -41,5 +41,7 @@
   <a-plane width="0.2" height="0.2" color="yellow" />
   <a-plane width="0.2" height="0.2" color="green" />
   <a-plane width="0.2" height="0.2" color="blue" />
-  <Icon name="keyboard" />
+  <a-plane width="0.2" height="0.2" color="purple">
+    <Icon name="keyboard" size="0.2" position="0 0 0.001" />
+  </a-plane>
 </a-xycontainer>
