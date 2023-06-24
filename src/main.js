@@ -32,6 +32,7 @@ import "./components/aframe/origin";
 import "./components/aframe/cascade";
 import "./components/aframe/frame";
 import "./components/aframe/flex-layout";
+// import "./components/aframe/button";
 // import "./components/aframe/keyboard";
 // import "./components/aframe/input";
 // import "./components/aframe/label";
