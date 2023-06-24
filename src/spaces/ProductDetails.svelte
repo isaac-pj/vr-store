@@ -76,8 +76,8 @@
   <a-plane
     id="info"
     cascade="props: opacity, outline-opacity; value: 1;"
-    animation__show="property: cascade.value; startEvents: toshow; to: 1; dur: 200;"
-    animation__hide="property: cascade.value; startEvents: tohide; to: 0; dur: 200;"
+    animation__show="delay: 500; property: cascade.value; startEvents: toshow; to: 1; dur: 200;"
+    animation__hide="delay: 500; property: cascade.value; startEvents: tohide; to: 0; dur: 200;"
     position="-1.5 1 0.001"
     width="3"
     height="2"

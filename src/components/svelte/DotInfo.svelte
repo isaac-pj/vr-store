@@ -26,6 +26,8 @@
       rotation="0 0 0"
       material="shader: flat"
       color="#1A91FE"
+      proxy-event__hide="event: mouseenter; to: #info; as: tohide;"
+      proxy-event__show="event: mouseleave; to: #info; as: toshow;"
     />
   </a-ring>
 
