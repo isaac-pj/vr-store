@@ -1,4 +1,4 @@
-AFRAME.registerComponent("flex-item", {
+const flexItem = AFRAME.registerComponent("flex-item", {
   schema: {
     align: {
       default: "none",
@@ -10,8 +10,7 @@ AFRAME.registerComponent("flex-item", {
   },
   update(oldData) {
     if (oldData.align) {
-      let xycontainer = /** @type {AFRAME.AEntity} */ (this.el.parentNode)
-        .components.xycontainer;
+      let xycontainer = this.el.parentNode.components.xycontainer;
       if (xycontainer) {
         xycontainer.update();
       }
@@ -19,14 +18,14 @@ AFRAME.registerComponent("flex-item", {
   },
 });
 
-export default AFRAME.registerComponent("flex-container", {
+const flexContainer = AFRAME.registerComponent("flex-container", {
   dependencies: ["frame"],
   schema: {
-    spacing: { default: 0.0 },
+    gap: { default: 0.0 },
     padding: { default: 0 },
     reverse: { default: false },
     wrap: { default: "nowrap", oneOf: ["wrap", "nowrap"] },
-    direction: {
+    flexDirection: {
       default: "column",
       oneOf: ["none", "row", "column", "vertical", "horizontal"],
     },
@@ -34,7 +33,7 @@ export default AFRAME.registerComponent("flex-container", {
       default: "none",
       oneOf: ["none", "center", "start", "end", "baseline", "stretch"],
     },
-    justifyItems: {
+    justifyContent: {
       default: "start",
       oneOf: [
         "center",
@@ -60,21 +59,19 @@ export default AFRAME.registerComponent("flex-container", {
   },
   update() {
     let data = this.data;
-    let direction = data.direction;
-    if (direction == "none") {
+    let flexDirection = data.flexDirection;
+    if (flexDirection == "none") {
       return;
     }
-    let containerRect = this.el.components.xyrect.data
-      ? this.el.components.xyrect
+    let containerRect = this.el.components.frame.data
+      ? this.el.components.frame
       : { data: { height: -1, width: -1 } };
-    let children = /** @type {Iterable<AFRAME.AEntity>} */ (this.el.children);
-    let isVertical = direction == "vertical" || direction == "column";
+    let children = this.el.children;
+    let isVertical = flexDirection == "vertical" || flexDirection == "column";
     let padding = data.padding;
-    let spacing = data.spacing;
+    let gap = data.gap;
     let mainDir = data.reverse != isVertical ? -1 : 1;
-    /** @type {(m: number, c: number) =>[number, number]} */
     let toXY = (m, c) => (isVertical ? [c, m * mainDir] : [m * mainDir, -c]);
-    /** @type {<X,Y>(x: X, y: Y) =>[X|Y,X|Y]} */
     let xyToMainCross = (x, y) => (isVertical ? [y, x] : [x, y]);
     let [containerSizeM, containerSizeC] = xyToMainCross(
       containerRect.width - padding * 2,
@@ -85,16 +82,14 @@ export default AFRAME.registerComponent("flex-container", {
     // lines
     let mainSize = 0;
     let crossSizeSum = 0;
-    /** @type {[el:AFRAME.AEntity, xyitem: any, size: number[], pivot: number[], scale:number[]][]} */
     let targets = [];
-    /** @type {[typeof targets, number, number, number, number][]} */
     let lines = [];
     let sizeSum = 0;
     let growSum = 0;
     let shrinkSum = 0;
     let crossSize = 0;
     let newLine = () => {
-      mainSize = Math.max(mainSize, sizeSum + spacing * (targets.length - 1));
+      mainSize = Math.max(mainSize, sizeSum + gap * (targets.length - 1));
       crossSizeSum += crossSize;
       lines.push([targets, sizeSum, growSum, shrinkSum, crossSize]);
       targets = [];
@@ -104,11 +99,11 @@ export default AFRAME.registerComponent("flex-container", {
       crossSize = 0;
     };
     for (let el of children) {
-      let xyitem = el.getAttribute("xyitem");
-      if (xyitem && xyitem.fixed) {
+      let flexItem = el.getAttribute("flex-item");
+      if (flexItem && flexItem.fixed) {
         continue;
       }
-      let frame = el.components.xyrect ||
+      let frame = el.components.frame ||
         el.getAttribute("geometry") || {
           width: +(el.getAttribute("width") || NaN),
           height: +(el.getAttribute("height") || NaN),
@@ -125,27 +120,27 @@ export default AFRAME.registerComponent("flex-container", {
         continue;
       }
       let pivot = frame.data ? frame.data.pivot : { x: 0.5, y: 0.5 };
-      let contentSize = sizeSum + sizeM + spacing * targets.length;
+      let contentSize = sizeSum + sizeM + gap * targets.length;
       if (data.wrap == "wrap" && sizeSum > 0 && contentSize > containerSizeM) {
         newLine();
       }
       targets.push([
         el,
-        xyitem,
+        flexItem,
         size,
         xyToMainCross(pivot.x, pivot.y),
         xyToMainCross(childScale.x, childScale.y),
       ]);
       sizeSum += sizeM;
-      growSum += xyitem ? xyitem.grow : 1;
-      shrinkSum += xyitem ? xyitem.shrink : 1;
+      growSum += flexItem ? flexItem.grow : 1;
+      shrinkSum += flexItem ? flexItem.shrink : 1;
       crossSize = sizeC > crossSize ? sizeC : crossSize;
     }
     if (targets.length > 0) {
       newLine();
     }
 
-    crossSizeSum += spacing * (lines.length - 1);
+    crossSizeSum += gap * (lines.length - 1);
     if (containerRect.data[attrNameM] == -1) {
       containerSizeM = mainSize;
       containerRect[attrNameM] = mainSize + padding * 2;
@@ -178,24 +173,9 @@ export default AFRAME.registerComponent("flex-container", {
         attrNameC,
         toXY
       );
-      crossOffset += crossSize + crossStretch + spacing;
+      crossOffset += crossSize + crossStretch + gap;
     }
   },
-  /**
-   * 
-  /**
-   * @param {[el:import("aframe").Entity, xyitem: any, size: number[], pivot: number[], scale:number[]][]} targets
-   * @param {number} sizeSum
-   * @param {number} growSum
-   * @param {number} shrinkSum
-   * @param {number} offset0
-   * @param {number} offset1
-   * @param {number} containerSize0
-   * @param {number} containerSize1
-   * @param {string} attrName0
-   * @param {string} attrName1
-   * @param {(m: number, c: number) => [number, number]} toXY
-   */
   _layoutLine(
     targets,
     sizeSum,
@@ -209,37 +189,37 @@ export default AFRAME.registerComponent("flex-container", {
     attrName1,
     toXY
   ) {
-    let { justifyItems, alignItems, spacing, wrap } = this.data;
+    let { justifyContent, alignItems, gap, wrap } = this.data;
     let stretchFactor = 0;
     let numTarget = targets.length;
-    if (justifyItems === "center") {
-      offset0 += (containerSize0 - sizeSum - spacing * numTarget) / 2;
-    } else if (justifyItems === "end") {
-      offset0 += containerSize0 - sizeSum - spacing * numTarget;
-    } else if (justifyItems === "stretch") {
-      stretchFactor = containerSize0 - sizeSum - spacing * (numTarget - 1);
+    if (justifyContent === "center") {
+      offset0 += (containerSize0 - sizeSum - gap * numTarget) / 2;
+    } else if (justifyContent === "end") {
+      offset0 += containerSize0 - sizeSum - gap * numTarget;
+    } else if (justifyContent === "stretch") {
+      stretchFactor = containerSize0 - sizeSum - gap * (numTarget - 1);
       if (stretchFactor > 0) {
         stretchFactor = growSum > 0 ? stretchFactor / growSum : 0;
       } else {
         stretchFactor = shrinkSum > 0 ? stretchFactor / shrinkSum : 0;
       }
-    } else if (justifyItems === "space-between") {
-      spacing = (containerSize0 - sizeSum) / (numTarget - 1);
-    } else if (justifyItems === "space-around") {
-      spacing = (containerSize0 - sizeSum) / numTarget;
-      offset0 += spacing / 2;
+    } else if (justifyContent === "space-between") {
+      gap = (containerSize0 - sizeSum) / (numTarget - 1);
+    } else if (justifyContent === "space-around") {
+      gap = (containerSize0 - sizeSum) / numTarget;
+      offset0 += gap / 2;
     }
 
     for (let [
       el,
-      xyitem,
+      flexItem,
       [size0, size1],
       [pivot0, pivot1],
       [scale0, scale1],
     ] of targets) {
-      let align = (xyitem && xyitem.align) || alignItems;
+      let align = (flexItem && flexItem.align) || alignItems;
       let stretch =
-        (xyitem ? (stretchFactor > 0 ? xyitem.grow : xyitem.shrink) : 1) *
+        (flexItem ? (stretchFactor > 0 ? flexItem.grow : flexItem.shrink) : 1) *
         stretchFactor;
       let posCross = offset1 + containerSize1 / 2; // center
       let pos = el.getAttribute("position") || { x: 0, y: 0 };
@@ -263,7 +243,12 @@ export default AFRAME.registerComponent("flex-container", {
       }
       [pos.x, pos.y] = toXY(offset0 + size0 * pivot0, posCross);
       el.setAttribute("position", pos);
-      offset0 += size0 + spacing;
+      offset0 += size0 + gap;
     }
   },
 });
+
+export default {
+  flexItem,
+  flexContainer,
+};
