@@ -2,6 +2,8 @@
   "name": "vr-store",
   "description": "Virtual reality store interaction",
   "version": "1.1.2",
+  "homepage": "https://isaac-pj.github.io/vr-store/",
+  "private": false,
   "main": "bundle.js",
   "browser": "./public/build/bundle.js",
   "files": [
@@ -10,6 +12,7 @@
   "scripts": {
     "build": "rollup -c",
     "prepublish": "npm run build",
+    "deploy": "npx gh-pages -d public",
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear --port 5200 --http2 --key localhost-key.pem --cert localhost-cert.pem",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -52,6 +55,7 @@
     "@rollup/plugin-node-resolve": "^11.0.0",
     "aframe-html-shader": "https://github.com/isaac-pj/aframe-html-shader.git#master",
     "angle": "^0.9.1",
+    "gh-pages": "^5.0.0",
     "handlebars": "^4.0.5",
     "mustache": "^2.2.1",
     "prettier": "^2.8.7",
