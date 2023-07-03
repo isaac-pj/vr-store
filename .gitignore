@@ -1,2 +1,9 @@
+# FOLDERS
+
 node_modules
-public
+public/build
+archive
+
+# FILES
+
+*.log
