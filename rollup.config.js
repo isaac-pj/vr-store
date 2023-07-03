@@ -18,7 +18,6 @@ export default {
     name: "app",
     file: "public/build/bundle.js",
   },
-  base: "/vr-store/",
   plugins: [
     svelte({
       compilerOptions: {
