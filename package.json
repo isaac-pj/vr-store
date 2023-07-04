@@ -11,8 +11,9 @@
   ],
   "scripts": {
     "build": "rollup -c",
+    "build:prod": "npm run build -- --production",
     "prepublish": "npm run build",
-    "deploy": "npx gh-pages -d public",
+    "deploy": "npm run prepublish && npx gh-pages -d public",
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear --port 5200 --http2 --key localhost-key.pem --cert localhost-cert.pem",
     "test": "echo \"Error: no test specified\" && exit 1"
