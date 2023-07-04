@@ -15,6 +15,6 @@
   curve-radius="10"
   font-size="0.5"
   letter-spacing="0.2"
-  navigate={`path: /search-list?filter=${category};`}
+  navigate={`path: /search-list?filter=${category || "empty"};`}
   look-at="#circleLayout"
 />

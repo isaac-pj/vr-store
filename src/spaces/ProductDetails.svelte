@@ -9,16 +9,17 @@
 
   const { products } = livingRoomSceneData;
 
+  export let params = {};
   export let product = "";
 
   // let historyState;
   // onMount(() => (historyState = history.state));
 
-  const { productId } = history.state;
+  const { productId } = params;
 
   const findProduct = productId => {
     if (!productId) return;
-    return products.find(({ id }) => id === productId);
+    return products.find(({ id }) => id === Number(productId));
   };
 
   const getPosition = product => {
@@ -52,13 +53,7 @@
     <!-- "Pintura em aluminio eletroestático de alta resistencia para maior durabilidade" -->
     <!-- position="0.300 0.450 0.030" -->
     {#each product.info.details as { message, position, width = 1, height = 0.6 }, index}
-      <DotInfo
-        id={`${product.name}-${index}`}
-        {position}
-        info={message}
-        {width}
-        {height}
-      />
+      <DotInfo id={`${product.name}-${index}`} {position} info={message} {width} {height} />
     {/each}
   </Product>
 </Container>
@@ -89,22 +84,11 @@
     <!-- animation__hide="property: visible; startEvents: tohide; to: false; dur: 400;" -->
     <!-- animation__show="property: visible; startEvents: toshow; to: true; dur: 400;" -->
 
-    <c-troika
-      position="0.1 -0.1 0.01"
-      value={product.popup.title}
-      font-size="0.3"
-      weight="700"
-    />
+    <c-troika position="0.1 -0.1 0.01" value={product.popup.title} font-size="0.3" weight="700" />
 
     <!-- max-width={2 - 0.1} -->
 
-    <c-troika
-      position="0.1 -0.4 0.01"
-      value={product.popup.subtitle}
-      font-size="0.15"
-      weight="500"
-      color="#666"
-    />
+    <c-troika position="0.1 -0.4 0.01" value={product.popup.subtitle} font-size="0.15" weight="500" color="#666" />
 
     <c-troika
       position="0.1 -0.7 0.01"
@@ -119,12 +103,7 @@
 
     <!-- position={{ x: 0, y: height / 2 - 0.1, z: 0.001 }} -->
 
-    <c-troika
-      position="0.1 -1 0.01"
-      value={product.info.description}
-      font-size="0.1"
-      max-width={3 - 0.1}
-    />
+    <c-troika position="0.1 -1 0.01" value={product.info.description} font-size="0.1" max-width={3 - 0.1} />
 
     <!-- class="active" -->
     <!-- class:cursor={isReady} -->

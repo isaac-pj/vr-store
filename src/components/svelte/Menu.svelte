@@ -46,11 +46,11 @@
     >
       <!-- <MenuItem label="Home" category="" /> -->
       <MenuItem label="Ambientes" category="" />
-      <MenuItem label="Móveis" category="móveis" />
-      <MenuItem label="Decoração" category="decoração" />
+      <MenuItem label="Móveis" category="forniture" />
+      <MenuItem label="Decoração" category="decoration" />
       <MenuItem label="Designers" category="" />
       <MenuItem label="Combos" category="" />
-      <MenuItem label="Descontos" category="" />
+      <MenuItem label="Descontos" category="desconto" />
       <!-- <MenuItem label="Busca" category="" /> -->
       <!-- <MenuItem label="Carrinho" category="" /> -->
     </a-entity>

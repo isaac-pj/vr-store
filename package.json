@@ -48,7 +48,8 @@
     "aframe-troika-text": "^0.10.1",
     "aframe-xylayout": "https://github.com/binzume/aframe-xylayout#master",
     "svawc": "^0.0.1",
-    "svelte-routing": "^1.8.9"
+    "svelte-routing": "^1.8.9",
+    "svelte-spa-router": "^3.3.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
@@ -60,7 +61,6 @@
     "mustache": "^2.2.1",
     "prettier": "^2.8.7",
     "pretty-error": "^4.0.0",
-    "query-string": "^8.1.0",
     "rollup": "^2.3.4",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-css-only": "^3.1.0",
