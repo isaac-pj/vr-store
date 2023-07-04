@@ -4,16 +4,14 @@
   import { querystring } from "svelte-spa-router";
   const { products } = livingRoomSceneData;
 
-  let queryParams = new URLSearchParams($querystring);
-
-  $: queryParams = queryParams;
+  $: queryParams = new URLSearchParams($querystring);
   $: searchResult = products.filter(({ categories }) => categories.includes(queryParams.get("filter")));
+
   $: scrollPos = -90;
 
   const scollListRight = () => {
     scrollPos += 10;
   };
-
   const scollListLeft = () => {
     scrollPos -= 10;
   };
