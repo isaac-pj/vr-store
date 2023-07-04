@@ -22,7 +22,6 @@ import "aframe-xylayout";
 // CUSTOM COMPONENTS
 
 import "./components/aframe/look-to";
-import "./components/aframe/montserrat";
 import "./components/aframe/navigate";
 import "./components/aframe/wrapper";
 import "./components/aframe/children";
