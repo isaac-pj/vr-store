@@ -17,7 +17,8 @@ export const livingRoomSceneData = {
         width: 0.940535,
       },
       popup: {
-        position: "0 1 -0.32",
+        position: "0 0.616 -0.32",
+        rotation: "0 0 0",
         title: "Poltrona Beatle",
         subtitle: "Acabamento em linho e madeira",
       },
@@ -71,7 +72,8 @@ export const livingRoomSceneData = {
         depth: 0.599231,
       },
       popup: {
-        position: "0.7 0.95 0",
+        position: "0.910 0.6 0",
+        rotation: "0 0 0",
         title: "Mesa Pazzi",
         subtitle: "Mesa lateral flutuante",
       },
@@ -118,7 +120,8 @@ export const livingRoomSceneData = {
         depth: 0.01,
       },
       popup: {
-        position: "0 1.030 0.265",
+        position: "0 0.621 0.265",
+        rotation: "0 0 0",
         title: "B&W Cactus",
         subtitle: "Quadro minimalista preto e branco",
       },
@@ -170,7 +173,8 @@ export const livingRoomSceneData = {
         width: 1.331046,
       },
       popup: {
-        position: "0 1.265 0",
+        position: "0 0.965 0",
+        rotation: "0 0 0",
         title: "Costela de adão",
         subtitle: "Planta tropical decorativa",
       },
@@ -222,7 +226,8 @@ export const livingRoomSceneData = {
         depth: 0.218707,
       },
       popup: {
-        position: "0 0.8 0",
+        position: "0 0.428 0",
+        rotation: "0 -24.8 0",
         title: "Luminária Cupp",
         subtitle: "Luminária de mesa industrial",
       },
@@ -274,7 +279,8 @@ export const livingRoomSceneData = {
         width: 2.415776,
       },
       popup: {
-        position: "1.2 0.6 0.25",
+        position: "-0.75 0.128 1.155",
+        rotation: "0 0 0",
         title: "Tapete Luke",
         subtitle: "Clássico padrão zebrado",
       },
