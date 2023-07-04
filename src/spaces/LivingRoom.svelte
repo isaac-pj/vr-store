@@ -5,7 +5,6 @@
   import { livingRoomSceneData } from "./../data/livingroom.scene.data.js";
 
   const coordinates = AFRAME.utils.coordinates;
-
   const { products } = livingRoomSceneData;
 </script>
 
@@ -19,30 +18,12 @@
   proxy-event__lookme="event: loaded; to: #mainCamera; as: lookme;"
 >
   <a-entity id="lookme" position="0 1.05 0" />
-  <c-light
-    type="directional"
-    color="#FFFFF0"
-    target="#wall"
-    position="2 3 3"
-    bias="-0.00017"
-  />
+  <c-light type="directional" color="#FFFFF0" target="#wall" position="2 3 3" bias="-0.00017" />
 </a-entity>
 
 {#each products as { id, name, pivot, position, rotation, popup } (id)}
-  <Product
-    model={name}
-    {pivot}
-    {position}
-    {rotation}
-    event="mouseenter"
-    target={`#popup-${name}`}
-    debug={false}
-  >
-    <Popup
-      id={`popup-${name}`}
-      position={popup.position}
-      rotation={popup.rotation}
-    >
+  <Product model={name} {pivot} {position} {rotation} event="mouseenter" target={`#popup-${name}`} debug={false}>
+    <Popup id={`popup-${name}`} position={popup.position} rotation={popup.rotation}>
       <!-- route="/product-details" -->
       <!-- payload={{ productId: id }} -->
       <!-- look-at="#circleLayout" -->
@@ -52,9 +33,7 @@
         x: coordinates.parse(popup.position).x - 1,
       }} -->
 
-      <a-entity
-        flex-container="flexDirection: horizontal; justifyContent: center;"
-      >
+      <a-entity flex-container="flexDirection: horizontal; justifyContent: center;">
         <a-plane width="0.2" height="0.2" material="visible: false;">
           <a-circle
             animation__pulse="loop: true; property: scale; to: 0 0 0; dir: alternate; dur: 500;"
@@ -62,20 +41,10 @@
             material="shader: flat"
             color="#FAC200"
           >
-            <a-circle
-              position="0 0 0.001"
-              radius="0.01"
-              material="shader: flat"
-              color="#FFFFFF"
-            />
+            <a-circle position="0 0 0.001" radius="0.01" material="shader: flat" color="#FFFFFF" />
           </a-circle>
         </a-plane>
-        <a-plane
-          width="0.2"
-          height="0.2"
-          material="visible: false;"
-          frame="pivot: -0.1, 0;"
-        >
+        <a-plane width="0.2" height="0.2" material="visible: false;" frame="pivot: -0.1, 0;">
           <a-troika-text
             align="left"
             anchor="align"
@@ -87,7 +56,7 @@
             animation__mouseenter-textcolor="property: color; to: #FFFFFF; dur: 300; startEvents: mouseenter"
             animation__mouseleave-textcolor="property: color; to: #272727; dur: 300; startEvents: mouseleave"
             sound="on: mouseenter; src: #click-sound; volume: 1; positional: false;"
-            navigate={{ path: "/product-details", data: { productId: id } }}
+            navigate={{ path: "/product-details/" + id }}
             outline-color="#B0B0B0"
             outline-offset-x="0.005"
             outline-offset-y="0.005"

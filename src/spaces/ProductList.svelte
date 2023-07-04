@@ -1,17 +1,13 @@
 <script>
-  import queryString from "query-string";
-
   import Product from "../components/svelte/Product.svelte";
   import { livingRoomSceneData } from "../data/livingroom.scene.data";
+  import { querystring } from "svelte-spa-router";
   const { products } = livingRoomSceneData;
 
-  let queryParams = queryString.parse(window.location.search);
+  let queryParams = new URLSearchParams($querystring);
+
   $: queryParams = queryParams;
-
-  let searchResult = products.filter(({ categories }) =>
-    categories.includes(queryParams.filter)
-  );
-
+  $: searchResult = products.filter(({ categories }) => categories.includes(queryParams.get("filter")));
   $: scrollPos = -90;
 
   const scollListRight = () => {
@@ -23,12 +19,7 @@
   };
 </script>
 
-<c-light
-  type="directional"
-  color="#FFFFF0"
-  target="#container"
-  position="2 4 1"
-/>
+<c-light type="directional" color="#FFFFF0" target="#container" position="2 4 1" />
 
 <a-cylinder
   position="0 1.4 -25"
@@ -39,18 +30,10 @@
   segments-radial="72"
 />
 
-<a-entity
-  id="lookme"
-  position="0 0 -2"
-  proxy-event__loaded="event: loaded; to: #overlay; as: fadein"
-/>
+<a-entity id="lookme" position="0 0 -2" proxy-event__loaded="event: loaded; to: #overlay; as: fadein" />
 <!-- proxy-event__lookme="event: loaded; to: #mainCamera; as: lookme" -->
 
-<a-entity
-  position="0 0 -25"
-  layout="type: circle; plane: xz; radius: 21; angle: 10;"
-  rotation={`0 ${scrollPos} 0`}
->
+<a-entity position="0 0 -25" layout="type: circle; plane: xz; radius: 21; angle: 10;" rotation={`0 ${scrollPos} 0`}>
   {#each searchResult as { id, name, pivot, box } (id)}
     <a-entity>
       {#if name}
@@ -62,7 +45,7 @@
           proxy-event__2={`event: mouseleave; to: #active-${name};`}
           rotation="0 90 0"
           position={`0 ${pivot === "center" ? box.height / 2 : 0} 0`}
-          navigate={{ path: "/product-details", data: { productId: id } }}
+          navigate={{ path: "/product-details/" + id }}
         >
           <Product model={name} pivot="center" />
         </a-box>

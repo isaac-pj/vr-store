@@ -1,6 +1,6 @@
 <script>
-  import { routes } from "./routes.js";
-  import { Router, Route } from "svelte-routing";
+  import routes from "./routes.js";
+  import Router from "svelte-spa-router";
   import Ambience from "./components/svelte/Ambience.svelte";
   import Menu from "./components/svelte/Menu.svelte";
   import { fonts } from "./constants/assetsImport.js";
@@ -54,11 +54,7 @@
 
   <Menu />
 
-  <Router>
-    {#each routes as { key, path, component } (key)}
-      <Route {path} {component} />
-    {/each}
-  </Router>
+  <Router {routes} />
 
   <Ambience radius={200} />
 </a-scene>

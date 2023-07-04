@@ -9,7 +9,7 @@ export const livingRoomSceneData = {
       name: "armchair",
       src: "./assets/models/scene_01/Armchair.gltf",
       price: "2.980,00",
-      categories: ["móveis"],
+      categories: ["forniture"],
       subcategories: [],
       box: {
         depth: 0.914351,
@@ -27,8 +27,7 @@ export const livingRoomSceneData = {
           "Apresentamos a elegante poltrona Beatle de linho azul com pés de madeira, uma peça de mobiliário que combina estilo e conforto para transformar sua casa.",
         details: [
           {
-            message:
-              "Design elegante e contemporâneo. Combina perfeitamente com qualquer estilo de decoração",
+            message: "Design elegante e contemporâneo. Combina perfeitamente com qualquer estilo de decoração",
             position: {
               x: 0.258,
               y: 0.401,
@@ -44,8 +43,7 @@ export const livingRoomSceneData = {
             },
           },
           {
-            message:
-              "A base em madeira maciça traz a resistencia e sofisticação",
+            message: "A base em madeira maciça traz a resistencia e sofisticação",
             position: {
               x: 0.456,
               y: -0.313,
@@ -64,7 +62,7 @@ export const livingRoomSceneData = {
       name: "table",
       src: "./assets/models/scene_01/Table.gltf",
       price: "1.087,00",
-      categories: ["móveis"],
+      categories: ["forniture"],
       subcategories: [],
       box: {
         width: 0.599231,
@@ -91,8 +89,7 @@ export const livingRoomSceneData = {
             height: 0.45,
           },
           {
-            message:
-              "Design moderno e minimalista. Feita com materiais duráveis e de alta qualidade",
+            message: "Design moderno e minimalista. Feita com materiais duráveis e de alta qualidade",
             position: {
               x: 0.3,
               y: 0.443,
@@ -112,7 +109,7 @@ export const livingRoomSceneData = {
       name: "painting",
       src: "./assets/models/scene_01/Painting.gltf",
       price: "340,00",
-      categories: ["decoração"],
+      categories: ["decoration"],
       subcategories: [],
       box: {
         width: 0.6,
@@ -165,7 +162,7 @@ export const livingRoomSceneData = {
       name: "plant",
       src: "./assets/models/scene_01/Plant.gltf",
       price: "645,00",
-      categories: ["decoração"],
+      categories: ["decoration"],
       subcategories: [],
       box: {
         depth: 1.446927,
@@ -218,7 +215,7 @@ export const livingRoomSceneData = {
       name: "lamp",
       src: "./assets/models/scene_01/Lamp.gltf",
       price: "345,00",
-      categories: ["decoração"],
+      categories: ["decoration"],
       subcategories: [],
       box: {
         width: 0.258482,
@@ -305,8 +302,7 @@ export const livingRoomSceneData = {
             },
           },
           {
-            message:
-              "Ideal para delimitar espaços e criar uma atmosfera sofisticada",
+            message: "Ideal para delimitar espaços e criar uma atmosfera sofisticada",
             position: {
               x: 0,
               y: 0.0113295,

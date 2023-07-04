@@ -1,5 +1,5 @@
 import { waitFor } from "../../utils/general";
-import { navigate } from "svelte-routing";
+import { push, pop, replace } from "svelte-spa-router";
 
 const GOBACK = "GOBACK";
 
@@ -9,6 +9,7 @@ export default AFRAME.registerComponent("navigate", {
     event: { type: "string", default: "click" },
     data: { type: "string", default: "" },
     replace: { type: "boolean", default: false },
+    // params: { type: "string", default: "" },
   },
   init: async function () {
     const { event, path, data } = this.data;
@@ -18,15 +19,17 @@ export default AFRAME.registerComponent("navigate", {
     });
   },
   updateRoute: function (path, data) {
-    if (location.pathname === path) return;
+    if (window.location.hash?.includes(path)) return;
     const sceneEl = this.el.sceneEl;
     sceneEl.emit("fadeout");
 
     waitFor(500).then(() => {
       if (path === GOBACK) {
-        history.back();
+        pop();
+      } else if (replace) {
+        replace(path);
       } else {
-        navigate(path, { state: data });
+        push(path);
       }
       sceneEl.emit("fadein");
     });

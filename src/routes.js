@@ -7,7 +7,7 @@ import ProductList from "./spaces/ProductList.svelte";
 const defaultRouteComponent = LivingRoom;
 const fallbackRouteComponent = LivingRoom;
 
-export const routes = [
+const routes = [
   {
     key: "defaultRoute",
     path: "/",
@@ -21,7 +21,7 @@ export const routes = [
   },
   {
     key: "productDetailsRoute",
-    path: "/product-details",
+    path: "/product-details/:productId",
     component: ProductDetails,
   },
   {
@@ -40,3 +40,14 @@ export const routes = [
     component: fallbackRouteComponent,
   },
 ];
+
+export default {
+  ...routes.reduce((routes, { path, component }) => ({ ...routes, [path]: component }), {}),
+};
+
+//   "/": defaultRouteComponent,
+//   "/living-room": LivingRoom,
+//   "/product-details/:productId": ProductDetails,
+//   "/search-list": ProductList,
+//   "/experiments": Experiments,
+//   "*": fallbackRouteComponent,
