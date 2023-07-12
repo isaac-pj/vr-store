@@ -16,6 +16,7 @@
       crossorigin="anonymous"
       src="./build/assets/images/360/background.jpg"
     />
+    <img alt="muma logo" id="mumaLogoTexture" crossorigin="anonymous" src="./build/assets/images/muma.png" />
 
     <!-- 3D OBJECTS -->
     <a-asset-item id="armchair-3d" src="./build/assets/models/scene_01/Armchair.gltf" />

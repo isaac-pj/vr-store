@@ -1,4 +1,6 @@
 <script>
+  import { ICONS } from "./../../constants/materiaIconsCodepoints.js";
+  import CartIMenutem from "./CartIMenutem.svelte";
   import MenuItem from "./MenuItem.svelte";
   import MenuRing from "./MenuRing.svelte";
 
@@ -44,6 +46,19 @@
       event-set__show="_event: show; visible: true; _delay: 100;"
       event-set__hide="_event: hide; visible: false;"
     >
+      <a-curvedimage
+        height="0.8"
+        theta-start="170"
+        theta-length="25"
+        class="cursor active"
+        src="#mumaLogoTexture"
+        material="transparent: true;"
+        origin="0 0 -10"
+        navigate={{ path: "/" }}
+        radius="10"
+        look-at="#circleLayout"
+      />
+
       <!-- <MenuItem label="Home" category="" /> -->
       <MenuItem label="Ambientes" category="" />
       <MenuItem label="Móveis" category="forniture" />
@@ -52,7 +67,7 @@
       <MenuItem label="Combos" category="" />
       <MenuItem label="Descontos" category="desconto" />
       <!-- <MenuItem label="Busca" category="" /> -->
-      <!-- <MenuItem label="Carrinho" category="" /> -->
+      <CartIMenutem />
     </a-entity>
   </a-sphere>
 </a-sphere>
