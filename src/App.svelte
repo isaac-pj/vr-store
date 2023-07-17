@@ -3,6 +3,7 @@
   import Router from "svelte-spa-router";
   import Ambience from "./components/svelte/Ambience.svelte";
   import Menu from "./components/svelte/Menu.svelte";
+  import Toolbar from "./spaces/Toolbar.svelte";
   import { fonts } from "./constants/assetsImport.js";
 </script>
 
@@ -56,6 +57,8 @@
   <Menu />
 
   <Router {routes} />
+
+  <Toolbar />
 
   <Ambience radius={200} />
 </a-scene>
